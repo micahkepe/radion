@@ -70,20 +70,14 @@ $language-colors: (
   right: 5px;
   z-index: 10;
   background-color: transparent;
-  border: "#3D444D";
+  border: "##3D444D";
   border-radius: 3px;
 
   svg {
-    fill: #9198A1;
+    fill: #9198A1; // Use the desired color
     width: 16px;
     height: 16px;
   }
-}
-
-.light .clipboard-button {
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.5);
-  background-color: #f3f3f3;
 }
 
 // Styling for pre blocks
@@ -104,11 +98,6 @@ pre {
     padding: 0;
     border: none;
   }
-}
-
-.light pre {
-  background-color: #F3F3F3 !important;
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 pre::-webkit-scrollbar {

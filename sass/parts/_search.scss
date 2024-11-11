@@ -1,3 +1,21 @@
+/* Search container styling */
+.search-container {
+  position: relative;
+  flex-grow: 1;
+  max-width: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  /* Align SVG and input vertically */
+}
+
+@media only screen and (max-width: 30em) {
+  .search-container {
+    margin: 15px;
+  }
+}
+
 /* Style the magnifying glass SVG */
 .search-icon {
   position: absolute;
@@ -26,10 +44,6 @@
   outline: none;
   height: 35px;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif
-}
-
-.light #search {
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Highlight border when the input is focused */

@@ -18,12 +18,8 @@ third-party plugins and libraries.
   }
 }
 
-.dark .muted {
+.muted {
   color: rgba(255, 255, 255, 0.5);
-}
-
-.light .muted {
-  color: rgba(0, 0, 0, 0.5);
 }
 
 .responsive-iframe {
@@ -98,13 +94,8 @@ nav a.active {
   color: #fff;
 }
 
-.dark a[itemprop="url"] {
+a[itemprop="url"] {
   color: #ff9800;
-}
-
-.light a[itemprop="url"] {
-  color: #ff9800;
-  font-weight: bold;
 }
 
 a[itemprop="url"]:hover {
@@ -150,23 +141,5 @@ article [itemprop="summary"] p {
 
   .container {
     max-width: 50rem;
-  }
-}
-
-/* User actions container styling */
-.user-actions-container {
-  position: relative;
-  flex-grow: 1;
-  max-width: 100%;
-  margin-left: 15px;
-  margin-right: 15px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-@media only screen and (max-width: 30em) {
-  .user-actions-container {
-    margin: 15px;
   }
 }

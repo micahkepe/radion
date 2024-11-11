@@ -50,9 +50,8 @@
         {% endfor %}
       </div>
     </nav>
-    <div class="user-actions-container">
-            {% if config.extra.enable_search %}
-
+    {% if config.extra.enable_search %}
+    <div class="search-container">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="search-icon">
         <path stroke-linecap="round" stroke-linejoin="round"
           d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -61,35 +60,7 @@
       <div class="search-results">
         <div class="search-results__items"></div>
       </div>
-            {% endif %}
-
-        {% if config.extra.theme | default(value="toggle") == "toggle" %}
-      <a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
-          <img src={{ get_url(path="feather/sun.svg") }} id="sun-icon" style="filter: invert(1);" alt="Light" />
-          <img src={{ get_url(path="feather/moon.svg") }} id="moon-icon" alt="Dark" />
-      </a>
-    {% endif %}
     </div>
-    
-    
-
-    {% set theme = config.extra.theme | default(value="toggle") %}
-    <!-- Set the correct theme in the script -->
-    <script src={{ get_url(path="js/toggle-theme.js") }}></script>
-    {% if theme == "dark" %}
-        <script>setTheme("dark");</script>
-    {% elif theme == "light" %}
-        <script>setTheme("light");</script>
-    {% elif theme == "auto" %}
-        <script>
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setTheme("dark");
-            } else {
-                setTheme("light");
-            }
-        </script>
-    {% else %}
-        <script>setTheme(getSavedTheme());</script>
     {% endif %}
 
   </header>
@@ -123,11 +94,7 @@
   <!-- optional scripts -->
   {% block scripts %}
   {% if config.extra.codeblock %}
-    <script src="{{ get_url(path='js/codeblock.js', trailing_slash=false) | safe }}"></script>
-  {% endif %}
-
-  {% if config.extra.theme %}
-    <script src="{{ get_url(path='js/toggle-theme.js', trailing_slash=false) | safe }}"></script>
+  <script src="{{ get_url(path='js/codeblock.js', trailing_slash=false) | safe }}"></script>
   {% endif %}
 
   {% include "partials/latex.html" %}

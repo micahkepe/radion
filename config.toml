@@ -1,7 +1,7 @@
 base_url = "https://github.com/micahkepe/radion"
 compile_sass = true
 title = "radion theme"
-description = "A elegant light and dark theme for Zola"
+description = "A elegant dark theme for Zola"
 generate_feed = true
 
 taxonomies = [
@@ -40,6 +40,3 @@ latex = true
 
 # Enable search bar 
 enable_search = true 
-
-# Light/Dark Mode set 
-theme = "toggle" # options: {light, dark, auto, toggle}

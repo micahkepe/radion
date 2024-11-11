@@ -1,4 +1,9 @@
-/* Vendor styles */
+/* 
+This file is for "vendor" styles that are not part of the main theme. This 
+means that they are not part of the main theme's design, but are included
+to provide a consistent experience across the site.
+*/
+
 html {
   font-size: 12px
 }
@@ -55,10 +60,6 @@ a {
   color: #ff2e88;
   text-decoration: none;
   border-bottom: 1px solid #ff2e88
-}
-
-.light a {
-  background-color: rgba($color: #ebece9, $alpha: 0.4)
 }
 
 a:hover {
@@ -352,6 +353,7 @@ a:hover {
   padding-left: 2ch;
   padding-right: 2ch;
   overflow: hidden;
+  background-color: #5E667F;
   color: #E8E6ED;
   box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.1);
 
@@ -376,16 +378,6 @@ a:hover {
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 
   }
-}
-
-.dark blockquote {
-  background-color: #5E667F;
-
-}
-
-.light blockquote {
-  background-color: #E8E6ED;
-  color: #5E667F;
 }
 
 .hack blockquote:after {
@@ -994,32 +986,21 @@ select.form-control {
   }
 }
 
-/* Light and dark color schemes */
 .dark {
   color: #ccc
 }
-
-.light {
-  color: #333;
-}
-
 
 .dark,
 .dark pre {
   background-color: #000
 }
 
-.light,
-.light pre {
-  background-color: #f6f7f4;
-}
-
-.light .dark pre {
+.dark pre {
   padding: 10px;
   border: none
 }
 
-.light .dark pre code {
+.dark pre code {
   color: #00bcd4
 }
 

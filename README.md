@@ -5,13 +5,18 @@ theme originally developmed by Vincent Prouillet.
 
 Demo: https://micahkepe.com/blog/
 
+## Acknowledgements
+
+Lots of inspiration and code snippets taken from [`redux`](https://github.com/SeniorMars/redux)
+by [SeniorMars](https://github.com/SeniorMars). Go check out his theme and blog!
+
 ![radion theme screenshot](screenshot.png)
 
 ## Features
 
 - [x] Code Snippet Clipboards
 - [x] Latex Support
-- [x] Light/Dark mode support
+- [ ] Light/Dark mode support
 - [x] Search functionality
 
 ## Contents
@@ -24,8 +29,6 @@ Demo: https://micahkepe.com/blog/
   - [Code Snippets](#code-snippets)
   - [LaTex Support](#latex-support)
   - [Searchbar](#searchbar)
-  - [Light and Dark Modes](#light-and-dark-modes)
-- [Acknowledgements](#acknowledgements)
 
 ## Installation
 
@@ -152,33 +155,3 @@ index_format = "elasticlunr_json"
 [extra]
 enable_search = true
 ```
-
-### Light and Dark Modes
-
-To set the color theme of the site, set the following in your `config.toml`:
-
-```toml
-[extra]
-theme = "toggle" # options: {light, dark, auto, toggle}
-```
-
-There are four options for the `theme` field:
-
-- `light`: Always light mode
-- `dark`: Always dark mode
-- `auto`: Automatically switch between light and dark mode based on the user's
-  system preferences
-- `toggle`: Allow the user to toggle between light and dark mode
-
-## Acknowledgements
-
-Lots of inspiration and code snippets taken from these awesome Zola themes:
-
-- [`after-dark`](https://github.com/getzola/after-dark) by
-  [Vincent Prouillet](https://www.vincentprouillet.com/)
-
-- [`apollo`](https://github.com/not-matthias/apollo/tree/main) by
-  [not-matthias](https://github.com/not-matthias)
-
-- [`redux`](https://github.com/SeniorMars/redux) by
-  [SeniorMars](https://github.com/SeniorMars).
