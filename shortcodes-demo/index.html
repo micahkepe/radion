@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+     
+    <meta name="description" content="A elegant light and dark theme for Zola" />
+     
+
+    <title>
+    
+    Shortcodes Demos
+    
+</title>
+
+    
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="RSS"
+      href="https://micahkepe.com/radion/atom.xml"
+    />
+    
+
+    <!-- Load Styles -->
+    <link
+      rel="stylesheet"
+      href="https://micahkepe.com/radion/site.css"
+    />
+
+    <!-- Pass Theme Preference as Data Attribute -->
+    <script>
+      document.documentElement.dataset.theme =
+        "toggle";
+    </script>
+  </head>
+
+  <body class="hack dark main container">
+    
+    
+         
+    <header class="nav-header">
+      <nav
+        itemscope
+        itemtype="http://schema.org/SiteNavigationElement"
+        class="navbar"
+      >
+        <div class="nav-links">
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/radion/"
+          >
+            <span itemprop="name">Home</span>
+          </a>
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/radion/categories"
+          >
+            <span itemprop="name">Categories</span>
+          </a>
+          
+          <a
+            itemprop="url"
+            class=""
+            href="https://micahkepe.com/radion/tags"
+          >
+            <span itemprop="name">Tags</span>
+          </a>
+          
+        </div>
+      </nav>
+      <div class="user-actions-container">
+        
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          class="search-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
+        </svg>
+        <input type="text" id="search" placeholder="Search..." />
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+         
+        <a id="dark-mode-toggle" href="#">
+          <img
+            src="https://micahkepe.com/radion/icons/sun.svg"
+            id="sun-icon"
+            style="filter: invert(1)"
+            alt="Light mode"
+          />
+          <img
+            src="https://micahkepe.com/radion/icons/moon.svg"
+            id="moon-icon"
+            alt="Dark mode"
+          />
+        </a>
+         
+        <a
+          href="https://micahkepe.com/radion/atom.xml"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://micahkepe.com/radion/icons/rss.svg"
+            id="rss-icon"
+            alt="RSS feed"
+            class="social-icon"
+          />
+        </a>
+         
+        <a
+          href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://micahkepe.com/radion/icons/github.svg"
+            id="github-icon"
+            alt="GitHub"
+            class="social-icon"
+          />
+        </a>
+        
+      </div>
+    </header>
+     
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">Shortcodes Demos</h1>
+        <span class="muted">
+    <svg class="icon i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <span>1 minute read</span>
+    <svg class="icon i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2017-09-24
+</span>
+    </header>
+
+    <div itemprop="articleBody">
+        
+            <p><strong>radion</strong> comes with some handy shortcodes to make your life easier and
+your posts more exciting.</p>
+
+
+            
+
+            <!-- Render the rest of the content after removing the summary portion -->
+            <span id="continue-reading"></span>
+<p>Here are some examples:</p>
+<h1 id="gif-suport">GIF-Suport</h1>
+<p>Level up your posts with GIFs!</p>
+<div
+  style="width: 100%; max-width: 50%; margin: 0 auto; text-align: center;">
+  <video autoplay loop muted playsinline
+    style="max-width: 100%; height: auto; display: inline-block;">
+    <source src="https://micahkepe.com/radion/shortcodes-demo/assets/video.mp4" type="video/mp4">
+    Your browser doesn't support the video tag, which I use in place of .gifs, and/or the video formats in use here
+    – sorry!
+  </video>
+</div>
+<h1 id="fancy-notes">Fancy Notes</h1>
+<div class="note-container" style="border:  1px solid #e0e0e0">
+  
+    
+
+    <div class="note-content">
+      <p><strong>Note:</strong> Some really insightful note here.</p>
+<p>$$ \sum_{i=1}^{n} i = \frac{n(n+1)}{2} $$</p>
+
+    </div>
+    
+  </div>
+<h1 id="youtube-video-embedding">YouTube Video Embedding</h1>
+<div class="responsive-iframe"
+  style="width: 100%; max-width: 80%; margin: 0 auto; text-align: center;">
+  <iframe src="https://www.youtube.com/embed/ym3y13nA3ew" webkitallowfullscreen
+    mozallowfullscreen allowfullscreen>
+  </iframe>
+</div>
+<h1 id="audio-file-embedding">Audio File Embedding</h1>
+<div
+  style="width: 100%; max-width: 100%; margin: 0 auto; text-align: center;">
+
+  <audio controls="controls">
+    <source type="audio/mp3" src="https://micahkepe.com/radion/shortcodes-demo/assets/audio.mp3">
+    </source>
+    <source type="audio/ogg" src="https://micahkepe.com/radion/shortcodes-demo/assets/audio.mp3">
+    </source>
+    <p>Your browser does not support the audio element.</p>
+  </audio>
+
+</div>
+<blockquote>
+<p>If you're still falling for this, I don't know what to tell you.</p>
+</blockquote>
+
+
+
+        
+    </div>
+
+
+    
+        <footer>
+            <hr>
+            <p>
+                
+                    Published by John Doe
+                
+                
+                    
+                    in <a href="https://micahkepe.com/radion/categories/demo/">demo</a>
+                
+                
+                    and
+                    tagged
+                    
+                        <a href="https://micahkepe.com/radion/tags/gif/">gif</a>
+                        
+                            
+                                
+                                    and
+                                
+                            
+                        
+                    
+                        <a href="https://micahkepe.com/radion/tags/fancy/">fancy</a>
+                        
+                            
+                        
+                    
+                
+            </p>
+            
+            
+        </footer>
+    
+</article>
+
+
+
+    <!-- optional scripts -->
+     
+    <script src="https://micahkepe.com/radion/js/codeblock.js"></script>
+     
+    <script src="https://micahkepe.com/radion/js/toggle-theme.js"></script>
+     
+<!-- MathJax script for rendering LaTeX math equations -->
+<script src="https://micahkepe.com/radion/js/mathjax-config.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  async
+></script>
+
+ 
+<script type="text/javascript" src="https://micahkepe.com/radion/elasticlunr.min.js"></script>
+<script type="text/javascript" src="https://micahkepe.com/radion/js/search.js"></script>
+ 
+  </body>
+</html>
