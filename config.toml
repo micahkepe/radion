@@ -44,3 +44,5 @@ enable_search = true
 
 # Light/Dark Mode set
 theme = "toggle" # options: {light, dark, auto, toggle}
+
+favicon = "/icons/"
