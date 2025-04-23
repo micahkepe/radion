@@ -165,10 +165,24 @@ html {
   margin-bottom: -3px;
 }
 
+article[itemtype="http://schema.org/CreativeWork"] {
+  margin-bottom: 3rem;
+
+  header {
+    h2 {
+      margin-bottom: 1.2rem !important;
+    }
+  }
+
+  nav.readmore {
+    margin-top: 0.25rem;
+  }
+}
+
 article [itemprop="description"],
 article [itemprop="summary"] {
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 article [itemprop="summary"] p {
