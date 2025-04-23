@@ -13,22 +13,20 @@ $$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
 
 <!-- more -->
 
-Some fancy math thingy:
+We can show LaTeX display math by using either the `\\[ ... \\]` or `$$ ... $$`
+environments:
 
 $$
 \frac{d}{dx} \left( \int_{0}^{x} f(u) \, du \right) = f(x)
 $$
 
-$$
-\frac{d}{dx} \left( \int_{g(x)}^{h(x)} f(u) \, du \right) = f(h(x)) h'(x) -
+\\[
+\frac{d}{dx} \left( \int\_{g(x)}^{h(x)} f(u) \, du \right) = f(h(x)) h'(x) -
 f(g(x)) g'(x)
-$$
+\\]
 
-$$
-\texttt{Isn't that cool?!}
-$$
-
----
+LaTeX can be written inline as well using the `\\( ... \\)` or `$ ... $`
+environments: $x = 25$ or \\(y = \pi\\)
 
 ## Another cool thingy
 

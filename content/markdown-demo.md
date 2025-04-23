@@ -96,7 +96,6 @@ Some other footnote that is inline[^2]. As you can see, it just blends right in!
 ## Code Blocks
 
 ```rust
-
 fn main() {
     println!("Hello, world!");
 }

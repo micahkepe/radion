@@ -37,13 +37,17 @@ $language-colors: (
   $r: red($color);
   $g: green($color);
   $b: blue($color);
-  $brightness: ($r * 0.299 + $g * 0.587 + $b * 0.114);
+  $brightness: (
+    $r * 0.299 + $g * 0.587 + $b * 0.114
+  );
 
-  @if ($brightness > 128) {
-    @return #000000; // Use black for bright backgrounds
-  } @else {
-    @return #ffffff; // Use white for dark backgrounds
-  }
+@if ($brightness > 128) {
+  @return #000000; // Use black for bright backgrounds
+}
+
+@else {
+  @return #ffffff; // Use white for dark backgrounds
+}
 }
 
 // Mixin for language label styles
@@ -105,15 +109,15 @@ pre {
   border-radius: 5px;
   border: 1px solid var(--border-color);
   line-height: 1.4;
-  padding: 1em;
-  position: relative; // Make sure absolute elements like the label and button work
+  padding-top: 1.8em;
+  padding-bottom: 1em;
+  position: relative;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
   code {
     background-color: transparent !important;
     color: inherit;
-    font-size: 100%;
     border: none;
 
     table td {
@@ -125,7 +129,6 @@ pre {
 .light code table td {
   color: #ffffff !important;
 }
-
 
 pre code table mark {
   color: unset;
@@ -156,4 +159,13 @@ a {
 code {
   color: var(--text-color);
   background-color: var(--bg-primary);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-size: 1.05em;
+  /* slightly larger than the surrounding text */
+  line-height: 1.6;
 }

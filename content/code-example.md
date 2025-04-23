@@ -14,7 +14,6 @@ on this article to see some code in action.
 <!-- more -->
 
 ```rust
-
 fn main() {
     println!("Hello World");
 }
@@ -39,7 +38,6 @@ fn main() {
 Python example:
 
 ```python
-
 def main():
     print("Hello, world!")
 ```
@@ -47,9 +45,7 @@ def main():
 This is another code block with syntax highlighting. It's pretty cool, right?
 You can also have inline code like this: `var example = true`.
 
-<!-- prettier-ignore-->
 ```js
-
 function debounce(func, wait) {
   var timeout;
 

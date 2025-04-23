@@ -1,6 +1,6 @@
 /* Vendor styles */
 html {
-  font-size: 12px
+  font-size: clamp(16px, 1.2vw + 1px, 18px);
 }
 
 * {
@@ -15,7 +15,7 @@ body {
 
 body {
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.6;
   margin: 0;
   font-family:
     'JetBrains Mono', Menlo, Monaco, Lucida Console, Liberation Mono,
@@ -46,14 +46,6 @@ pre {
   background-color: #fff;
   border: 1px solid #ccc;
   overflow: auto
-}
-
-code[class*=language-],
-pre[class*=language-],
-pre code {
-  font-weight: 100;
-  text-shadow: none;
-  margin: 1.75rem 0
 }
 
 a {
@@ -364,7 +356,7 @@ a {
 }
 
 .hack blockquote {
-  border-left: 0.15em solid var(--accent, #ff2e88);
+  border-left: 0.2em solid var(--accent, #ff2e88);
   border-top-right-radius: 0.2em;
   border-bottom-right-radius: 0.2em;
   position: relative;
@@ -394,7 +386,6 @@ a {
     }
   }
 
-
   a {
     color: #FFE4EE;
     font-weight: normal;
@@ -417,6 +408,9 @@ a {
 .dark blockquote {
   background-color: #5E667F;
 
+  blockquote {
+    background-color: #555c72;
+  }
 }
 
 .light blockquote {
@@ -429,6 +423,10 @@ a {
 
   code {
     background: #E8E6ED;
+  }
+
+  blockquote {
+    background-color: #dcd9df;
   }
 }
 
