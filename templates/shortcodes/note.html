@@ -1,38 +1,21 @@
-<div class="note-container" style="border: {{ border | default(value=" 1px solid #e0e0e0") }}">
-  {% if clickable | default(value=false) %}
-  <button class="note-toggle">
-    {% if center | default(value=false) and header %}
-    <div class="note-center">
-      {{ header | markdown | safe }}
-    </div>
-    {% elif header %}
-    <div class="note-icon">
-      {{ header | markdown | safe }}
-    </div>
-    {% endif %}
-  </button>
+{%- set hidden = hidden | default(value=false) -%}
+{%- set header = header | default(value="Note") -%}
 
-  {% if hidden | default(value=false) %}
-  <div class="note-content" style="display: none;">
-    {% else %}
-    <div class="note-content" style="display: block;">
-      {% endif %}
-      {{ body | markdown | safe }}
-    </div>
-
-    {% else %}
-    {% if header %}
-    <div class="note-header">
+<div class="note-container">
+  <details {% if not hidden %}open{% endif %} class="note-details">
+    <summary class="note-header">
       {% if center | default(value=false) %}
       <div class="note-center">
         {{ header | markdown | safe }}
       </div>
+      {% else %}
+      <div class="note-icon">
+        {{ header | markdown | safe }}
+      </div>
       {% endif %}
-    </div>
-    {% endif %}
-
+    </summary>
     <div class="note-content">
       {{ body | markdown | safe }}
     </div>
-    {% endif %}
-  </div>
+  </details>
+</div>

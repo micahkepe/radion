@@ -1,56 +1,81 @@
 .note-container {
-  border-radius: 4px;
   overflow: hidden;
   margin: 1em auto;
-  /* Center the container horizontally */
-  padding: 15px;
-  background-color: var(--bg-primary);
+  padding: 0;
   font-size: 1.1em;
-  color: var(--note-color);
-  max-width: fit-content;
-  /* Fit the container to content size */
+  min-width: 100%;
+  font-family:
+    'JetBrains Mono', Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace, serif;
 }
 
+.note-details {
+  width: 100%;
+  border-left: 0.4em solid var(--accent, #c62c2a);
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  padding: 0;
+}
+
+.light .note-header {
+  background-color: color-mix(in srgb, var(--note-bg-light) 85%, black 10%);
+}
+
+.note-header {
+  background-color: color-mix(in srgb, var(--note-bg-dark) 90%, white 20%);
+  cursor: pointer;
+  position: relative;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 10px;
+    font-weight: bold;
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c62c2a;
+    transition: transform 0.3s ease;
+  }
+
+  details[open]>&::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
 
 .note-center {
   text-align: center;
   padding: 0;
-  color: var(--note-color);
+  width: 100%;
 }
 
-.note-toggle {
-  cursor: pointer;
-  position: relative;
-  border: none;
-  background-color: var(--bg-primary);
-  /* Match the background */
-  padding: 10px;
-  font-size: 1.2em;
-  transition: background-color 0.3s ease;
-  color: var(--note-color);
-}
-
-.note-toggle:hover,
-.note-toggle:focus {
-  background-color: var(--note-bg);
-  /* Darker when hovered */
-}
-
-.note-toggle::before {
-  content: '▼';
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+.note-icon {
   color: var(--note-color);
 }
 
 .note-content {
   padding: 10px 25px;
-  background-color: var(--bg-primary);
-  /* Matching background */
+  background-color: inherit;
   font-size: 1em;
-  color: var(--note-color);
+  background-color: color-mix(in srgb, var(--note-bg-dark) 90%, white 5%);
+  color: inherit;
   line-height: 1.6em;
 
   code {
@@ -60,13 +85,17 @@
   a {
     color: #ff2e88;
     font-weight: normal;
-  }
 
-  a:hover {
-    color: #fff;
+    &:hover {
+      color: #fff;
+    }
   }
 
   strong {
     color: #fff;
   }
+}
+
+.light .note-content {
+  background-color: color-mix(in srgb, var(--note-bg-light) 90%, black 5%);
 }
