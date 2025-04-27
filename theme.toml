@@ -3,7 +3,7 @@ description = "A sleek, modern blog theme."
 tags = ["SEO", "search", "accessible"]
 license = "MIT"
 homepage = "https://github.com/micahkepe/radion"
-min_version = "0.19.2"
+min_version = "0.20.0"
 demo = "https://micahkepe.com/radion/"
 
 # Any variable that can be overridden in the end user `config.toml`
