@@ -42,9 +42,9 @@ Peak-a-boo
 ## Blockquotes
 
 > This is a blockquote example. You can add multiple levels of blockquotes
-> to create a nested structure. For example, this is a second level blockquote.
+> to create a nested structure.
 >
-> > This is a third level blockquote.
+> > For example, this is a second level blockquote.
 
 ## Headings
 
@@ -115,4 +115,4 @@ wrapping the text in square brackets and the URL in parentheses.
 
 [^1]: Some footnote
 
-[^2]: https://en.wikipedia.org/wiki/Isometric_projection
+[^2]: [https://en.wikipedia.org/wiki/Isometric_projection](https://en.wikipedia.org/wiki/Isometric_projection)

@@ -3,6 +3,13 @@
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
+
+  a[href*="://"]::after,
+  a[rel*="external"] {
+    content: " → ";
+    color: #ff9800;
+    font-size: 1rem;
+  }
 }
 
 .light .toc-container {

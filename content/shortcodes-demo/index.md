@@ -14,7 +14,7 @@ your posts more exciting.
 
 Here are some examples:
 
-# GIF-Suport
+## GIF-Suport
 
 Level up your posts with GIFs!
 
@@ -24,7 +24,7 @@ $$
 
 {{ gif(sources=["assets/video.mp4"], width=50)}}
 
-# Fancy Notes
+## Fancy Notes
 
 $$
 \texttt{\{\{ note(body="...", header=["" | "Note"], center=[true/false | false]) \}\}}
@@ -37,7 +37,7 @@ Some really insightful note here.
 $$ \sum\_{i=1}^{n} i = \frac{n(n+1)}{2} $$
 ")}}
 
-# YouTube Video Embedding
+## YouTube Video Embedding
 
 $$
 \texttt{\{\{ youtube(id="youtube-id", width=[1-100]) \}\}}
@@ -45,7 +45,7 @@ $$
 
 {{ youtube(id="ym3y13nA3ew", width=80) }}
 
-# Audio File Embedding
+## Audio File Embedding
 
 $$
 \texttt{\{\{ audio(source="path/to/file") \}\}}
@@ -54,6 +54,3 @@ $$
 {{ audio(source="assets/audio.mp3")}}
 
 > If you're still falling for this, I don't know what to tell you.
-
-$$
-$$

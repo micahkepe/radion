@@ -11,7 +11,7 @@ levels, inline links, and nested elements.
 
 <!-- more -->
 
-# Introduction
+## Introduction
 
 Welcome to the enhanced test for the Table of Contents feature. The following
 sections showcase headings of various levels, some nested elements, and a

@@ -52,7 +52,19 @@ a {
   cursor: pointer;
   color: #ff2e88;
   text-decoration: none;
-  border-bottom: 1.5px solid #ff2e88
+  border-bottom: 1.5px solid #ff2e88;
+}
+
+/* Zola-generated header anchors
+* See: https://www.getzola.org/documentation/content/linking/ */
+a.zola-anchor {
+  border-bottom: 0;
+}
+
+a.zola-anchor:hover {
+  border-bottom: 1.5px solid #ff2e88;
+  background-color: transparent !important;
+  color: inherit !important;
 }
 
 .light a {
@@ -256,7 +268,7 @@ a {
 .hack ul {
   float: none;
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 .hack header+article {
@@ -278,14 +290,14 @@ a {
   display: table-cell;
   padding: 20px 0 30px;
   margin: 0;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .hack h1:after {
   content: "====================================================================================================";
   position: absolute;
   bottom: 10px;
-  left: 0
+  left: 0;
 }
 
 .hack h1+* {
@@ -298,7 +310,8 @@ a {
 .hack h5,
 .hack h6 {
   position: relative;
-  margin-bottom: 1.75rem
+  margin-bottom: 1.75rem;
+  margin-top: 1.75rem
 }
 
 .hack h2:before,
@@ -356,7 +369,7 @@ a {
 }
 
 .hack blockquote {
-  border-left: 0.2em solid var(--accent, #ff2e88);
+  border-left: 0.2em solid #ff2e88;
   border-top-right-radius: 0.2em;
   border-bottom-right-radius: 0.2em;
   position: relative;
