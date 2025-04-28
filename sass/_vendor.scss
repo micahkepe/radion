@@ -31,7 +31,19 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.3em
+  line-height: 1.3em;
+}
+
+article[itemprop="articleBody"] {
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 3rem !important;
+    font-size: 1.2rem !important;
+  }
 }
 
 fieldset {
@@ -400,7 +412,7 @@ a.zola-anchor:hover {
   }
 
   a {
-    color: #FFE4EE;
+    color: inherit;
     font-weight: normal;
   }
 
@@ -409,13 +421,19 @@ a.zola-anchor:hover {
   }
 
   code {
-    background: var(--bg-primary);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    background: rgba($color: #000000, $alpha: 0.35)
   }
 }
 
 .light .hack code {
   background: rgba($color: #000000, $alpha: 0.1);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.dark .hack code {
+  border-radius: 4px;
+  padding: 2px 6px;
 }
 
 .dark blockquote {
