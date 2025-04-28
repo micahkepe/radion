@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create and append the language label
     const langClass = codeBlock.className.match(/language-(\w+)/);
-    const lang = langClass ? langClass[1].toUpperCase() : "TEXT";
+    const lang = langClass ? langClass[1].toUpperCase() : "text";
     const label = document.createElement("span");
     label.className = "code-label label-" + lang.toLowerCase();
     label.textContent = lang;
