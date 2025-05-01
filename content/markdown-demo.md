@@ -101,6 +101,10 @@ fn main() {
 }
 ```
 
+```
+Some text block
+```
+
 ## Inline Code
 
 This is an example of `inline code`. You can use backticks to highlight code

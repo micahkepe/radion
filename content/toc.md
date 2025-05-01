@@ -27,6 +27,8 @@ This section provides an overview of the ToC functionality.
 - Automatically generates a list of links based on headings.
 - Supports nested heading structures.
 
+Click on a heading to navigate to it's URL anchor link.
+
 #### Sub-subsection 1.1.1: Details
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Visit
