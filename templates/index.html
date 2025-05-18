@@ -112,6 +112,9 @@
       document.documentElement.dataset.theme =
         "{{ config.extra.theme | default(value='toggle') }}";
     </script>
+
+    <!-- Reference return to click position script -->
+    <script src="{{ get_url(path='js/reference-return.js', trailing_slash=false) | safe }}"></script>
   </head>
 
   <body class="hack dark main container">
