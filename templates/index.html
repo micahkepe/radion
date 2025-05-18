@@ -13,6 +13,11 @@
     <meta name="description" content="{{ page.description }}" />
     <meta property="og:description" content="{{ page.description }}" />
     <meta property="twitter:description" content="{{ page.description }}" />
+    {% elif page and page.summary %}
+    {% set content_desc = page.summary | striptags %}
+    <meta name="description" content="{{ content_desc }}" />
+    <meta property="og:description" content="{{ content_desc }}" />
+    <meta property="twitter:description" content="{{ content_desc }}" />
     {% elif config.description %}
     <meta name="description" content="{{ config.description }}" />
     <meta property="og:description" content="{{ config.description }}" />
