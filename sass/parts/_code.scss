@@ -31,7 +31,8 @@ $language-colors: (
   "clojure": (#5881d8, "Clojure"),
   "sql": (#ffcc00, "SQL"),
   "bash": (#4eaa25, "Bash"),
-  "text": (#151b23, "Text")
+  "text": (#151b23, "Text"),
+  "gd": (#3c76a2, "GDScript")
 );
 
 @function get-text-color($color) {
