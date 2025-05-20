@@ -56,3 +56,10 @@
 .light .search-results {
   background-color: var(--bg-light, #f9f9f9);
 }
+
+.search-results__no-results {
+  padding: 1rem !important;
+  font-style: italic;
+  justify-content: center;
+  align-content: center;
+}

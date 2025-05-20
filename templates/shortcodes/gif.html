@@ -1,4 +1,4 @@
-<div
+<section
   style="width: 100%; max-width: {% if width %}{{ width }}{% else %}100{% endif %}%; margin: 0 auto; text-align: center;">
   <video autoplay loop muted playsinline
     style="max-width: 100%; height: auto;{% if height %} max-height: {{ height }}px; object-fit: contain;{% endif %} display: inline-block;">
@@ -14,4 +14,4 @@
     <p style="font-style: italic;">{{ caption | safe }}</p>
   </caption>
   {% endif %}
-</div>
+</section>

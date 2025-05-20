@@ -125,10 +125,10 @@ function makeTeaser(body, terms) {
 
 function formatSearchResultItem(item, terms) {
   return (
-    '<div class="search-results__item">' +
+    '<article class="search-results__item">' +
     `<a href="${item.ref}">${item.doc.title}</a>` +
-    `<div>${makeTeaser(item.doc.body, terms)}</div>` +
-    "</div>"
+    `<section>${makeTeaser(item.doc.body, terms)}</section>` +
+    "</article>"
   );
 }
 
@@ -206,7 +206,13 @@ function initSearch() {
 
       var results = (await initIndex()).search(term, options);
       if (results.length === 0) {
-        $searchResults.style.display = "none";
+        // show "No results found"
+        $searchResults.style.display = "block";
+        $searchResultsItems.innerHTML = `
+          <li class="search-results__item search-results__no-results">
+            No results found...
+          </li>
+        `;
         return;
       }
 

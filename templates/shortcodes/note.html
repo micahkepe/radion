@@ -1,21 +1,21 @@
 {%- set hidden = hidden | default(value=false) -%}
 {%- set header = header | default(value="Note") -%}
 
-<div class="note-container">
+<article class="note-container">
   <details {% if not hidden %}open{% endif %} class="note-details">
     <summary class="note-header">
       {% if center | default(value=false) %}
-      <div class="note-center">
+      <section class="note-center">
         {{ header | markdown | safe }}
-      </div>
+      </section>
       {% else %}
-      <div class="note-icon">
+      <section class="note-icon">
         {{ header | markdown | safe }}
-      </div>
+      </section>
       {% endif %}
     </summary>
-    <div class="note-content">
+    <section class="note-content">
       {{ body | markdown | safe }}
-    </div>
+    </section>
   </details>
-</div>
+</article>

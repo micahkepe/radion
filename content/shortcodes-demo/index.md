@@ -54,3 +54,11 @@ $$
 {{ audio(source="assets/audio.mp3")}}
 
 > If you're still falling for this, I don't know what to tell you.
+
+## Responsive Images
+
+$$
+\texttt{ \{\{ responsive(src="path/to/image", caption="Optional caption")\}\} }
+$$
+
+{{ responsive(src="assets/ferris.png", caption="Everyone say 'Hi Ferris' in the comments")}}

@@ -67,7 +67,7 @@
 }
 
 .note-content {
-  padding: 10px 25px;
+  padding: 10px 25px !important;
   background-color: inherit;
   font-size: 1em;
   background-color: color-mix(in srgb, var(--note-bg-dark) 90%, white 5%);

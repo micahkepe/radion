@@ -125,7 +125,7 @@
         itemtype="http://schema.org/SiteNavigationElement"
         class="navbar"
       >
-        <div class="nav-links">
+        <section class="nav-links">
           {% for item in config.extra.radion_menu %}
           <a
             itemprop="url"
@@ -135,9 +135,9 @@
             <span itemprop="name">{{ item.name }}</span>
           </a>
           {% endfor %}
-        </div>
+        </section>
       </nav>
-      <div class="user-actions-container">
+      <aside class="user-actions-container">
         {% if config.extra.enable_search %}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -153,9 +153,9 @@
           />
         </svg>
         <input type="text" id="search" placeholder="Search..." />
-        <div class="search-results">
-          <div class="search-results__items"></div>
-        </div>
+        <section class="search-results" aria-live="polite">
+          <article class="search-results__items" role="list"></article>
+        </section>
         {% endif %} {% if config.extra.theme | default(value="toggle") ==
         "toggle" %}
         <a id="dark-mode-toggle" href="#">
@@ -198,7 +198,7 @@
           />
         </a>
         {% endif %}
-      </div>
+      </aside>
     </header>
     {% endif %} {% endblock header %}
 
@@ -208,7 +208,7 @@
       {% endif %} {% for page in paginator.pages %} {{
       post_macros::page_in_list(page=page) }} {% endfor %}
 
-      <nav>
+      <nav aria-label="Pagination">
         <p>
           {% if paginator.previous %}
           <a href="{{ paginator.previous }}">&laquo; Previous</a> | {% endif %}
