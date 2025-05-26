@@ -101,3 +101,24 @@ $$
 \textit{Italic text.}\\
 \texttt{Typewriter text.}\\
 $$
+
+---
+
+## Escape Characters
+
+To disambiguate the use of the dollar sign, you can use the backslash
+character to escape it: `\\$`.
+
+Example:
+
+```text
+> To write the dollar sign, use \\$ in your text. That way, if there is another
+> dollar sign in your text like this \\$, it will not be confused with the start of a math
+> environment.
+```
+
+This will render as:
+
+> To write the dollar sign, use \\$ in your text. That way, if there is another
+> dollar sign in your text like this \\$, it will not be confused with the start of a math
+> environment.
