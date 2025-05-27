@@ -226,7 +226,7 @@ article [itemprop="summary"] p {
 .footnote-definition {
   flex-wrap: nowrap;
   display: flex;
-  flex-direction: start;
+  flex-direction: row;
   align-items: start;
   gap: 10px;
   max-width: 100%;
@@ -252,4 +252,9 @@ article [itemprop="summary"] p {
   p {
     margin: 0;
   }
+}
+
+.footnote-return {
+  margin-left: 0.5em;
+  font-size: 1.2em;
 }

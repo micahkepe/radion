@@ -20,7 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const returnLink = document.createElement("a");
     returnLink.href = `#${refId}`;
     returnLink.classList = "footnote-return";
-    returnLink.textContent = " ↩";
-    fn.appendChild(returnLink);
+    returnLink.textContent = "↩";
+
+    // ARIA
+    returnLink.setAttribute("aria-label", "Return to footnote reference");
+    returnLink.setAttribute("role", "link");
+    returnLink.setAttribute("tabindex", "0");
+
+    // Append to the p tag
+    const p = fn.querySelector("p");
+    if (!p) return;
+    p.appendChild(returnLink);
   });
 });

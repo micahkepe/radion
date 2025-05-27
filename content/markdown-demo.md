@@ -117,6 +117,16 @@ wrapping the text in square brackets and the URL in parentheses.
 
 ---
 
-[^1]: Some footnote
+[^1]:
+    Lorem ipsum veniam in cillum deserunt nostrud cupidatat pariatur in do
+    irure magna cillum tempor minim commodo labore voluptate mollit amet enim
+    nostrud eiusmod ut est cillum esse qui enim anim dolor consequat eiusmod
+    irure cillum Lorem occaecat nostrud dolor magna labore elit veniam
+    voluptate eiusmod labore in proident aliqua magna aliqua dolore sint cillum
+    adipisicing nulla aute anim incididunt veniam ullamco eu eu commodo magna
+    sunt dolore fugiat voluptate eu eu fugiat anim mollit laboris deserunt ex
+    ex irure enim cupidatat elit consequat Lorem consectetur adipisicing et
+    amet id laboris pariatur ea ut exercitation Lorem velit et nisi nulla
+    occaecat voluptate
 
-[^2]: [https://en.wikipedia.org/wiki/Isometric_projection](https://en.wikipedia.org/wiki/Isometric_projection)
+[^2]: Wikipedia article on a cool topic: [https://en.wikipedia.org/wiki/Isometric_projection](https://en.wikipedia.org/wiki/Isometric_projection)
