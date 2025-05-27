@@ -1,3 +1,8 @@
+/**
+ * @file reference-return.js Linking footnotes to their references
+ * @author Micah Kepe
+ */
+
 document.addEventListener("DOMContentLoaded", function () {
   const footnotes = document.querySelectorAll(".footnote-definition");
   footnotes.forEach((fn) => {

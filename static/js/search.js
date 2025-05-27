@@ -1,5 +1,18 @@
-// Take from Zola repository:
-// https://github.com/getzola/zola/blob/master/docs/static/search.js
+/**
+ * @file Provides a search functionality for the website.
+ * Adapted from Zola repository: https://github.com/getzola/zola/blob/master/docs/static/search.js
+ * @see https://www.getzola.org/documentation/content/search/
+ */
+
+/**
+ * Debounce function to limit the rate at which a function can fire.
+ * @param {Function} func - The function to debounce.
+ * @param {number} wait - The number of milliseconds to wait before calling the
+ * function.
+ * @return {Function} - A new function that, when called, will delay the
+ * execution of `func` until after `wait` milliseconds have passed since the
+ * last time it was invoked.
+ */
 function debounce(func, wait) {
   var timeout;
 
@@ -15,16 +28,25 @@ function debounce(func, wait) {
   };
 }
 
-// Taken from mdbook
-// The strategy is as follows:
-// First, assign a value to each word in the document:
-//  Words that correspond to search terms (stemmer aware): 40
-//  Normal words: 2
-//  First word in a sentence: 8
-// Then use a sliding window with a constant number of words and count the
-// sum of the values of the words within the window. Then use the window that got the
-// maximum sum. If there are multiple maximas, then get the last one.
-// Enclose the terms in <b>.
+/**
+ * Generates a teaser from the body of a document based on search terms.
+ *
+ * @param {string} body - The body of the document to generate a teaser from.
+ * @param {Array<string>} terms - An array of search terms to highlight in the teaser.
+ * @return {string} - A teaser string that highlights the search terms
+ *
+ * Taken from mdbook.
+ *
+ * The strategy is as follows:
+ *  1) First, assign a value to each word in the document:
+ *    - Words that correspond to search terms (stemmer aware): 40
+ *    - Normal words: 2
+ *    - First word in a sentence: 8
+ *  2) Then use a sliding window with a constant number of words and count the
+ *     sum of the values of the words within the window. Then use the window that got the
+ *     maximum sum. If there are multiple maximas, then get the last one.
+ *  3) Enclose the terms in <b>.
+ */
 function makeTeaser(body, terms) {
   var TERM_WEIGHT = 40;
   var NORMAL_WORD_WEIGHT = 2;
@@ -123,6 +145,12 @@ function makeTeaser(body, terms) {
   return teaser.join("");
 }
 
+/**
+ * Formats a search result item into HTML.
+ * @param {Object} item - The search result item containing a reference and document.
+ * @param {Array<string>} terms - The search terms used for highlighting.
+ * @return {string} - The formatted HTML string for the search result item.
+ */
 function formatSearchResultItem(item, terms) {
   return (
     '<article class="search-results__item">' +
@@ -132,6 +160,10 @@ function formatSearchResultItem(item, terms) {
   );
 }
 
+/**
+ * Initializes the search functionality by setting up event listeners
+ * and loading the search index.
+ */
 function initSearch() {
   var $searchInput = document.getElementById("search");
   var $searchResults = document.querySelector(".search-results");
@@ -260,6 +292,7 @@ function initSearch() {
   });
 }
 
+// Check if the document is already loaded or not
 if (
   document.readyState === "complete" ||
   (document.readyState !== "loading" && !document.documentElement.doScroll)

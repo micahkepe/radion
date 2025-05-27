@@ -1,6 +1,8 @@
 /*
+ * @file This script toggles between light and dark themes on a webpage.
+ *
  * Adapted from `apollo` theme:
- * https://github.com/not-matthias/apollo/blob/main/static/js/themetoggle.js
+ * @see https://github.com/not-matthias/apollo/blob/main/static/js/themetoggle.js
  */
 
 document.addEventListener("DOMContentLoaded", function () {
