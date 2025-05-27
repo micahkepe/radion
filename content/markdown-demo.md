@@ -77,6 +77,8 @@ Footnote example[^1]
 
 Some other footnote that is inline[^2]. As you can see, it just blends right in!
 
+See below for an example of a footnote with multiple paragraphs and code[^3].
+
 ## Lists
 
 ### Unordered List
@@ -130,3 +132,15 @@ wrapping the text in square brackets and the URL in parentheses.
     occaecat voluptate
 
 [^2]: Wikipedia article on a cool topic: [https://en.wikipedia.org/wiki/Isometric_projection](https://en.wikipedia.org/wiki/Isometric_projection)
+
+[^3]:
+    Here's one with multiple paragraphs and code. This is the first paragraph
+    of the footnote.
+
+    Indent paragraphs to include them in the footnote.
+
+    ```python
+    print("Hello word")
+    ```
+
+    Add as many paragraphs as you like.

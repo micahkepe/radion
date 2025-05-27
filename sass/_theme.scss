@@ -224,33 +224,38 @@ article [itemprop="summary"] p {
 
 
 .footnote-definition {
-  flex-wrap: nowrap;
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  gap: 10px;
+  display: block;
   max-width: 100%;
+  margin-bottom: 10px;
+  overflow: hidden;
   overflow-x: auto;
-  margin: 5px 0;
+  margin: 20px 0;
   padding-block-end: 5px;
 
   sup {
+    display: inline-block;
+    margin-right: 0.5em;
     color: #ff2e88;
     font-size: inherit;
     font-weight: bold;
     vertical-align: baseline;
+
+    &::before {
+      content: "[";
+    }
+
+    &::after {
+      content: "]";
+    }
   }
 
-  sup::before {
-    content: "["
+  p:first-of-type {
+    display: inline;
   }
 
-  sup::after {
-    content: "]"
-  }
-
-  p {
-    margin: 0;
+  // Add top margin to subsequent p elements
+  p:not(:first-of-type) {
+    margin-top: 0.5em;
   }
 }
 

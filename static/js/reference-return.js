@@ -27,9 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
     returnLink.setAttribute("role", "link");
     returnLink.setAttribute("tabindex", "0");
 
-    // Append to the p tag
-    const p = fn.querySelector("p");
-    if (!p) return;
-    p.appendChild(returnLink);
+    // Append to the last p tag
+    const lastParagraph = fn.querySelector("p:last-of-type");
+    if (lastParagraph) {
+      lastParagraph.appendChild(returnLink);
+    } else {
+      // If no paragraph, append to the footnote definition directly
+      fn.appendChild(returnLink);
+    }
   });
 });
