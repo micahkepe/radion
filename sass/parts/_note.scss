@@ -20,7 +20,7 @@
 }
 
 .light .note-header {
-  background-color: color-mix(in srgb, var(--note-bg-light) 85%, black 10%);
+  background-color: color-mix(in srgb, var(--note-bg-light) 75%, black 25%);
 }
 
 .note-header {
@@ -70,13 +70,9 @@
   padding: 10px 25px !important;
   background-color: inherit;
   font-size: 1em;
-  background-color: color-mix(in srgb, var(--note-bg-dark) 90%, white 5%);
+  background-color: color-mix(in srgb, var(--note-bg-dark) 90%, white 10%);
   color: inherit;
   line-height: 1.6em;
-
-  code {
-    color: #fff;
-  }
 
   a {
     color: #ff2e88;
