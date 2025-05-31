@@ -154,11 +154,11 @@ pre::-webkit-scrollbar-track {
 a {
   code:hover {
     background-color: transparent;
+    background: transparent !important;
   }
 }
 
 code {
-  color: var(--text-color);
   background-color: var(--bg-primary);
 }
 
