@@ -158,7 +158,7 @@ codeblock = true
 header="Note: Ligatures"
 body="
 Ligatures are **disabled by default** as defined in the
-[\_theme.scss](./sass/_theme.scss) file.
+[\_theme.scss](https://github.com/micahkepe/radion/blob/main/sass/_theme.scss) file.
 "
 )}}
 
