@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     text: "Text",
     gd: "GDScript",
     cpp: "C++",
+    toml: "TOML",
     // define more languages as needed
   };
 

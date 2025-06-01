@@ -1,54 +1,19 @@
-# radion
++++
+title = "Configuration Options"
+date = 2025-06-01
+draft = false 
 
-A sleek, modern blog theme for [Zola](https://www.getzola.org/). See the live
-site demo [here](https://micahkepe.com/radion/).
+[taxonomies]
+categories = ["configuration"]
+tags = ["documentation"]
 
-> **radion**
-> noun
->
-> 1. (_physics_) A scalar field in higher-dimensional spacetimes
+[extra]
+toc = true
++++
 
-<details open>
-<summary>Dark theme</summary>
+This page describes the configuration options available for the `radion` theme.
 
-![radion dark theme screenshot](screenshot.png)
-
-</details>
-
-<details>
-<summary>Light theme</summary>
-
-![radion light theme screenshot](screenshot-light.png)
-
-</details>
-
-## Features
-
-- [x] Code Snippet Clipboards
-  - [x] Line(s)-specific highlighting
-- [x] Latex Support
-- [x] Light/Dark mode support
-- [x] Search functionality
-- [x] Table of Contents option
-- [x] Footnote support
-- [x] Built-in comments option (Giscus)
-
-## Contents and Configuration Guide
-
-- [Installation](#installation)
-- [Options](#options)
-  - [Top menu](#top-menu)
-  - [Title](#title)
-  - [Author](#author)
-  - [Favicon](#favicon)
-  - [GitHub](#github)
-  - [Code Snippets](#code-snippets)
-  - [LaTex Support](#latex-support)
-  - [Searchbar](#searchbar)
-  - [Light and Dark Modes](#light-and-dark-modes)
-  - [Table of Contents](#table-of-contents)
-  - [Comments](#comments)
-- [Acknowledgements](#acknowledgements)
+<!-- more -->
 
 ## Installation
 
@@ -176,11 +141,11 @@ github = "https://github.com/your-github-link"
 # Theme can be customized by setting the `highlight_theme` variable to a theme
 # supported by Zola
 highlight_code = true
-
-# For a complete list of themes, see:
-# https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting
 highlight_theme = "one-dark"
 ```
+
+For a complete list of themes, see: [Zola's syntax highlighting
+docs](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting).
 
 #### Enhanced Codeblocks (Clipboard Support and Language Tags)
 
@@ -189,9 +154,13 @@ highlight_theme = "one-dark"
 codeblock = true
 ```
 
-> [!NOTE]
-> Ligatures are disabled by default as defined in the
-> [\_theme.scss](./sass/_theme.scss) file.
+{{ note(
+header="Note: Ligatures"
+body="
+Ligatures are **disabled by default** as defined in the
+[\_theme.scss](./sass/_theme.scss) file.
+"
+)}}
 
 ### LaTex Support
 
@@ -246,9 +215,8 @@ toc = true
 
 ### Comments
 
-> [!NOTE]
-> Giscus comments assumes that you are hosting the blog site via GitHub Pages
-> and thus have access to GitHub Discussions.
+> **Note**: Giscus comments assumes that you are hosting the blog site via
+> GitHub Pages and thus have access to GitHub Discussions.
 
 First, follow the instructions at [giscus.app](https://giscus.app/).
 This includes installing the Giscus app and enabling discussions on the
