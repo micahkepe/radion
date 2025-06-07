@@ -371,13 +371,67 @@ a.zola-anchor:hover {
   content: "-"
 }
 
+/* NOTE: For cross-browser uniformity in rendering nested lists, we define
+ separate counters for each level of nested list. Different browsers allow
+ varying tolerance in counter scoping, so we set explicit separate counters
+ up to 3 levels of nesting, which should cover nearly all practical use cases.
+*/
+
+/* First-level ordered list */
 .hack ol {
-  counter-reset: a
+  counter-reset: list1;
+  list-style: none;
+  padding-left: 1.5em;
 }
 
-.hack ol>li:after {
-  content: counter(a) ".";
-  counter-increment: a
+.hack ol>li {
+  counter-increment: list1;
+  position: relative;
+}
+
+.hack ol>li::before {
+  content: counter(list1) ". ";
+  position: absolute;
+  left: 0;
+  width: 1.5em;
+}
+
+/* Second-level ordered list */
+.hack ol>li>ol {
+  counter-reset: list2;
+  list-style: none;
+  padding-left: 1.5em;
+}
+
+.hack ol>li>ol>li {
+  counter-increment: list2;
+  position: relative;
+}
+
+.hack ol>li>ol>li::before {
+  content: counter(list2) ". ";
+  position: absolute;
+  left: 0;
+  width: 1.5em;
+}
+
+/* Third-level ordered list, if needed */
+.hack ol>li>ol>li>ol {
+  counter-reset: list3;
+  list-style: none;
+  padding-left: 1.5em;
+}
+
+.hack ol>li>ol>li>ol>li {
+  counter-increment: list3;
+  position: relative;
+}
+
+.hack ol>li>ol>li>ol>li::before {
+  content: counter(list3) ". ";
+  position: absolute;
+  left: 0;
+  width: 1.5em;
 }
 
 .hack blockquote {

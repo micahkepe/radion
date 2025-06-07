@@ -95,6 +95,41 @@ See below for an example of a footnote with multiple paragraphs and code[^3].
 2. Item 2
 3. Item 3
 
+### Nested Lists
+
+Example of 3-level nested ordered lists:
+
+1. a
+2. First sublist:
+
+   1. One (with additional sublist)
+
+      1. Another
+      2. ordered
+      3. sublist.
+
+   2. Two
+
+   3. Three
+
+3. c
+4. d
+
+---
+
+Example of 3-level nested unordered lists:
+
+- a
+
+  - b
+  - c
+
+- d
+  - e
+  - f
+    - g
+    - h
+
 ## Code Blocks
 
 ```rust
