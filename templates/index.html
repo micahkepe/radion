@@ -114,7 +114,7 @@
     </script>
 
     <!-- Reference return to click position script -->
-    <script src="{{ get_url(path='js/reference-return.js', trailing_slash=false) | safe }}"></script>
+    <script defer src="{{ get_url(path='js/reference-return.js', trailing_slash=false) | safe }}"></script>
   </head>
 
   <body class="hack dark main container">
@@ -226,9 +226,9 @@
 
     <!-- optional scripts -->
     {% block scripts %} {% if config.extra.codeblock %}
-    <script src="{{ get_url(path='js/codeblock.js', trailing_slash=false) | safe }}"></script>
+    <script defer src="{{ get_url(path='js/codeblock.js', trailing_slash=false) | safe }}"></script>
     {% endif %} {% if config.extra.theme %}
-    <script src="{{ get_url(path='js/toggle-theme.js', trailing_slash=false) | safe }}"></script>
+    <script defer src="{{ get_url(path='js/toggle-theme.js', trailing_slash=false) | safe }}"></script>
     {% endif %} {% include "partials/latex.html" %} {% include
     "partials/search.html" %} {% endblock scripts %}
   </body>

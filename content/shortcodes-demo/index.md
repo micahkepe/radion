@@ -61,4 +61,4 @@ $$
 \texttt{ \{\{ responsive(src="path/to/image", caption="Optional caption")\}\} }
 $$
 
-{{ responsive(src="assets/ferris.png", caption="Everyone say 'Hi Ferris' in the comments")}}
+{{ responsive(src="assets/ferris.png", alt="Picture of Rust mascot Ferris", caption="Everyone say 'Hi Ferris' in the comments")}}
