@@ -108,16 +108,25 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Pass Theme Preference as Data Attribute -->
-    <script>
-      document.documentElement.dataset.theme =
-        "{{ config.extra.theme | default(value='toggle') }}";
-    </script>
+    <script src="{{ get_url(path='js/init-theme.js', trailing_slash=false) | safe }}"></script>
 
     <!-- Reference return to click position script -->
     <script defer src="{{ get_url(path='js/reference-return.js', trailing_slash=false) | safe }}"></script>
+
+    <!-- additional scripts -->
+    {% block scripts %}
+      {% if config.extra.codeblock %}
+        <script defer src="{{ get_url(path='js/codeblock.js', trailing_slash=false) | safe }}"></script>
+      {% endif %}
+      {% if config.extra.theme %}
+        <script src="{{ get_url(path='js/toggle-theme.js', trailing_slash=false) | safe }}"></script>
+      {% endif %}
+      {% include "partials/latex.html" %}
+      {% include "partials/search.html" %}
+    {% endblock scripts %}
   </head>
 
-  <body class="hack dark main container">
+  <body class="hack main container">
     {% block content %} {% block header %} {% if config.extra.radion_menu %}
     <header class="nav-header">
       <nav
@@ -223,13 +232,5 @@
       </nav>
     </main>
     {% endblock content %}
-
-    <!-- optional scripts -->
-    {% block scripts %} {% if config.extra.codeblock %}
-    <script defer src="{{ get_url(path='js/codeblock.js', trailing_slash=false) | safe }}"></script>
-    {% endif %} {% if config.extra.theme %}
-    <script defer src="{{ get_url(path='js/toggle-theme.js', trailing_slash=false) | safe }}"></script>
-    {% endif %} {% include "partials/latex.html" %} {% include
-    "partials/search.html" %} {% endblock scripts %}
   </body>
 </html>

@@ -7,17 +7,17 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const storedTheme = localStorage.getItem("theme-storage");
-  const defaultTheme = document.documentElement.dataset.theme || "toggle";
+  const defaultThemeOption = document.documentElement.dataset.theme || "toggle";
 
   let currentTheme;
 
-  // Prioritize config.extra.theme over localStorage if available
+  // Prioritize `config.extra.theme` over localStorage, if available
   if (
-    defaultTheme === "dark" ||
-    defaultTheme === "light" ||
-    defaultTheme === "auto"
+    defaultThemeOption === "dark" ||
+    defaultThemeOption === "light" ||
+    defaultThemeOption === "auto"
   ) {
-    currentTheme = defaultTheme;
+    currentTheme = defaultThemeOption;
   } else if (storedTheme) {
     currentTheme = storedTheme;
   } else {
