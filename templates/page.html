@@ -75,12 +75,17 @@
     {% endblock comments %}
 
 
+    <!-- Page footer -->
     {% block page_footer %}
         <footer>
             <hr>
             <p>
                 {% if page.extra.author %}
                     Published by {{ page.extra.author }}
+                {% elif page.authors and page.authors | length == 1 %}
+                    Published by {{ page.authors[0] }}
+                {% elif page.authors and page.authors | length > 1 %}
+                    Published by {{ page.authors | join(sep=", ") }}
                 {% elif config.extra.author %}
                     Published by {{ config.extra.author }}
                 {% endif %}

@@ -34,7 +34,7 @@ insert_anchor_links = "heading"
 index_format = "elasticlunr_json"
 
 [extra]
-author = "John Doe"
+author = "Micah Kepe"
 github = "https://github.com/micahkepe"
 radion_menu = [
     {url = "$BASE_URL/", name = "Home"},

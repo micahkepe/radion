@@ -39,7 +39,7 @@ site demo [here](https://micahkepe.com/radion/).
 - [Options](#options)
   - [Top menu](#top-menu)
   - [Title](#title)
-  - [Author](#author)
+  - [Author Attribution](#author-attribution)
   - [Favicon](#favicon)
   - [GitHub](#github)
   - [Code Snippets](#code-snippets)
@@ -114,18 +114,31 @@ The site title is shown on the homepage. As it might be different from the
 `<title>` element that the `title` field in the config represents, you can set
 the `radion_title` instead.
 
-### Author
+### Author Attribution
 
-You can set this on a per page basis or in the config file.
+You may define the author(s) of a page in either the root `config.toml` file, or
+on a per-page basis in the page's frontmatter.
 
-`config.toml`:
+The order of precedence for determining the author shown in a page’s footer is:
+
+1. `page.extra.author` (highest precedence)
+2. `page.authors`
+3. `page.config.author` (lowest precedence, default)
+
+#### Defining a Global Default Author in `config.toml`
+
+In `config.toml`:
 
 ```toml
 [extra]
 author = "John Smith"
 ```
 
-In a page (wrap this in +++):
+#### Defining Author(s) Per-Page
+
+At the top of a page in its frontmatter (wrap this in `+++`):
+
+1. Define a single author for the page:
 
 ```toml
 title = "..."
@@ -134,6 +147,26 @@ date = 1970-01-01
 [extra]
 author = "John Smith"
 ```
+
+Alternatively, you can define the `page.authors` variable with a single entry:
+
+```toml
+title = "..."
+date = 1970-01-01
+authors = ["John Smith"]
+```
+
+2. Define multiple authors for a page:
+
+```toml
+title = "..."
+date = 1970-01-01
+authors = ["John Smith", "Joe Schmoe", "Jane Doe"]
+```
+
+> [!NOTE]
+> Do not define both `extra.author` and `authors` in the same page unless you
+> want `extra.author` to take precedence.
 
 ### Favicon
 
