@@ -40,10 +40,26 @@ $$ \sum\_{i=1}^{n} i = \frac{n(n+1)}{2} $$
 ## YouTube Video Embedding
 
 $$
-\texttt{\{\{ youtube(id="youtube-id", width=[1-100]) \}\}}
+\texttt{\{\{ youtube(id="youtube-id", width=[1-100], [playlist="playlist id"]) \}\}}
 $$
 
+Standalone video:
+
 {{ youtube(id="ym3y13nA3ew", width=80) }}
+
+$$
+\texttt{\{\{ youtube(id="ym3y13nA3ew", width=80) \}\}}
+$$
+
+<br>
+
+Video from a playlist:
+
+{{ youtube(id="LnzuMJLZRdU", width=80, playlist="PLowKtXNTBypFbtuVMUVXNR0z1mu7dp7eH") }}
+
+$$
+\texttt{\{\{ youtube( id="LnzuMJLZRdU", width=80, playlist="PLowKtXNTBypFbtuVMUVXNR0z1mu7dp7eH") \}\}}
+$$
 
 ## Audio File Embedding
 
