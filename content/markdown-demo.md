@@ -37,8 +37,6 @@ Peak-a-boo
 
 </details>
 
-<br>
-
 ## Blockquotes
 
 > This is a blockquote example. You can add multiple levels of blockquotes
