@@ -118,14 +118,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create and append the language label
     const langClass = codeBlock.className.match(/language-(\w+)/);
-
-    // Use the first language class found, default to "text" if none
+    // If no language label, default to "text"
     const langCode = langClass ? langClass[1].toLowerCase() : "text";
-    const label = document.createElement("span");
-    label.className = "code-label label-" + langCode;
-    label.textContent = languageNames[langCode] || langCode.toUpperCase();
-    pre.appendChild(label);
 
+    const label = document.createElement("span");
+
+    // If language not in define language mapping, use default
+    const knownLang = langCode in languageNames;
+    label.className = `code-label ${knownLang ? `label-${langCode}` : "label-default"}`;
+    label.textContent = knownLang
+      ? languageNames[langCode]
+      : langCode.toUpperCase();
+
+    pre.appendChild(label);
     // Attach event listener to copy button
     copyBtn.addEventListener("click", async () => {
       try {

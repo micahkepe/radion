@@ -21,7 +21,15 @@
 
     // Apply theme class directly
     document.documentElement.classList.add(theme);
-    document.body.classList.add(theme);
+
+    if (document.body) {
+      document.body.classList.add(theme);
+    } else {
+      // Defer body class application
+      window.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add(theme);
+      });
+    }
   } catch (e) {
     // In case localStorage access fails
     document.documentElement.classList.add("dark");

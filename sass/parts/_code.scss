@@ -27,11 +27,12 @@ $language-colors: (
   "elixir": #6e4a7e,
   "clojure": #5881d8,
   "sql": #ffcc00,
-  "bash": #4eaa25,
+  "bash": #4f8f00,
   "text": #151b23,
   "gd": #3c76a2,
   "cpp": #5d8dbf,
   "toml": #9c4221,
+  "default":#151b23,
 );
 
 /// Function to get text color based on background brightness

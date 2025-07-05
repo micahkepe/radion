@@ -1,0 +1,38 @@
+{% block page_footer %}
+    <footer>
+        <hr>
+        <p>
+            {% if page.extra.author %}
+                Published by {{ page.extra.author }}
+            {% elif page.authors and page.authors | length == 1 %}
+                Published by {{ page.authors[0] }}
+            {% elif page.authors and page.authors | length > 1 %}
+                Published by {{ page.authors | join(sep=", ") }}
+            {% elif config.extra.author %}
+                Published by {{ config.extra.author }}
+            {% endif %}
+            {% if page.taxonomies.categories %}
+                {% set category = page.taxonomies.categories[0] %}
+                in <a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">{{ category }}</a>
+            {% endif %}
+            {% if page.taxonomies.tags %}
+                {% if page.taxonomies.categories %}and{% endif %}
+                tagged
+                {% for tag in page.taxonomies.tags %}
+                    <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>
+                    {% if page.taxonomies.tags | length > 1 %}
+                        {% if loop.index != page.taxonomies.tags | length %}
+                            {% if loop.index == page.taxonomies.tags | length - 1 %}
+                                and
+                            {% else %}
+                                ,
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </p>
+        {% block extra_footer %}
+        {% endblock extra_footer %}
+    </footer>
+{% endblock page_footer %}
