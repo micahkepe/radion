@@ -1,5 +1,15 @@
 {% extends "index.html" %}
 
+{% block title %}Browse Categories{% endblock title %}
+{% block og_title %}Browse Categories{% endblock og_title %}
+{% block twitter_title %}Browse Categories{% endblock twitter_title %}
+
+{% block meta_description %}
+  <meta name="description" content="Discover articles organized by category in this site index." />
+  <meta property="og:description" content="Discover articles organized by category in this site index." />
+  <meta property="twitter:description" content="Discover articles organized by category in this site index." />
+{% endblock meta_description %}
+
 {% block content %}
     {% block header %}
         {{ super() }}

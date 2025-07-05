@@ -9,26 +9,30 @@
     <!-- Enable responsiveness on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {% if page and page.description %}
-    <meta name="description" content="{{ page.description }}" />
-    <meta property="og:description" content="{{ page.description }}" />
-    <meta property="twitter:description" content="{{ page.description }}" />
-    {% elif page and page.summary %}
-    {% set content_desc = page.summary | striptags %}
-    <meta name="description" content="{{ content_desc }}" />
-    <meta property="og:description" content="{{ content_desc }}" />
-    <meta property="twitter:description" content="{{ content_desc }}" />
-    {% elif config.description %}
-    <meta name="description" content="{{ config.description }}" />
-    <meta property="og:description" content="{{ config.description }}" />
-    <meta property="twitter:description" content="{{ config.description }}" />
-    {% endif %}
+    {% block meta_description %}
+      {% if page and page.description %}
+        <meta name="description" content="{{ page.description }}" />
+        <meta property="og:description" content="{{ page.description }}" />
+        <meta property="twitter:description" content="{{ page.description }}" />
+      {% elif page and page.summary %}
+        {% set content_desc = page.summary | striptags %}
+        <meta name="description" content="{{ content_desc }}" />
+        <meta property="og:description" content="{{ content_desc }}" />
+        <meta property="twitter:description" content="{{ content_desc }}" />
+      {% elif config.description %}
+        <meta name="description" content="{{ config.description }}" />
+        <meta property="og:description" content="{{ config.description }}" />
+        <meta property="twitter:description" content="{{ config.description }}" />
+      {% endif %}
+    {% endblock meta_description %}
 
     <!-- Title -->
     {% if page and page.title %} {% set title = page.title %} {% else %} {% set
     title = config.title %} {% endif %}
 
     <title>{% block title %} {{ title }} {% endblock title %}</title>
+    <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}" />
+    <meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock twitter_title %}" />
 
     <!-- Additional Facebook Meta Tags -->
     <meta
