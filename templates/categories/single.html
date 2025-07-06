@@ -1,5 +1,14 @@
 {% extends "index.html" %}
-{% import "post_macros.html" as post_macros %}
+
+{% block title %}Posts in "{{ term.name }}"{% endblock title %}
+{% block og_title %}Posts in "{{ term.name }}"{% endblock og_title %}
+{% block twitter_title %}Posts in "{{ term.name }}"{% endblock twitter_title %}
+
+{% block meta_description %}
+<meta name="description" content="Discover articles within the '{{ term.name }}' category in this site index." />
+  <meta property="og:description" content="Discover articles within the '{{ term.name }}' category in this site index." />
+  <meta property="twitter:description" content="Discover articles within the '{{ term.name }}' category in this site index." />
+{% endblock meta_description %}
 
 {% block content %}
     {% block header %}
