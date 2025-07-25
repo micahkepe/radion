@@ -35,6 +35,7 @@
     <meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock twitter_title %}" />
 
     <!-- Additional Facebook Meta Tags -->
+    <meta property="og:site_name" content="{{ config.title }}" />
     <meta
       property="og:url"
       content="{% if page %}{{ page.permalink }}{% else %}{{ config.base_url }}{% endif %}"
