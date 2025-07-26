@@ -1,5 +1,5 @@
 {% import "post_macros.html" as post_macros %}
-{% import "html_body.html" as html_body_macros %}
+{% import "index_body_macros.html" as index_body_macros %}
 
 <!doctype html>
 <html lang="en">
@@ -131,13 +131,13 @@
 
   <body class="hack main container">
     {% block content %} {% block header %}
-    {{ html_body_macros::header(config=config) }}
+    {{ index_body_macros::header(config=config) }}
     {% endblock header %}
 
     <main>
       {% block main %}
-      {{ html_body_macros::page_lister(radion_title=config.extra.radion_title, paginator=paginator) }}
-      {{ html_body_macros::nav(paginator=paginator) }}
+      {{ index_body_macros::page_lister(radion_title=config.extra.radion_title, paginator=paginator) }}
+      {{ index_body_macros::nav(paginator=paginator) }}
       {% endblock main %}
     </main>
     {% endblock content %}
