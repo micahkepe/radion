@@ -9,10 +9,11 @@
     {% endif %}
 {% endblock title %}
 
-{% block content %}
-    {% block header %}
-        {{ super() }}
-    {% endblock header %}
+{% block header %}
+    {{ super() }}
+{% endblock header %}
+
+{% block main %}
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <header>
@@ -51,4 +52,4 @@
     {% include "partials/footer.html" %}
 </article>
 
-{% endblock content %}
+{% endblock main %}
