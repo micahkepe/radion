@@ -108,6 +108,7 @@
       href="{{ get_url(path='site.css', trailing_slash=false) | safe }}"
     />
 
+    <!-- Load Fonts -->
     {% include "partials/fonts.html" %}
 
     <!-- Pass Theme Preference as Data Attribute -->
@@ -129,6 +130,7 @@
     {% endblock scripts %}
   </head>
 
+  <!-- Body element (contents of the page) -->
   <body class="hack main container">
     {% block content %}
     {% block header %}
