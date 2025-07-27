@@ -1,0 +1,114 @@
+{% import "macros/post_macros.html" as post_macros %}
+
+<!-- Macro for the header element with the radion menu -->
+{% macro header(config) %}
+  {% if config.extra.radion_menu %}
+  <section class="nav-header">
+    <nav
+      itemscope
+      itemtype="http://schema.org/SiteNavigationElement"
+      class="navbar"
+    >
+      <section class="nav-links">
+        {% for item in config.extra.radion_menu %}
+        <a
+          itemprop="url"
+          class="{% if item.url | replace(from='$BASE_URL', to=config.base_url) == current_url %}active{% endif %}"
+          href="{{ item.url | safe | replace(from='$BASE_URL', to=config.base_url) | safe }}"
+        >
+          <span itemprop="name">{{ item.name }}</span>
+        </a>
+        {% endfor %}
+      </section>
+    </nav>
+    <aside class="user-actions-container">
+      {% if config.extra.enable_search %}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        class="search-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </svg>
+      <input type="text" id="search" placeholder="Search..." />
+      <section class="search-results" aria-live="polite">
+        <article class="search-results__items" role="list"></article>
+      </section>
+      {% endif %} {% if config.extra.theme | default(value="toggle") ==
+      "toggle" %}
+      <a id="dark-mode-toggle" href="#">
+        <img
+          src="{{ get_url(path='icons/sun.svg') }}"
+          id="sun-icon"
+          style="filter: invert(1)"
+          alt="Light mode"
+        />
+        <img
+          src="{{ get_url(path='icons/moon.svg') }}"
+          id="moon-icon"
+          alt="Dark mode"
+        />
+      </a>
+      {% endif %} {% if config.generate_feeds %}
+      <a
+        href="{{ get_url(path='atom.xml') | safe }}"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="{{ get_url(path='icons/rss.svg') }}"
+          id="rss-icon"
+          alt="RSS feed"
+          class="social-icon"
+        />
+      </a>
+      {% endif %} {% if config.extra.github %}
+      <a
+        href="{{ config.extra.github }}"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="{{ get_url(path='icons/github.svg') }}"
+          id="github-icon"
+          alt="GitHub"
+          class="social-icon"
+        />
+      </a>
+      {% endif %}
+    </aside>
+  </section>
+  {% endif %}
+{% endmacro header %}
+
+<!-- Macro for pagination -->
+{% macro nav(paginator) %}
+  <nav aria-label="Pagination">
+    <p>
+      {% if paginator.previous %}
+      <a href="{{ paginator.previous }}">&laquo; Previous</a> | {% endif %}
+      <span
+        >Page {{ paginator.current_index }} of {{ paginator.number_pagers
+        }}</span
+      >
+      {% if paginator.next %} |
+      <a href="{{ paginator.next }}">Next &raquo;</a>
+      {% endif %}
+    </p>
+  </nav>
+{% endmacro nav %}
+
+<!-- Macro for rendering a list of post pages -->
+{% macro page_lister(radion_title, paginator) %}
+  {% if radion_title %}
+  <header><h1>{{ radion_title }}</h1></header>
+  {% endif %} {% for page in paginator.pages %} {{
+  post_macros::page_in_list(page=page) }} {% endfor %}
+{% endmacro page_lister %}
+
