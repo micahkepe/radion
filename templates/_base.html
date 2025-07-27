@@ -103,10 +103,12 @@
     {% endif %}
 
     <!-- Load Styles -->
-    <link
-      rel="stylesheet"
-      href="{{ get_url(path='site.css', trailing_slash=false) | safe }}"
-    />
+    {% block styles %}
+      <link
+        rel="stylesheet"
+        href="{{ get_url(path='site.css', trailing_slash=false) | safe }}"
+      />
+    {% endblock styles %}
 
     <!-- Load Fonts -->
     {% include "partials/fonts.html" %}
