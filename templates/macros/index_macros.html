@@ -1,8 +1,9 @@
-{% import "post_macros.html" as post_macros %}
+{% import "macros/post_macros.html" as post_macros %}
 
+<!-- Macro for the header element with the radion menu -->
 {% macro header(config) %}
   {% if config.extra.radion_menu %}
-  <header class="nav-header">
+  <section class="nav-header">
     <nav
       itemscope
       itemtype="http://schema.org/SiteNavigationElement"
@@ -82,10 +83,11 @@
       </a>
       {% endif %}
     </aside>
-  </header>
+  </section>
   {% endif %}
 {% endmacro header %}
 
+<!-- Macro for pagination -->
 {% macro nav(paginator) %}
   <nav aria-label="Pagination">
     <p>
@@ -102,6 +104,7 @@
   </nav>
 {% endmacro nav %}
 
+<!-- Macro for rendering a list of post pages -->
 {% macro page_lister(radion_title, paginator) %}
   {% if radion_title %}
   <header><h1>{{ radion_title }}</h1></header>

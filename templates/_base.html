@@ -1,5 +1,5 @@
-{% import "post_macros.html" as post_macros %}
-{% import "index_body_macros.html" as index_body_macros %}
+{% import "macros/post_macros.html" as post_macros %}
+{% import "macros/index_macros.html" as index_macros %}
 
 <!doctype html>
 <html lang="en">
@@ -116,7 +116,7 @@
     <!-- Reference return to click position script -->
     <script defer src="{{ get_url(path='js/reference-return.js', trailing_slash=false) | safe }}"></script>
 
-    <!-- additional scripts -->
+    <!-- Additional scripts -->
     {% block scripts %}
       {% if config.extra.codeblock %}
         <script defer src="{{ get_url(path='js/codeblock.js', trailing_slash=false) | safe }}"></script>
@@ -132,13 +132,13 @@
   <body class="hack main container">
     {% block content %}
     {% block header %}
-      {{ index_body_macros::header(config=config) }}
+      {{ index_macros::header(config=config) }}
     {% endblock header %}
 
     <main>
       {% block main %}
-      {{ index_body_macros::page_lister(radion_title=config.extra.radion_title, paginator=paginator) }}
-      {{ index_body_macros::nav(paginator=paginator) }}
+      {{ index_macros::page_lister(radion_title=config.extra.radion_title, paginator=paginator) }}
+      {{ index_macros::nav(paginator=paginator) }}
       {% endblock main %}
     </main>
     {% endblock content %}
