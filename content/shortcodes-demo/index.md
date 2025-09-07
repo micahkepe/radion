@@ -14,7 +14,7 @@ your posts more exciting.
 
 Here are some examples:
 
-## GIF-Suport
+## GIF-Support
 
 Level up your posts with GIFs!
 
