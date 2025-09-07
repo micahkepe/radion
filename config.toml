@@ -63,3 +63,7 @@ comments = true
 giscus_repo = "micahkepe/radion"
 giscus_repo_id = "R_kgDONK7lCQ"
 giscus_data_category_id = "DIC_kwDONK7lCc4CnfXf"
+
+# Post revision history
+revision_history = true
+blog_github_repo_url = "https://github.com/micahkepe/radion"
