@@ -263,3 +263,17 @@ article [itemprop="summary"] p {
   margin-left: 0.5em;
   font-size: 1.2em;
 }
+
+/* Post history styling */
+.revision-history {
+  text-align: center;
+  font-style: italic;
+
+  a {
+    border-bottom: none;
+  }
+
+  a::after {
+    content: none;
+  }
+}
