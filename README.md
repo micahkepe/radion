@@ -48,6 +48,7 @@ site demo [here](https://micahkepe.com/radion/).
   - [Light and Dark Modes](#light-and-dark-modes)
   - [Table of Contents](#table-of-contents)
   - [Comments](#comments)
+  - [Post Revision History](#post-revision-history)
 - [Acknowledgements](#acknowledgements)
 
 ## Installation
@@ -174,7 +175,6 @@ To change the default favicon:
 
 1. Create your own favicon folder with the following site:
    [RealFaviconGenerator](https://realfavicongenerator.net/)
-
    - Set the 'Favicon path' option to `/icons/favicon/`
 
 2. Unzip the created folder
@@ -309,6 +309,31 @@ The `config.toml` value for `comments` takes precedence and priority. For
 example, if you globally disable comments in your `config.toml` by setting
 `comments = false`, then trying to enabling comments through a page's front
 matter will have no effect.
+
+### Post Revision History
+
+To enable revision history links that allow readers to view the commit history
+for individual posts, configure the following in your `config.toml`:
+
+```toml
+[extra]
+# Enable revision history globally
+revision_history = true
+# Your blog's GitHub repository URL
+blog_github_repo_url = "https://github.com/username/repository-name"
+```
+
+Revision history can be enabled or disabled on a per-page basis by adding the
+following to a page's front matter:
+
+```toml
+[extra]
+revision_history = true  # or false to disable for this page
+```
+
+When enabled, a "(revision history)" link will appear in the page footer that
+links directly to the GitHub commit history for that specific content file,
+allowing readers to see how the post has evolved over time.
 
 ---
 
