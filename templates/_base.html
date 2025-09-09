@@ -46,10 +46,6 @@
       content="{% if page %}article{% else %}website{% endif %}"
     />
     <meta property="og:title" content="{{ title }}" />
-    <meta
-      property="og:image"
-      content="{{ config.base_url }}/icons/favicon/web-app-manifest-512x512.png"
-    />
 
     <!-- Additional Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -58,10 +54,29 @@
       content="{% if page %}{{ page.permalink }}{% else %}{{ config.base_url }}{% endif %}"
     />
     <meta name="twitter:title" content="{{ title }}" />
+
+    <!-- Cover images -->
+    {% set cover_image = config.base_url ~ "/icons/favicon/web-app-manifest-512x512.png" %}
+    {% if page and page.extra.cover_image and page.assets %}
+      {% for asset in page.assets %}
+        {% if asset is ending_with(page.extra.cover_image) %}
+          {% set_global cover_image = config.base_url ~ asset %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    <meta
+      property="og:image"
+      content="{{ cover_image }}"
+    />
+
     <meta
       name="twitter:image"
-      content="{{ config.base_url }}/icons/favicon/web-app-manifest-512x512.png"
+      content="{{ cover_image }}"
     />
+
+
 
     <!-- Favicons -->
     {% if config.extra.favicon | default (value="true") %}

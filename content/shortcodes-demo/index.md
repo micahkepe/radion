@@ -5,6 +5,9 @@ date = 2017-09-24
 [taxonomies]
 categories = ["demo"]
 tags = ["gif", "fancy"]
+
+[extra]
+cover_image = "ferris.png"
 +++
 
 **radion** comes with some handy shortcodes to make your life easier and
