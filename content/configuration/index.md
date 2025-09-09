@@ -308,6 +308,50 @@ When enabled, a "(revision history)" link will appear in the page footer that
 links directly to the GitHub commit history for that specific content file,
 allowing readers to see how the post has evolved over time.
 
+### Set Post Open Graph Image (Cover Image)
+
+[Open Graph](https://ogp.me/) is a standard for embedding rich previews of
+content on the Internet. It is used by social media platforms like Facebook,
+Twitter, and LinkedIn to display a preview of a page when a user shares the
+page on their social media network.
+
+For example, to set the Open Graph image for a post `my-post` to be the page
+asset `cover.png`, add the following to the front matter of the post:
+
+1. Make sure the image is located in the page's content directory (i.e.
+   `content/my-post/`. For example:
+
+   ```
+   content/
+   └── my-post/
+       ├── index.md
+       ├── cover.png        # Your cover image
+       └── assets/
+           └── other-image.jpg
+   ```
+
+   or
+
+   ```
+   content/
+   └── my-post/
+       ├── index.md
+       └── assets/
+           ├── other-image.jpg
+           └── cover.png    # Your cover image
+   ```
+
+2. Add the following to the front matter of the post:
+
+```toml
+[extra]
+cover_image = "cover.png"
+```
+
+> **NOTE**: The image must be located within the page's content directory and
+> `cover_image` expects just the filename of the image (e.g., `"cover.png"`, not
+> a path like `"assets/cover.png"`). The first filename match will be used.
+
 ---
 
 ## Acknowledgements
