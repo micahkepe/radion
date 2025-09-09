@@ -28,12 +28,12 @@
     {% endblock meta_description %}
 
     <!-- Title -->
-    {% if page and page.title %} {% set title = page.title %} {% else %} {% set
-    title = config.title %} {% endif %}
-
+    {% if page and page.title %}
+      {% set title = page.title %}
+    {% else %}
+      {% set title = config.title %}
+    {% endif %}
     <title>{% block title %} {{ title }} {% endblock title %}</title>
-    <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}" />
-    <meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock twitter_title %}" />
 
     <!-- Additional Facebook Meta Tags -->
     <meta property="og:site_name" content="{{ config.title }}" />
@@ -45,7 +45,7 @@
       property="og:type"
       content="{% if page %}article{% else %}website{% endif %}"
     />
-    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:title" content="{% block og_title %}{{ title }}{% endblock og_title %}" />
 
     <!-- Additional Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -53,7 +53,7 @@
       property="twitter:url"
       content="{% if page %}{{ page.permalink }}{% else %}{{ config.base_url }}{% endif %}"
     />
-    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:title" content="{% block twitter_title %}{{ title }}{% endblock twitter_title %}" />
 
     <!-- Cover images -->
     {% set cover_image = config.base_url ~ "/icons/favicon/web-app-manifest-512x512.png" %}
