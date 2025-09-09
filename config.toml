@@ -35,7 +35,7 @@ index_format = "elasticlunr_json"
 
 [extra]
 author = "Micah Kepe"
-github = "https://github.com/micahkepe"
+github = "https://github.com/micahkepe/radion"
 radion_menu = [
     {url = "$BASE_URL/", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
