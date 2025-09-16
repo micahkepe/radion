@@ -2,7 +2,7 @@
   src="https://giscus.app/client.js"
   data-repo="{{ config.extra.giscus_repo }}"
   data-repo-id="{{ config.extra.giscus_repo_id }}"
-  data-category="General"
+  data-category="{{ config.extra.giscus_data_category | default(value="General") }}"
   data-category-id="{{ config.extra.giscus_data_category_id }}"
   data-mapping="pathname"
   data-strict="0"
