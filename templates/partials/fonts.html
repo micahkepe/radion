@@ -21,7 +21,7 @@
 {% elif cdn == "zeoseven" %}
 
   <!-- ZeoSeven -->
-  {% set font_url = "https://fontsapi.zeoseven.com/{{ config.extra.font_id }}/main/result.css" %}
+  {% set font_url = "https://fontsapi.zeoseven.com/" ~ config.extra.font_id ~ "/main/result.css" %}
   <link rel="preload" as="style" crossorigin
       href="{{ font_url }}"
       onload="this.rel='stylesheet'"
