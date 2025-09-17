@@ -352,25 +352,66 @@ cover_image = "cover.png"
 > `cover_image` expects just the filename of the image (e.g., `"cover.png"`, not
 > a path like `"assets/cover.png"`). The first filename match will be used.
 
-### Custom Font
+### Custom Fonts
 
-Currently three font cdn sites are supported:
+Currently three font CDN sites are supported:
 
-- [Google Font (`"googlefont"`)](https://fonts.google.com/)
-- [Fontsource (`"fontsource"`)](https://fontsource.org/)
-- [ZeoSeven Font (`"zeoseven"`)](https://fonts.zeoseven.com/)
+1. [Google Font (`"googlefont"`)](https://fonts.google.com/): Fonts from `fonts.google.com`
+2. [Fontsource (`"fontsource"`)](https://fontsource.org/): Self-hosted fonts from `fontsource.org`. Uses WOFF2 files.
+3. [ZeoSeven Font (`"zeoseven"`)](https://fonts.zeoseven.com/): Fonts from
+   `fonts.zeoseven.com`. Requires a `font_id` for URL construction.
 
-`font_id` is required when using ZeoSeven. For example, the [Maple Mono](https://fonts.zeoseven.com/items/443/) has its url of `https://fonts.zeoseven.com/items/443/`, so its `font_id` is `443`.
+To configure, add entries under `[extra]` in your `config.toml`:
 
-| Config                      | Default Value                                                |
-| --------------------------- | ------------------------------------------------------------ |
-| `config.extra.font_cdn`     | `"googlefont"`                                               |
-| `config.extra.font_weights` | `[400, 700]` if not using `"zeoseven"`, otherwise `["main"]` |
-| `config.extra.font_name`    | `"JetBrains Mono"`                                           |
-| `config.extra.font_display` | `"swap"`                                                     |
-| `config.extra.font_id`      | Required when using `"zeoseven"` as `font_cdn`               |
+| Option          | Type   | Default            | Description                                                                |
+| --------------- | ------ | ------------------ | -------------------------------------------------------------------------- |
+| `font_cdn`      | String | `"googlefont"`     | Font provider: `"googlefont"`, `"fontsource"`, `"zeoseven"`, or `"custom"` |
+| `font_name`     | String | `"JetBrains Mono"` | Font family name (e.g., `"Inter"`, `"Roboto"`)                             |
+| `font_weights`  | Array  | (_See below_)      | Weights to load (provider-specific format)                                 |
+| `font_display`  | String | `"swap"`           | CSS `font-display` value: `"swap"`, `"block"`, `"auto"`, etc.              |
+| `font_id`       | Number | _None_             | **ZeoSeven only**: Numeric ID from font URL                                |
+| `font_css_urls` | Array  | _None_             | **Custom only**: Array of CSS URLs for font definitions                    |
 
-You can also use other font cdn by changing `config.extra.font_cdn` to `"custom"` and provide `font_name` and a `font_css_urls` array. It also enables you to use local fonts.
+#### Font Weights by Provider
+
+| Provider     | Format           | Example      |
+| ------------ | ---------------- | ------------ |
+| Google Fonts | Array of numbers | `[400, 700]` |
+| Fontsource   | Array of strings | `["main"]`   |
+| ZeoSeven     | Array of numbers | `[400, 700]` |
+
+#### Examples
+
+```toml
+# Google Fonts
+[extra]
+font_cdn = "googlefont"
+font_name = "Inter"
+font_weights = [300, 400, 500, 700]
+font_display = "swap"
+
+# Fontsource
+[extra]
+font_cdn = "fontsource"
+font_name = "JetBrains Mono"
+font_weights = ["main"]
+
+# ZeoSeven
+[extra]
+font_cdn = "zeoseven"
+font_name = "Custom Font"
+font_id = 443
+font_weights = [400, 700]
+
+# Custom CSS
+[extra]
+font_cdn = "custom"
+font_name = "My Custom Font"
+font_css_urls = [
+    "https://example.com/fonts/custom-font.css",
+    "https://cdn.example.com/typography.css"
+]
+```
 
 ---
 
