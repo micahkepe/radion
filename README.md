@@ -36,22 +36,30 @@ site demo [here](https://micahkepe.com/radion/).
 
 ## Contents and Configuration Guide
 
-- [Installation](#installation)
-- [Options](#options)
-  - [Top menu](#top-menu)
-  - [Title](#title)
-  - [Author Attribution](#author-attribution)
-  - [Favicon](#favicon)
-  - [GitHub](#github)
-  - [Code Snippets](#code-snippets)
-  - [LaTex Support](#latex-support)
-  - [Searchbar](#searchbar)
-  - [Light and Dark Modes](#light-and-dark-modes)
-  - [Table of Contents](#table-of-contents)
-  - [Comments](#comments)
-  - [Post Revision History](#post-revision-history)
-  - [Set Post Open Graph Image (Cover Image)](#set-post-open-graph-image-cover-image)
-- [Acknowledgements](#acknowledgements)
+- [radion](#radion)
+  - [Features](#features)
+  - [Contents and Configuration Guide](#contents-and-configuration-guide)
+  - [Installation](#installation)
+  - [Options](#options)
+    - [Top-menu](#top-menu)
+    - [Title](#title)
+    - [Author Attribution](#author-attribution)
+      - [Defining a Global Default Author in `config.toml`](#defining-a-global-default-author-in-configtoml)
+      - [Defining Author(s) Per-Page](#defining-authors-per-page)
+    - [Favicon](#favicon)
+    - [GitHub](#github)
+    - [Code Snippets](#code-snippets)
+      - [Syntax Highlighting:](#syntax-highlighting)
+      - [Enhanced Codeblocks (Clipboard Support and Language Tags)](#enhanced-codeblocks-clipboard-support-and-language-tags)
+    - [LaTex Support](#latex-support)
+    - [Searchbar](#searchbar)
+    - [Light and Dark Modes](#light-and-dark-modes)
+    - [Table of Contents](#table-of-contents)
+    - [Comments](#comments)
+    - [Post Revision History](#post-revision-history)
+    - [Set Post Open Graph Image (Cover Image)](#set-post-open-graph-image-cover-image)
+    - [Custom Font](#custom-font)
+  - [Acknowledgements](#acknowledgements)
 
 ## Installation
 
@@ -296,6 +304,7 @@ corresponding values in the `config.toml`:
 comments = true  # {true, false}; sets global enabling of comments by default
 giscus_repo = "FILL ME IN"
 giscus_repo_id = "FILL ME IN"
+giscus_data_category = "FILL ME IN" # Default to "General"
 giscus_data_category_id = "FILL ME IN"
 ```
 
@@ -381,6 +390,23 @@ cover_image = "cover.png"
 > The image must be located within the page's content directory and
 > `cover_image` expects just the filename of the image (e.g., `"cover.png"`, not
 > a path like `"assets/cover.png"`). The first filename match will be used.
+
+### Custom Font
+
+Currently three font cdn sites are supported:
+- [Google Font (`"googlefont"`)](https://fonts.google.com/)
+- [Fontsource (`"fontsource"`)](https://fontsource.org/)
+- [ZeoSeven Font (`"zeoseven"`)](https://fonts.zeoseven.com/)
+
+`font_id` is required when using ZeoSeven. For example, the [Maple Mono](https://fonts.zeoseven.com/items/443/) has its url of `https://fonts.zeoseven.com/items/443/`, so its `font_id` is `443`.
+
+| Config                      | Default Value                                  |
+|-----------------------------|------------------------------------------------|
+| `config.extra.font_cdn`     | `"googlefont"`                                 |
+| `config.extra.font_weights` | `[400, 700]`                                   |
+| `config.extra.font_name`    | `"JetBrains Mono"`                             |
+| `config.extra.font_display` | `"swap"`                                       |
+| `config.extra.font_id`      | Required when using `"zeoseven"` as `font_cdn` |
 
 ---
 

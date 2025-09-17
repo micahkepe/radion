@@ -352,6 +352,23 @@ cover_image = "cover.png"
 > `cover_image` expects just the filename of the image (e.g., `"cover.png"`, not
 > a path like `"assets/cover.png"`). The first filename match will be used.
 
+### Custom Font
+
+Currently three font cdn sites are supported:
+- [Google Font (`"googlefont"`)](https://fonts.google.com/)
+- [Fontsource (`"fontsource"`)](https://fontsource.org/)
+- [ZeoSeven Font (`"zeoseven"`)](https://fonts.zeoseven.com/)
+
+`font_id` is required when using ZeoSeven. For example, the [Maple Mono](https://fonts.zeoseven.com/items/443/) has its url of `https://fonts.zeoseven.com/items/443/`, so its `font_id` is `443`.
+
+| Config                      | Default Value                                  |
+|-----------------------------|------------------------------------------------|
+| `config.extra.font_cdn`     | `"googlefont"`                                 |
+| `config.extra.font_weights` | `[400, 700]`                                   |
+| `config.extra.font_name`    | `"JetBrains Mono"`                             |
+| `config.extra.font_display` | `"swap"`                                       |
+| `config.extra.font_id`      | Required when using `"zeoseven"` as `font_cdn` |
+
 ---
 
 ## Acknowledgements
