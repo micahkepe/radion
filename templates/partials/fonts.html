@@ -1,5 +1,5 @@
 {% set cdn     = config.extra.font_cdn     | default(value="googlefont") %}
-{% if cdn == "zeoseven" %}
+{% if cdn == "zeoseven" or cdn == "googlefont" %}
   {% set weights = config.extra.font_weights | default(value=[400, 700]) %}
 {% else %}
   {% set weights = config.extra.font_weights | default(value=["main"]) %}
