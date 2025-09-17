@@ -1,9 +1,19 @@
 {% set cdn     = config.extra.font_cdn     | default(value="googlefont") %}
-{% set weights = config.extra.font_weights | default(value=[400, 700]) %}
+{% if cdn == "zeoseven" %}
+  {% set weights = config.extra.font_weights | default(value=[400, 700]) %}
+{% else %}
+  {% set weights = config.extra.font_weights | default(value=["main"]) %}
+{% endif %}
 {% set name    = config.extra.font_name    | default(value="JetBrains Mono") %}
 {% set display = config.extra.font_display | default(value="swap") %}
 
-{% if cdn == "fontsource" %}
+{% if cdn == "custom" %}
+
+  {% for url in config.extra.font_css_urls %}
+    <link href="{{ url }}" rel="stylesheet">
+  {% endfor %}
+
+{% elif cdn == "fontsource" %}
 
   <!-- FontSource.org -->
   <style>
@@ -21,14 +31,16 @@
 {% elif cdn == "zeoseven" %}
 
   <!-- ZeoSeven -->
-  {% set font_url = "https://fontsapi.zeoseven.com/" ~ config.extra.font_id ~ "/main/result.css" %}
-  <link rel="preload" as="style" crossorigin
-      href="{{ font_url }}"
-      onload="this.rel='stylesheet'"
-      onerror="this.href='{{ font_url }}'" />
-  <noscript>
-      <link rel="stylesheet" href="{{ font_url }}" />
-  </noscript>
+  {% for weight in weights %}
+    {% set font_url = "https://fontsapi.zeoseven.com/" ~ config.extra.font_id ~ "/" ~ weight ~"/result.css" %}
+    <link rel="preload" as="style" crossorigin
+        href="{{ font_url }}"
+        onload="this.rel='stylesheet'"
+        onerror="this.href='{{ font_url }}'" />
+    <noscript>
+        <link rel="stylesheet" href="{{ font_url }}" />
+    </noscript>
+  {% endfor %}
 
 {% else %}
 
