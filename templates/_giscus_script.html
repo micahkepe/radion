@@ -1,17 +1,15 @@
-<script
-  src="https://giscus.app/client.js"
-  data-repo="{{ config.extra.giscus_repo }}"
-  data-repo-id="{{ config.extra.giscus_repo_id }}"
-  data-category="General"
-  data-category-id="{{ config.extra.giscus_data_category_id }}"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="bottom"
-  data-theme="preferred_color_scheme"
-  data-lang="en"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+<script type="module" src="https://esm.sh/giscus"></script>
+<giscus-widget
+  id="comments"
+  repo="{{ config.extra.giscus_repo }}"
+  repoid="{{ config.extra.giscus_repo_id }}"
+  category="{{ config.extra.giscus_data_category | default(value="General") }}"
+  categoryid="{{ config.extra.giscus_data_category_id }}"
+  mapping="pathname"
+  reactionsenabled="1"
+  emitmetadata="0"
+  inputposition="bottom"
+  theme="preferred_color_scheme"
+  lang="en"
+  loading="lazy"
+></giscus-widget>

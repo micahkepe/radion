@@ -36,22 +36,30 @@ site demo [here](https://micahkepe.com/radion/).
 
 ## Contents and Configuration Guide
 
-- [Installation](#installation)
-- [Options](#options)
-  - [Top menu](#top-menu)
-  - [Title](#title)
-  - [Author Attribution](#author-attribution)
-  - [Favicon](#favicon)
-  - [GitHub](#github)
-  - [Code Snippets](#code-snippets)
-  - [LaTex Support](#latex-support)
-  - [Searchbar](#searchbar)
-  - [Light and Dark Modes](#light-and-dark-modes)
-  - [Table of Contents](#table-of-contents)
-  - [Comments](#comments)
-  - [Post Revision History](#post-revision-history)
-  - [Set Post Open Graph Image (Cover Image)](#set-post-open-graph-image-cover-image)
-- [Acknowledgements](#acknowledgements)
+- [radion](#radion)
+  - [Features](#features)
+  - [Contents and Configuration Guide](#contents-and-configuration-guide)
+  - [Installation](#installation)
+  - [Options](#options)
+    - [Top-menu](#top-menu)
+    - [Title](#title)
+    - [Author Attribution](#author-attribution)
+      - [Defining a Global Default Author in `config.toml`](#defining-a-global-default-author-in-configtoml)
+      - [Defining Author(s) Per-Page](#defining-authors-per-page)
+    - [Favicon](#favicon)
+    - [GitHub](#github)
+    - [Code Snippets](#code-snippets)
+      - [Syntax Highlighting:](#syntax-highlighting)
+      - [Enhanced Codeblocks (Clipboard Support and Language Tags)](#enhanced-codeblocks-clipboard-support-and-language-tags)
+    - [LaTex Support](#latex-support)
+    - [Searchbar](#searchbar)
+    - [Light and Dark Modes](#light-and-dark-modes)
+    - [Table of Contents](#table-of-contents)
+    - [Comments](#comments)
+    - [Post Revision History](#post-revision-history)
+    - [Set Post Open Graph Image (Cover Image)](#set-post-open-graph-image-cover-image)
+    - [Custom Fonts](#custom-fonts)
+  - [Acknowledgements](#acknowledgements)
 
 ## Installation
 
@@ -287,7 +295,7 @@ toc = true
 
 First, follow the instructions at [giscus.app](https://giscus.app/).
 This includes installing the Giscus app and enabling discussions on the
-GitHup repository that you host the website code. Additionally, fill in the
+GitHub repository that you host the website code. Additionally, fill in the
 repository path in the prompt. Then, from the generated script, fill in the
 corresponding values in the `config.toml`:
 
@@ -297,6 +305,7 @@ comments = true  # {true, false}; sets global enabling of comments by default
 giscus_repo = "FILL ME IN"
 giscus_repo_id = "FILL ME IN"
 giscus_data_category_id = "FILL ME IN"
+# giscus_data_category = "General" # Default to "General"
 ```
 
 Comments can be enabled or disabled on a per page basis by editing the page's
@@ -381,6 +390,67 @@ cover_image = "cover.png"
 > The image must be located within the page's content directory and
 > `cover_image` expects just the filename of the image (e.g., `"cover.png"`, not
 > a path like `"assets/cover.png"`). The first filename match will be used.
+
+### Custom Fonts
+
+Currently three font CDN sites are supported:
+
+1. [Google Font (`"googlefont"`)](https://fonts.google.com/): Fonts from `fonts.google.com`
+2. [Fontsource (`"fontsource"`)](https://fontsource.org/): Self-hosted fonts from `fontsource.org`. Uses WOFF2 files.
+3. [ZeoSeven Font (`"zeoseven"`)](https://fonts.zeoseven.com/): Fonts from
+   `fonts.zeoseven.com`. Requires a `font_id` for URL construction.
+
+To configure, add entries under `[extra]` in your `config.toml`:
+
+| Option          | Type   | Default            | Description                                                                |
+| --------------- | ------ | ------------------ | -------------------------------------------------------------------------- |
+| `font_cdn`      | String | `"googlefont"`     | Font provider: `"googlefont"`, `"fontsource"`, `"zeoseven"`, or `"custom"` |
+| `font_name`     | String | `"JetBrains Mono"` | Font family name (e.g., `"Inter"`, `"Roboto"`)                             |
+| `font_weights`  | Array  | (_See below_)      | Weights to load (provider-specific format)                                 |
+| `font_display`  | String | `"swap"`           | CSS `font-display` value: `"swap"`, `"block"`, `"auto"`, etc.              |
+| `font_id`       | Number | _None_             | **ZeoSeven only**: Numeric ID from font URL                                |
+| `font_css_urls` | Array  | _None_             | **Custom only**: Array of CSS URLs for font definitions                    |
+
+#### Font Weights by Provider
+
+| Provider     | Format           | Example      |
+| ------------ | ---------------- | ------------ |
+| Google Fonts | Array of numbers | `[400, 700]` |
+| Fontsource   | Array of strings | `["main"]`   |
+| ZeoSeven     | Array of numbers | `[400, 700]` |
+
+#### Examples
+
+```toml
+# Google Fonts
+[extra]
+font_cdn = "googlefont"
+font_name = "Inter"
+font_weights = [300, 400, 500, 700]
+font_display = "swap"
+
+# Fontsource
+[extra]
+font_cdn = "fontsource"
+font_name = "JetBrains Mono"
+font_weights = ["main"]
+
+# ZeoSeven
+[extra]
+font_cdn = "zeoseven"
+font_name = "Custom Font"
+font_id = 443
+font_weights = [400, 700]
+
+# Custom CSS
+[extra]
+font_cdn = "custom"
+font_name = "My Custom Font"
+font_css_urls = [
+    "https://example.com/fonts/custom-font.css",
+    "https://cdn.example.com/typography.css"
+]
+```
 
 ---
 

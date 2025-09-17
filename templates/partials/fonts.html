@@ -1,4 +1,64 @@
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+{% set cdn     = config.extra.font_cdn     | default(value="googlefont") %}
+{% if cdn == "zeoseven" or cdn == "googlefont" %}
+  {% set weights = config.extra.font_weights | default(value=[400, 700]) %}
+{% else %}
+  {% set weights = config.extra.font_weights | default(value=["main"]) %}
+{% endif %}
+{% set name    = config.extra.font_name    | default(value="JetBrains Mono") %}
+{% set display = config.extra.font_display | default(value="swap") %}
+
+{% if cdn == "custom" %}
+
+  {% for url in config.extra.font_css_urls %}
+    <link href="{{ url }}" rel="stylesheet">
+  {% endfor %}
+
+{% elif cdn == "fontsource" %}
+
+  <!-- FontSource.org -->
+  <style>
+  {% for weight in weights %}
+  @font-face {
+    font-family: {{ name }};
+    font-style: normal;
+    font-display: {{ display }};
+    font-weight: {{ weight }};
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/{{ name | slugify }}@latest/latin-{{ weight }}-normal.woff2) format('woff2');
+  }
+  {% endfor %}
+  </style>
+
+{% elif cdn == "zeoseven" %}
+
+  <!-- ZeoSeven -->
+  {% for weight in weights %}
+    {% set font_url = "https://fontsapi.zeoseven.com/" ~ config.extra.font_id ~ "/" ~ weight ~"/result.css" %}
+    <link rel="preload" as="style" crossorigin
+        href="{{ font_url }}"
+        onload="this.rel='stylesheet'"
+        onerror="this.href='{{ font_url }}'" />
+    <noscript>
+        <link rel="stylesheet" href="{{ font_url }}" />
+    </noscript>
+  {% endfor %}
+
+{% else %}
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {% for weight in weights %}
+  <link href="https://fonts.googleapis.com/css2?family={{ name | replace(from=" ", to="+")}}:wght@{{ weight }}&display={{ display }}" rel="stylesheet">
+  {% endfor %}
+
+{% endif %}
+
+<!-- Forcing Font -->
+<style>
+body {
+  font-family:
+    "{{ name }}", Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace, serif !important;
+}
+</style>

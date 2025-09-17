@@ -54,6 +54,12 @@ function setTheme(mode) {
     document.body.classList.add("light");
   }
 
+  // Change Gisus theme
+  var comments = document.querySelector('#comments');
+  if (comments) {
+    comments.setAttribute("theme", mode);
+  }
+
   updateThemeIcons(mode);
 }
 
