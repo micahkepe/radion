@@ -55,9 +55,11 @@ function setTheme(mode) {
   }
 
   // Change Gisus theme
-  var comments = document.querySelector('#comments');
-  if (comments) {
-    comments.setAttribute("theme", mode);
+  var iframe = document.querySelector(".giscus-frame");
+  if (iframe) {
+    var url = new URL(iframe.src);
+    url.searchParams.set("theme", mode);
+    iframe.src = url.toString();
   }
 
   updateThemeIcons(mode);
