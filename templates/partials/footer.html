@@ -8,8 +8,8 @@
                 Published by {{ page.authors[0] }}
             {% elif page.authors and page.authors | length > 1 %}
                 Published by {{ page.authors | join(sep=", ") }}
-            {% elif config.extra.author %}
-                Published by {{ config.extra.author }}
+            {% elif config.author %}
+                Published by {{ config.author }}
             {% endif %}
             {% if page.taxonomies.categories %}
                 {% set category = page.taxonomies.categories[0] %}

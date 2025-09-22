@@ -89,14 +89,13 @@ The order of precedence for determining the author shown in a page’s footer is
 
 1. `page.extra.author` (highest precedence)
 2. `page.authors`
-3. `page.config.author` (lowest precedence, default)
+3. `config.author` (lowest precedence, default)
 
 #### Defining a Global Default Author in `config.toml`
 
 In `config.toml`:
 
 ```toml
-[extra]
 author = "John Smith"
 ```
 
