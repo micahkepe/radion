@@ -77,6 +77,8 @@ function toggleTheme() {
 
 /**
  * Updates the visibility of the sun and moon icons based on the theme.
+ *
+ * @param {string} mode - The theme mode to set ("light" or "dark").
  */
 function updateThemeIcons(mode) {
   const sunIcon = document.getElementById("sun-icon");
