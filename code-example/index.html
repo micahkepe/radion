@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+      
+        
+        <meta name="description" content="Have code snippets complete with clipboard functionality and fancy
+language tags. No more boring code snippets in your pages. Oh yeah baby! Click
+on this article to see some code in action." />
+        <meta property="og:description" content="Have code snippets complete with clipboard functionality and fancy
+language tags. No more boring code snippets in your pages. Oh yeah baby! Click
+on this article to see some code in action." />
+        <meta property="twitter:description" content="Have code snippets complete with clipboard functionality and fancy
+language tags. No more boring code snippets in your pages. Oh yeah baby! Click
+on this article to see some code in action." />
+      
+    
+
+    <!-- Title -->
+    
+      
+    
+    <title>
+    
+    Code Example
+    
+</title>
+
+    <!-- Additional Facebook Meta Tags -->
+    <meta property="og:site_name" content="radion theme" />
+    <meta
+      property="og:url"
+      content="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion&#x2F;code-example&#x2F;"
+    />
+    <meta
+      property="og:type"
+      content="article"
+    />
+    <meta property="og:title" content="Code Example" />
+
+    <!-- Additional Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion&#x2F;code-example&#x2F;"
+    />
+    <meta name="twitter:title" content="Code Example" />
+
+    <!-- Cover images -->
+    
+    
+
+    <meta
+      property="og:image"
+      content="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png"
+    />
+
+    <meta
+      name="twitter:image"
+      content="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png"
+    />
+
+
+
+    <!-- Favicons -->
+    
+    <link
+      rel="icon"
+      type="image/png"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/favicon.svg"
+    />
+    <link
+      rel="shortcut icon"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Code Example" />
+    <link
+      rel="manifest"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/site.webmanifest"
+    />
+    
+
+    <!-- RSS Feed -->
+    
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="RSS"
+      href="https://micahkepe.com/radion/atom.xml"
+    />
+    
+
+    <!-- Load Styles -->
+    
+      <link
+        rel="stylesheet"
+        href="https://micahkepe.com/radion/site.css"
+      />
+    
+
+    <!-- Load Fonts -->
+    
+
+  
+
+
+
+
+
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+
+
+
+<!-- Forcing Font -->
+<style>
+body {
+  font-family:
+    "JetBrains Mono", Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace, serif !important;
+}
+</style>
+
+
+    <!-- Pass Theme Preference as Data Attribute -->
+    <script src="https://micahkepe.com/radion/js/init-theme.js"></script>
+
+    <!-- Reference return to click position script -->
+    <script defer src="https://micahkepe.com/radion/js/reference-return.js"></script>
+
+    <!-- Additional scripts -->
+    
+      
+        <script defer src="https://micahkepe.com/radion/js/codeblock.js"></script>
+      
+      
+        <script src="https://micahkepe.com/radion/js/toggle-theme.js"></script>
+      
+      
+<!-- MathJax script for rendering LaTeX math equations -->
+<script src="https://micahkepe.com/radion/js/mathjax-config.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  async
+></script>
+
+
+      
+<script type="text/javascript" src="https://micahkepe.com/radion/elasticlunr.min.js"></script>
+<script type="text/javascript" src="https://micahkepe.com/radion/js/search.js"></script>
+
+    
+  </head>
+
+  <!-- Body element (contents of the page) -->
+  <body class="hack main container">
+    
+  
+    
+    
+      
+  
+  <section class="nav-header">
+    <nav
+      itemscope
+      itemtype="http://schema.org/SiteNavigationElement"
+      class="navbar"
+    >
+      <section class="nav-links">
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://micahkepe.com/radion/"
+        >
+          <span itemprop="name">Home</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://micahkepe.com/radion/categories"
+        >
+          <span itemprop="name">Categories</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://micahkepe.com/radion/tags"
+        >
+          <span itemprop="name">Tags</span>
+        </a>
+        
+      </section>
+    </nav>
+    <aside class="user-actions-container">
+      
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        class="search-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </svg>
+      <input type="text" id="search" placeholder="Search..." />
+      <section class="search-results" aria-live="polite">
+        <article class="search-results__items" role="list"></article>
+      </section>
+       
+      <a id="dark-mode-toggle" href="#">
+        <img
+          src="https://micahkepe.com/radion/icons/sun.svg"
+          id="sun-icon"
+          style="filter: invert(1)"
+          alt="Light mode"
+        />
+        <img
+          src="https://micahkepe.com/radion/icons/moon.svg"
+          id="moon-icon"
+          alt="Dark mode"
+        />
+      </a>
+       
+      <a
+        href="https://micahkepe.com/radion/atom.xml"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://micahkepe.com/radion/icons/rss.svg"
+          id="rss-icon"
+          alt="RSS feed"
+          class="social-icon"
+        />
+      </a>
+       
+      <a
+        href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe&#x2F;radion"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://micahkepe.com/radion/icons/github.svg"
+          id="github-icon"
+          alt="GitHub"
+          class="social-icon"
+        />
+      </a>
+      
+    </aside>
+  </section>
+  
+
+    
+
+
+    <main>
+      
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">Code Example</h1>
+        <data class="muted">
+    <svg class="icon i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <data>1 minute read</data>
+    <svg class="icon i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2017-09-24
+</data>
+    </header>
+
+    <article itemprop="articleBody">
+        
+            <p>Have code snippets complete with <strong>clipboard functionality</strong> and <strong>fancy
+language tags</strong>. No more boring code snippets in your pages. Oh yeah baby! Click
+on this article to see some code in action.</p>
+
+            
+
+            <!-- Render the rest of the content after removing the summary portion -->
+            
+<span id="continue-reading"></span><pre data-lang="rust" style="background-color:#2b303b;color:#6c7079;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#cd74e8;">fn </span><span style="color:#5cb3fa;">main</span><span style="color:#abb2bf;">() {
+</span><span style="color:#abb2bf;">    println!(</span><span style="color:#9acc76;">&quot;Hello World&quot;</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">}
+</span></code></pre>
+<p>Same snippet with line numbers:</p>
+<pre data-linenos data-lang="rust" style="background-color:#2b303b;color:#6c7079;" class="language-rust "><code class="language-rust" data-lang="rust"><table><tbody><tr><td>1</td><td><span style="color:#cd74e8;">fn </span><span style="color:#5cb3fa;">main</span><span style="color:#abb2bf;">() {
+</span></td></tr><tr><td>2</td><td><span style="color:#abb2bf;">    println!(</span><span style="color:#9acc76;">&quot;Hello World&quot;</span><span style="color:#abb2bf;">);
+</span></td></tr><tr><td>3</td><td><span style="color:#abb2bf;">}
+</span></td></tr></tbody></table></code></pre>
+<p>Same snippet with line numbers and line highlighting:</p>
+<pre data-linenos data-lang="rust" style="background-color:#2b303b;color:#6c7079;" class="language-rust "><code class="language-rust" data-lang="rust"><table><tbody><tr><td>1</td><td><span style="color:#cd74e8;">fn </span><span style="color:#5cb3fa;">main</span><span style="color:#abb2bf;">() {
+</span></td></tr><tr><td><mark style="background-color:#8cc2fc0b;">2</mark></td><td><mark style="background-color:#8cc2fc0b;"><span style="color:#abb2bf;">    println!(</span><span style="color:#9acc76;">&quot;Hello World&quot;</span><span style="color:#abb2bf;">);
+</span></mark></td></tr><tr><td>3</td><td><span style="color:#abb2bf;">}
+</span></td></tr></tbody></table></code></pre>
+<p>Python example:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#6c7079;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">main</span><span style="color:#abb2bf;">():
+</span><span style="color:#abb2bf;">    </span><span style="color:#5ebfcc;">print</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;Hello, world!&quot;</span><span style="color:#abb2bf;">)
+</span></code></pre>
+<p>This is another code block with syntax highlighting. It's pretty cool, right?
+You can also have inline code like this: <code>var example = true</code>.</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#6c7079;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#cd74e8;">function </span><span style="color:#5cb3fa;">debounce</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">func</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">wait</span><span style="color:#abb2bf;">) {
+</span><span style="color:#abb2bf;">  </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">timeout</span><span style="color:#abb2bf;">;
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">  </span><span style="color:#cd74e8;">return function </span><span style="color:#abb2bf;">() {
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">context </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">this</span><span style="color:#abb2bf;">;
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">args </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">arguments</span><span style="color:#abb2bf;">;
+</span><span style="color:#abb2bf;">    </span><span style="color:#5ebfcc;">clearTimeout</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">timeout</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">
+</span><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">timeout </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">setTimeout</span><span style="color:#abb2bf;">(</span><span style="color:#cd74e8;">function </span><span style="color:#abb2bf;">() {
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">timeout </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">null</span><span style="color:#abb2bf;">;
+</span><span style="color:#abb2bf;">      </span><span style="color:#eb6772;">func</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">apply</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">context</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">args</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">    }, </span><span style="color:#eb6772;">wait</span><span style="color:#abb2bf;">);
+</span><span style="color:#abb2bf;">  };
+</span><span style="color:#abb2bf;">}
+</span></code></pre>
+<p>C++ example:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#6c7079;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#cd74e8;">#include </span><span style="color:#9acc76;">&lt;iostream&gt;
+</span><span style="color:#cd74e8;">using namespace</span><span style="color:#abb2bf;"> std;
+</span><span style="color:#cd74e8;">int </span><span style="color:#5cb3fa;">main</span><span style="color:#abb2bf;">() {
+</span><span style="color:#abb2bf;">    cout </span><span style="color:#adb7c9;">&lt;&lt; </span><span style="color:#9acc76;">&quot;Hello, World!&quot; </span><span style="color:#adb7c9;">&lt;&lt;</span><span style="color:#abb2bf;"> endl;
+</span><span style="color:#abb2bf;">    </span><span style="color:#cd74e8;">return </span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">;
+</span><span style="color:#abb2bf;">}
+</span></code></pre>
+
+
+        
+    </article>
+
+    <!-- Comment section -->
+    
+      
+        
+          <script
+  src="https://giscus.app/client.js"
+  data-repo="micahkepe&#x2F;radion"
+  data-repo-id="R_kgDONK7lCQ"
+  data-category="General"
+  data-category-id="DIC_kwDONK7lCc4CnfXf"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+
+  
+  data-theme="preferred_color_scheme"
+  
+
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+
+        
+      
+    
+
+
+    <!-- Page footer -->
+    
+    <footer>
+        <hr>
+        <p>
+            
+            
+                
+                in <a href="https://micahkepe.com/radion/categories/demo/">demo</a>
+            
+            
+                and
+                tagged
+                
+                    <a href="https://micahkepe.com/radion/tags/code/">code</a>
+                    
+                        
+                            
+                                and
+                            
+                        
+                    
+                
+                    <a href="https://micahkepe.com/radion/tags/example/">example</a>
+                    
+                        
+                    
+                
+            
+        </p>
+
+        <!-- Revision history (optional) -->
+        
+          
+            
+              
+                
+                
+                <section class="revision-history">
+                  <a href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe&#x2F;radion&#x2F;commits&#x2F;main&#x2F;content&#x2F;code-example.md" target="_blank" rel="noopener noreferrer">
+                    (revision history)
+                  </a>
+                </section>
+              
+            
+          
+        
+
+        
+        
+    </footer>
+
+
+</article>
+
+
+    </main>
+    
+
+  </body>
+</html>
