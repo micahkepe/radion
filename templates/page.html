@@ -32,6 +32,8 @@
             <!-- Render the rest of the content after removing the summary portion -->
             {{ page.content | replace(from=page.summary, to="") | safe }}
 
+            <!-- TODO: change to this if #3001 is merged: https://github.com/getzola/zola/pull/3001 -->
+            <!-- {{ page.content | safe }} -->
         {% else %}
             <!-- If no summary separate from content, just render content -->
             {{ page.content | safe }}
