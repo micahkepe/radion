@@ -7,6 +7,9 @@ This page is about using the LaTeX shortcodes provided by radion.'''
 [taxonomies]
 categories = ["demo"]
 tags = ["latex", "example"]
+
+[extra]
+toc = true
 +++
 
 This theme allows you to use MathJax directly in your Markdown! Click on this

@@ -8,14 +8,13 @@ tags = ["gif", "fancy"]
 
 [extra]
 cover_image = "ferris.png"
+toc = true
 +++
 
 **radion** comes with some handy shortcodes to make your life easier and
 your posts more exciting.
 
 <!-- more -->
-
-Here are some examples:
 
 ## GIF-Support
 
