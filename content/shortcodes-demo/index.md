@@ -50,6 +50,7 @@ Usage:
     playlist=["playlist id"],
     autoplay=[{true, false}],
     start_time_s=[seconds]
+    captions=[{true, false}],
   )
 }}
 </pre>
@@ -64,9 +65,9 @@ $$
 
 <br>
 
-**Example**: Video from a playlist
+**Example**: Video from a playlist with captions
 
-{{ youtube(id="LnzuMJLZRdU", width=80, playlist="PLowKtXNTBypFbtuVMUVXNR0z1mu7dp7eH") }}
+{{ youtube(id="LnzuMJLZRdU", width=80, playlist="PLowKtXNTBypFbtuVMUVXNR0z1mu7dp7eH", captions=true) }}
 
 $$
 \texttt{\{\{ youtube( id="LnzuMJLZRdU", width=80, playlist="PLowKtXNTBypFbtuVMUVXNR0z1mu7dp7eH") \}\}}

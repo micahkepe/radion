@@ -11,6 +11,9 @@
 {% if start_time_s %}
   {% set params = params | concat(with="start=" ~ start_time_s) %}
 {% endif %}
+{% if captions %}
+  {% set params = params | concat(with="cc_load_policy=1") %}
+{% endif %}
 
 {% if params | length > 0 %}
   {% set params = params | join(sep="&") %}
