@@ -36,6 +36,9 @@ index_format = "elasticlunr_json"
 [extra]
 author = "Micah Kepe"
 github = "https://github.com/micahkepe/radion"
+fediverse.creator = "@username@my.instance.example.com"
+fediverse.rel_me = "https://my.instance.example.com/@username"
+mastodon = "https://my.instance.example.com/@username"
 radion_menu = [
     {url = "$BASE_URL/", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
