@@ -81,6 +81,19 @@
           class="social-icon"
         />
       </a>
+      {% endif %} {% if config.extra.mastodon %}
+      <a
+        href="{{ config.extra.mastodon }}"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="{{ get_url(path='icons/mastodon.svg') }}"
+          id="mastodon-icon"
+          alt="Mastodon"
+          class="social-icon"
+        />
+      </a>
       {% endif %}
     </aside>
   </section>

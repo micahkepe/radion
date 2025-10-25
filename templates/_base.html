@@ -55,6 +55,13 @@
     />
     <meta name="twitter:title" content="{% block twitter_title %}{{ title }}{% endblock twitter_title %}" />
 
+    <!-- Additional Fediverse Tags -->
+    {% if config.extra.fediverse.creator %}
+    <meta name="fediverse:creator" content="{{ config.extra.fediverse.creator }}" />
+    {% endif %} {% if config.extra.fediverse.rel_me %}
+    <link rel="me" href="{{ config.extra.fediverse.rel_me }}" />
+    {% endif %}
+
     <!-- Cover images -->
     {% set cover_image = config.base_url ~ "/icons/favicon/web-app-manifest-512x512.png" %}
     {% if page and page.extra.cover_image and page.assets %}

@@ -45,6 +45,7 @@ site demo [here](https://micahkepe.com/radion/).
     - [Defining Author(s) Per\-Page](#defining-authors-per-page)
   - [Favicon](#favicon)
   - [GitHub](#github)
+  - [Fediverse and Mastodon](#fediverse-and-mastodon)
   - [Code Snippets](#code-snippets)
     - [Syntax Highlighting:](#syntax-highlighting)
     - [Enhanced Codeblocks (Clipboard Support and Language Tags)](#enhanced-codeblocks-clipboard-support-and-language-tags)
@@ -205,6 +206,25 @@ To enable a GitHub reference link in the header, set the following in your
 ```toml
 [extra]
 github = "https://github.com/your-github-link"
+```
+
+### Fediverse and Mastodon
+
+In your `config.toml` you can set options related to the Fediverse and
+explicitly Mastodon.
+
+To enable author attribution, set the `extra.fediverse.creator` option to your
+account address. To enable website verification, set the
+`extra.fediverse.rel_me` option to a link to your profile.
+
+Set the `extra.mastodon` field to a link to your Mastodon account to show a
+Mastodon logo with this link.
+
+```toml
+[extra]
+fediverse.creator = "@username@my.instance.example.com"
+fediverse.rel_me = "https://my.instance.example.com/@username"
+mastodon = "https://my.instance.example.com/@username"
 ```
 
 ### Code Snippets
