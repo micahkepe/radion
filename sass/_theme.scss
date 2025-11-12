@@ -136,6 +136,10 @@ a[rel*="external"] {
   margin-bottom: 0.25em;
 }
 
+.invert-icon {
+  filter: invert(1)
+}
+
 /* Dark mode toggle specific styles to ensure alignment */
 #dark-mode-toggle {
   display: flex;
