@@ -130,6 +130,18 @@
       />
     {% endblock styles %}
 
+    <!-- Syntax highlighting theming -->
+    {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
+      <link
+         rel="stylesheet" type="text/css"
+         href="{{ config.base_url }}/syntax/syntax-theme-dark.css"
+      />
+      <link
+         rel="stylesheet" type="text/css"
+         href="{{ config.base_url }}/syntax/syntax-theme-light.css"
+      />
+    {% endif %}
+
     <!-- Load Fonts -->
     {% include "partials/fonts.html" %}
 

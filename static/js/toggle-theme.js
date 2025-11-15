@@ -54,6 +54,9 @@ function setTheme(mode) {
     document.body.classList.add("light");
   }
 
+  // Toggle syntax highlighting stylesheets
+  updateSyntaxTheme(mode);
+
   // Change Giscus theme
   var iframe = document.querySelector(".giscus-frame");
   if (iframe) {
@@ -88,6 +91,29 @@ function toggleTheme() {
     ? "light"
     : "dark";
   setTheme(newTheme);
+}
+
+/**
+ * Updates syntax highlighting theme by enabling/disabling stylesheets.
+ * @param {string} mode - The theme mode ("light" or "dark").
+ */
+function updateSyntaxTheme(mode) {
+  const darkStylesheet = document.querySelector(
+    'link[href*="syntax-theme-dark.css"]',
+  );
+  const lightStylesheet = document.querySelector(
+    'link[href*="syntax-theme-light.css"]',
+  );
+
+  if (darkStylesheet && lightStylesheet) {
+    if (mode === "dark") {
+      darkStylesheet.disabled = false;
+      lightStylesheet.disabled = true;
+    } else {
+      darkStylesheet.disabled = true;
+      lightStylesheet.disabled = false;
+    }
+  }
 }
 
 /**
