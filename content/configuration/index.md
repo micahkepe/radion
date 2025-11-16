@@ -194,8 +194,6 @@ mastodon = "https://my.instance.example.com/@username"
 This theme uses **class-based syntax highlighting** for better security (CSP
 compliance) and theme flexibility.
 
-### Configuration
-
 In your `config.toml`:
 
 ```toml
@@ -210,7 +208,7 @@ highlight_themes_css = [
 ]
 ```
 
-### Choosing Themes
+##### Choosing Themes
 
 1. Browse available themes at [Zola's syntax highlighting
    docs](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting)
@@ -221,8 +219,9 @@ highlight_themes_css = [
 > **Note**: If you change the syntax themes, delete the `static/syntax`
 > directory to ensure that the new Syntect CSS files are properly updated.
 
-### Migration from Previous Versions
-
+{{ note(
+header="Migration from Previous Versions"
+body='
 **Breaking Change:** If upgrading from an older version that used inline styles:
 
 1. Change `highlight_theme` from a specific theme name to `"css"`
@@ -232,6 +231,8 @@ highlight_themes_css = [
 
 This change improves security by removing inline styles and enables proper CSP
 headers.
+'
+)}}
 
 #### Enhanced Codeblocks (Clipboard Support and Language Tags)
 
