@@ -94,7 +94,45 @@
           class="social-icon"
         />
       </a>
-      {% endif %}
+      {% endif %} {% if config.languages | length > 0 %}
+      <div class="lang-dropdown-container">
+        <a class="lang-dropdown-btn">
+          {{ config.extra.lang_aliases[lang]
+              | default(value=config.languages[lang].name
+              | default(value=lang)) }}
+        </a>
+        <div class="lang-dropdown-menu">
+          {% for lang_code, lang_config in config.languages %}
+            {% if lang_code == lang %}
+              {% continue %}
+            {% endif %}
+            {% if page is defined and page.translations %}
+              {% set translation = page.translations | filter(attribute="lang", value=lang_code) | first %}
+              {% if translation %}
+                <a href="{{ translation.permalink | safe }}">
+                  {{ config.extra.lang_aliases[lang_code]
+                      | default(value=lang_config.name | default(value=lang_code)) }}
+                </a>
+                {% continue %}
+              {% endif %}
+            {% endif %}
+            {% if section is defined and section.translations %}
+              {% set translation = section.translations | filter(attribute="lang", value=lang_code) | first %}
+              {% if translation %}
+                <a href="{{ translation.permalink | safe }}">
+                  {{ config.extra.lang_aliases[lang_code]
+                      | default(value=lang_config.name | default(value=lang_code)) }}
+                </a>
+                {% continue %}
+              {% endif %}
+            {% endif %}
+            <a href="{{ get_url(path='/', lang=lang_code) | safe }}">
+              {{ config.extra.lang_aliases[lang_code]
+                  | default(value=lang_config.name | default(value=lang_code)) }}
+            </a>
+          {% endfor %}
+        </div>
+      </div> {% endif %}
     </aside>
   </section>
   {% endif %}

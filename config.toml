@@ -12,6 +12,10 @@ taxonomies = [
 # When set to "true", a search index is built from the pages and section
 # content for `default_language`.
 build_search_index = true
+default_language = "en"
+
+# If you want to support multiple languages, list them like this.
+[languages.zh]
 
 [markdown]
 # Whether to do syntax highlighting
@@ -74,3 +78,6 @@ giscus_data_category_id = "DIC_kwDONK7lCc4CnfXf"
 # Post revision history
 revision_history = true
 blog_github_repo_url = "https://github.com/micahkepe/radion"
+
+# language alias
+lang_aliases = { en = "English", zh = "中文", jp = "日本語", ko = "한국어" }

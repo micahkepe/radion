@@ -287,3 +287,53 @@ article [itemprop="summary"] p {
     content: none;
   }
 }
+
+.lang-dropdown-container {
+  position: relative;
+  display: inline-flex;
+  height: calc(1.5em + 0.25em + 0.8px);
+}
+
+.lang-dropdown-btn {
+  display: inline-flex;
+  font-weight: bold;
+  white-space: nowrap;
+  align-items: center;
+  height: 100%;
+  min-width: 5em;
+}
+
+.lang-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--menu-bg);
+  padding: 0.2em 0;
+  flex-direction: column;
+  gap: 0.7em;
+  box-shadow: var(--shadow);
+  z-index: 50;
+
+  a::after {
+    content: none !important;
+  }
+
+  a {
+    display: block;
+    padding: 0.5em 0;
+    text-decoration: none;
+    width: 100%;
+    white-space: nowrap;
+    font-weight: bold;
+
+    &:hover {
+      background: var(--hover-bg);
+    }
+  }
+}
+
+.lang-dropdown-container:hover .lang-dropdown-menu {
+  display: flex;
+}
