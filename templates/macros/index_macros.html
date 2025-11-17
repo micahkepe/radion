@@ -96,12 +96,23 @@
       </a>
       {% endif %} {% if config.languages | length > 0 %}
       <div class="lang-dropdown-container">
-        <a class="lang-dropdown-btn">
+        <button
+          class="lang-dropdown-btn"
+          id="lang-dropdown-btn"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="lang-dropdown-menu"
+          type="button"
+        >
           {{ config.extra.lang_aliases[lang]
               | default(value=config.languages[lang].name
               | default(value=lang)) }}
-        </a>
-        <div class="lang-dropdown-menu">
+        </button>
+        <div
+          class="lang-dropdown-menu"
+          id="lang-dropdown-menu"
+          role="listbox"
+        >
           {% for lang_code, lang_config in config.languages %}
             {% if lang_code == lang %}
               {% continue %}
