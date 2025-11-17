@@ -337,3 +337,7 @@ article [itemprop="summary"] p {
 .lang-dropdown-container:hover .lang-dropdown-menu {
   display: flex;
 }
+
+.lang-dropdown-container:focus-within .lang-dropdown-menu {
+  display: flex;
+}
