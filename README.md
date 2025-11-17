@@ -244,9 +244,12 @@ highlight_theme = "css"  # Required for class-based highlighting
 # Specify theme(s) for dark and light modes
 highlight_themes_css = [
   { theme = "one-dark", filename = "syntax/syntax-theme-dark.css" },
-  { theme = "one-dark", filename = "syntax/syntax-theme-light.css" },
+  { theme = "gruvbox-dark", filename = "syntax/syntax-theme-light.css" },
 ]
 ```
+
+For example, the above configuration will use the `one-dark` theme for dark mode
+and the `gruvbox-dark` theme for light mode.
 
 ##### Choosing Themes
 
