@@ -219,7 +219,15 @@ function initSearch() {
 
   // Helper functions to show/hide the search modal
   function showSearchModal() {
+    // Save current scroll position
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Calculate scrollbar width to prevent layout shift
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
     document.body.classList.add("modal-open");
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
 
     $searchResults.classList.add("active");
     $searchBackdrop.classList.add("active");
@@ -235,6 +243,11 @@ function initSearch() {
     $searchResults.classList.remove("active");
     $searchBackdrop.classList.remove("active");
     document.body.classList.remove("modal-open");
+    document.body.style.top = '';
+    document.body.style.paddingRight = '';
+
+    // Restore scroll position
+    window.scrollTo(0, scrollPosition);
 
     // Clear both inputs and results
     $searchInput.value = "";

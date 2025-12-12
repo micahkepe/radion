@@ -63,11 +63,21 @@
 }
 
 /* Prevent body scroll when modal is open */
-body.modal-open,
-body.modal-open html {
-  overflow: hidden !important;
-  height: 100%;
-  position: relative;
+body.modal-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+
+  /* Hide scrollbar in Firefox */
+  scrollbar-width: none !important;
+
+  /* Hide scrollbar in Chrome/Safari */
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
 }
 
 /* Backdrop overlay for search modal */
