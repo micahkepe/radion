@@ -190,8 +190,26 @@ body.modal-open html {
   font-family: inherit;
 }
 
+/* Prevent browser autofill/autocomplete from adding white background */
+#search-modal:-webkit-autofill,
+#search-modal:-webkit-autofill:hover,
+#search-modal:-webkit-autofill:focus,
+#search-modal:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #2a2a2a inset !important;
+  -webkit-text-fill-color: var(--text-color, #fff) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .light #search-modal {
   color: #000;
+}
+
+.light #search-modal:-webkit-autofill,
+.light #search-modal:-webkit-autofill:hover,
+.light #search-modal:-webkit-autofill:focus,
+.light #search-modal:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #000 !important;
 }
 
 #search-modal::placeholder {
