@@ -152,7 +152,7 @@ function makeTeaser(body, terms) {
  * @return {string} - The escaped string safe for HTML rendering.
  */
 function escapeHtml(unsafe) {
-  if (typeof unsafe !== 'string') return '';
+  if (typeof unsafe !== "string") return "";
   return unsafe
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -170,16 +170,16 @@ function escapeHtml(unsafe) {
  */
 function formatSearchResultItem(item, terms) {
   // Create article element
-  const article = document.createElement('article');
-  article.className = 'search-results__item';
+  const article = document.createElement("article");
+  article.className = "search-results__item";
 
   // Create link with title
-  const link = document.createElement('a');
+  const link = document.createElement("a");
   link.href = item.ref;
   link.textContent = item.doc.title;
 
   // Create section with teaser (makeTeaser returns HTML string with <b> tags)
-  const section = document.createElement('section');
+  const section = document.createElement("section");
   section.innerHTML = makeTeaser(item.doc.body, terms);
 
   article.appendChild(link);
@@ -197,6 +197,7 @@ function initSearch() {
   var $searchModalInput = document.getElementById("search-modal");
   var $searchResults = document.querySelector(".search-results");
   var $searchResultsItems = document.querySelector(".search-results__items");
+  var $searchResultsCount = document.getElementById("search-results-count");
   var $searchBackdrop = document.querySelector(".search-backdrop");
   var $slashIcon = document.getElementById("slash-icon");
   var MAX_ITEMS = 10;
@@ -223,7 +224,8 @@ function initSearch() {
     scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
     // Calculate scrollbar width to prevent layout shift
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
 
     document.body.classList.add("modal-open");
     document.body.style.top = `-${scrollPosition}px`;
@@ -243,8 +245,8 @@ function initSearch() {
     $searchResults.classList.remove("active");
     $searchBackdrop.classList.remove("active");
     document.body.classList.remove("modal-open");
-    document.body.style.top = '';
-    document.body.style.paddingRight = '';
+    document.body.style.top = "";
+    document.body.style.paddingRight = "";
 
     // Restore scroll position
     window.scrollTo(0, scrollPosition);
@@ -253,16 +255,32 @@ function initSearch() {
     $searchInput.value = "";
     $searchModalInput.value = "";
     $searchResultsItems.innerHTML = "";
+    $searchResultsCount.classList.remove("visible");
+    $searchResultsCount.innerHTML = "";
     selectedIndex = -1;
+  }
+
+  // Function to update results count display
+  function updateResultsCount(count, query) {
+    if (!$searchResultsCount) return;
+
+    if (count > 0 && query) {
+      const resultText = count === 1 ? "result" : "results";
+      $searchResultsCount.innerHTML = `${count} ${resultText} for "<strong>${escapeHtml(query)}</strong>"`;
+      $searchResultsCount.classList.add("visible");
+    } else {
+      $searchResultsCount.classList.remove("visible");
+      $searchResultsCount.innerHTML = "";
+    }
   }
 
   // Function to update selected item
   function updateSelection(newIndex) {
-    const items = $searchResultsItems.querySelectorAll('.search-results__item');
+    const items = $searchResultsItems.querySelectorAll(".search-results__item");
     if (items.length === 0) return;
 
     // Remove previous selection
-    items.forEach(item => item.classList.remove('selected'));
+    items.forEach((item) => item.classList.remove("selected"));
 
     // Clamp index
     if (newIndex < 0) newIndex = 0;
@@ -272,8 +290,11 @@ function initSearch() {
 
     // Add selection to new item
     if (items[selectedIndex]) {
-      items[selectedIndex].classList.add('selected');
-      items[selectedIndex].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      items[selectedIndex].classList.add("selected");
+      items[selectedIndex].scrollIntoView({
+        block: "nearest",
+        behavior: "smooth",
+      });
     }
   }
 
@@ -323,7 +344,10 @@ function initSearch() {
   function updateSlashIconVisibility() {
     if ($slashIcon) {
       // Hide if field is focused OR has text, show only when unfocused AND empty
-      if (document.activeElement === $searchInput || $searchInput.value.trim() !== "") {
+      if (
+        document.activeElement === $searchInput ||
+        $searchInput.value.trim() !== ""
+      ) {
         $slashIcon.classList.add("hidden");
       } else {
         $slashIcon.classList.remove("hidden");
@@ -335,7 +359,7 @@ function initSearch() {
   $searchInput.addEventListener("input", updateSlashIconVisibility);
 
   // Hide slash icon when search field is focused
-  $searchInput.addEventListener("focus", function() {
+  $searchInput.addEventListener("focus", function () {
     updateSlashIconVisibility();
     // Open modal when navbar search is focused
     showSearchModal();
@@ -345,12 +369,12 @@ function initSearch() {
   $searchInput.addEventListener("blur", updateSlashIconVisibility);
 
   // When typing in navbar search, open modal and sync to modal input
-  $searchInput.addEventListener("input", function() {
+  $searchInput.addEventListener("input", function () {
     if ($searchInput.value.length > 0) {
       showSearchModal();
       $searchModalInput.value = $searchInput.value;
       // Trigger search on modal input
-      $searchModalInput.dispatchEvent(new Event('input'));
+      $searchModalInput.dispatchEvent(new Event("input"));
     }
   });
 
@@ -369,6 +393,7 @@ function initSearch() {
 
       if (term === "") {
         // Show empty state but keep modal open
+        updateResultsCount(0, "");
         return;
       }
 
@@ -376,30 +401,37 @@ function initSearch() {
       if (results.length === 0) {
         // show "No results found"
         const noResultsItem = document.createElement("li");
-        noResultsItem.className = "search-results__item search-results__no-results";
+        noResultsItem.className =
+          "search-results__item search-results__no-results";
         noResultsItem.textContent = "No results found...";
         $searchResultsItems.appendChild(noResultsItem);
+        updateResultsCount(0, "");
         return;
       }
 
+      // Update results count with total results (not just displayed items)
+      updateResultsCount(results.length, term);
+
       // Sanitize user input (search terms) before using
-      const sanitizedTerms = term.split(" ").map(t => escapeHtml(t));
+      const sanitizedTerms = term.split(" ").map((t) => escapeHtml(t));
 
       for (var i = 0; i < Math.min(results.length, MAX_ITEMS); i++) {
         var item = document.createElement("li");
         item.appendChild(formatSearchResultItem(results[i], sanitizedTerms));
 
         // Add click handler for each item
-        item.addEventListener('click', function() {
-          const link = this.querySelector('a');
+        item.addEventListener("click", function () {
+          const link = this.querySelector("a");
           if (link) {
             window.location.href = link.href;
           }
         });
 
         // Add hover handler to update selection
-        item.addEventListener('mouseenter', function() {
-          const items = Array.from($searchResultsItems.querySelectorAll('.search-results__item'));
+        item.addEventListener("mouseenter", function () {
+          const items = Array.from(
+            $searchResultsItems.querySelectorAll(".search-results__item"),
+          );
           const index = items.indexOf(this);
           if (index >= 0) {
             updateSelection(index);
@@ -416,7 +448,7 @@ function initSearch() {
 
   // Handle arrow key navigation and Enter key
   $searchModalInput.addEventListener("keydown", function (e) {
-    const items = $searchResultsItems.querySelectorAll('.search-results__item');
+    const items = $searchResultsItems.querySelectorAll(".search-results__item");
     if (items.length === 0) return;
 
     if (e.key === "ArrowDown") {
@@ -427,7 +459,7 @@ function initSearch() {
       updateSelection(selectedIndex - 1);
     } else if (e.key === "Enter" && selectedIndex >= 0) {
       e.preventDefault();
-      const link = items[selectedIndex].querySelector('a');
+      const link = items[selectedIndex].querySelector("a");
       if (link) {
         window.location.href = link.href;
       }
@@ -447,7 +479,11 @@ function initSearch() {
   // event listener for `/` to open search modal
   document.addEventListener("keydown", function (e) {
     // Only open modal if we're not already typing in an input
-    if (e.key === "/" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+    if (
+      e.key === "/" &&
+      document.activeElement.tagName !== "INPUT" &&
+      document.activeElement.tagName !== "TEXTAREA"
+    ) {
       // don't have input be `/`
       e.preventDefault();
       showSearchModal();
