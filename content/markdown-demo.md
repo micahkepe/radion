@@ -161,7 +161,20 @@ wrapping the text in square brackets and the URL in parentheses.
     amet id laboris pariatur ea ut exercitation Lorem velit et nisi nulla
     occaecat voluptate
 
-[^2]: Wikipedia article on a cool topic: [https://en.wikipedia.org/wiki/Isometric_projection](https://en.wikipedia.org/wiki/Isometric_projection)
+    ```rust
+    fn main() {
+        todo!();
+    }
+    ```
+
+[^2]:
+    Wikipedia article on a cool topic: [https://en.wikipedia.org/wiki/Isometric_projection](https://en.wikipedia.org/wiki/Isometric_projection)
+
+    > Isometric projection is a method for visually representing
+    > three-dimensional objects in two dimensions in technical and engineering
+    > drawings. It is an axonometric projection in which the three coordinate
+    > axes appear equally foreshortened and the angle between any two of them is
+    > 120 degrees.
 
 [^3]:
     Here's one with multiple paragraphs and code. This is the first paragraph

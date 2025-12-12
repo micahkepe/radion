@@ -27,12 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
     returnLink.setAttribute("role", "link");
     returnLink.setAttribute("tabindex", "0");
 
-    // Append to the last p tag
-    const lastParagraph = fn.querySelector("p:last-of-type");
-    if (lastParagraph) {
-      lastParagraph.appendChild(returnLink);
+    // Append inline to last paragraph, or after last element otherwise
+    const lastEl = fn.lastElementChild;
+    if (lastEl && lastEl.tagName === "P") {
+      lastEl.appendChild(returnLink);
     } else {
-      // If no paragraph, append to the footnote definition directly
       fn.appendChild(returnLink);
     }
   });
