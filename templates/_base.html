@@ -29,7 +29,7 @@
 
     <!-- Title -->
     {% if page and page.title %}
-      {% set title = page.title %}
+      {% set title = page.title | safe %}
     {% else %}
       {% set title = config.title %}
     {% endif %}

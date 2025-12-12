@@ -19,7 +19,7 @@
     <article itemscope itemtype="http://schema.org/CreativeWork">
         <header>
             <h2 itemprop="name">
-                <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                <a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a>
             </h2>
             <data class="muted">{{ self::meta(page=page) }}</data>
         </header>
