@@ -146,18 +146,46 @@ function makeTeaser(body, terms) {
 }
 
 /**
- * Formats a search result item into HTML.
+ * Escapes HTML special characters to prevent XSS attacks.
+ * Only used for sanitizing user input (search terms).
+ * @param {string} unsafe - The unsafe string to escape.
+ * @return {string} - The escaped string safe for HTML rendering.
+ */
+function escapeHtml(unsafe) {
+  if (typeof unsafe !== 'string') return '';
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;")
+    .replace(/\//g, "&#x2F;");
+}
+
+/**
+ * Formats a search result item into a DOM element.
  * @param {Object} item - The search result item containing a reference and document.
- * @param {Array<string>} terms - The search terms used for highlighting.
- * @return {string} - The formatted HTML string for the search result item.
+ * @param {Array<string>} terms - The search terms used for highlighting (sanitized).
+ * @return {HTMLElement} - The formatted article element for the search result.
  */
 function formatSearchResultItem(item, terms) {
-  return (
-    '<article class="search-results__item">' +
-    `<a href="${item.ref}">${item.doc.title}</a>` +
-    `<section>${makeTeaser(item.doc.body, terms)}</section>` +
-    "</article>"
-  );
+  // Create article element
+  const article = document.createElement('article');
+  article.className = 'search-results__item';
+
+  // Create link with title
+  const link = document.createElement('a');
+  link.href = item.ref;
+  link.textContent = item.doc.title;
+
+  // Create section with teaser (makeTeaser returns HTML string with <b> tags)
+  const section = document.createElement('section');
+  section.innerHTML = makeTeaser(item.doc.body, terms);
+
+  article.appendChild(link);
+  article.appendChild(section);
+
+  return article;
 }
 
 /**
@@ -240,17 +268,19 @@ function initSearch() {
       if (results.length === 0) {
         // show "No results found"
         $searchResults.style.display = "block";
-        $searchResultsItems.innerHTML = `
-          <li class="search-results__item search-results__no-results">
-            No results found...
-          </li>
-        `;
+        const noResultsItem = document.createElement("li");
+        noResultsItem.className = "search-results__item search-results__no-results";
+        noResultsItem.textContent = "No results found...";
+        $searchResultsItems.appendChild(noResultsItem);
         return;
       }
 
+      // Sanitize user input (search terms) before using
+      const sanitizedTerms = term.split(" ").map(t => escapeHtml(t));
+
       for (var i = 0; i < Math.min(results.length, MAX_ITEMS); i++) {
         var item = document.createElement("li");
-        item.innerHTML = formatSearchResultItem(results[i], term.split(" "));
+        item.appendChild(formatSearchResultItem(results[i], sanitizedTerms));
         $searchResultsItems.appendChild(item);
       }
     }, 150),
