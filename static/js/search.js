@@ -196,6 +196,7 @@ function initSearch() {
   var $searchInput = document.getElementById("search");
   var $searchResults = document.querySelector(".search-results");
   var $searchResultsItems = document.querySelector(".search-results__items");
+  var $slashIcon = document.getElementById("slash-icon");
   var MAX_ITEMS = 10;
 
   var options = {
@@ -250,6 +251,27 @@ function initSearch() {
     return index;
   };
 
+  // Function to toggle slash icon visibility
+  function updateSlashIconVisibility() {
+    if ($slashIcon) {
+      // Hide if field is focused OR has text, show only when unfocused AND empty
+      if (document.activeElement === $searchInput || $searchInput.value.trim() !== "") {
+        $slashIcon.classList.add("hidden");
+      } else {
+        $slashIcon.classList.remove("hidden");
+      }
+    }
+  }
+
+  // Update slash icon visibility on input
+  $searchInput.addEventListener("input", updateSlashIconVisibility);
+
+  // Hide slash icon when search field is focused
+  $searchInput.addEventListener("focus", updateSlashIconVisibility);
+
+  // Show slash icon when search field loses focus (if empty)
+  $searchInput.addEventListener("blur", updateSlashIconVisibility);
+
   $searchInput.addEventListener(
     "keyup",
     debounce(async function () {
@@ -293,6 +315,8 @@ function initSearch() {
       // clear search query to go back to placeholder
       $searchInput.value = "";
       $searchInput.blur();
+      // Show slash icon again since input is now empty
+      updateSlashIconVisibility();
     }
   });
 

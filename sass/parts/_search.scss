@@ -1,15 +1,40 @@
+/* Container for search elements */
+.search-container {
+  position: relative;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
 /* Style the magnifying glass SVG */
 .search-icon {
   position: absolute;
   left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 24px;
   height: 24px;
   /* default gray */
   stroke: var(--text-color, #757575);
   /* Adjust icon color */
   pointer-events: none;
-  /* Ensure the SVG doesn't block input interaction */
-  padding: 2.5px 0px;
+}
+
+/* Style the slash-square icon */
+.slash-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+  pointer-events: none;
+  stroke: var(--text-color, #757575);
+}
+
+.slash-icon.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Input field styling */

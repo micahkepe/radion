@@ -23,23 +23,31 @@
     </nav>
     <aside class="user-actions-container">
       {% if config.extra.enable_search %}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        class="search-icon"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+      <div class="search-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          class="search-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
+        </svg>
+        <input type="text" id="search" placeholder="Search..." />
+        <img
+          src="{{ get_url(path='icons/slash-square.svg') }}"
+          id="slash-icon"
+          class="slash-icon"
+          alt="Press / to search"
         />
-      </svg>
-      <input type="text" id="search" placeholder="Search..." />
-      <section class="search-results" aria-live="polite">
-        <article class="search-results__items" role="list"></article>
-      </section>
+        <section class="search-results" aria-live="polite">
+          <article class="search-results__items" role="list"></article>
+        </section>
+      </div>
       {% endif %} {% if config.extra.theme | default(value="toggle") ==
       "toggle" %}
       <a id="dark-mode-toggle" href="#">
