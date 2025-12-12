@@ -5,6 +5,12 @@
   max-width: 400px;
 }
 
+@media (max-width: 480px) {
+  .search-container {
+    max-width: 100%;
+  }
+}
+
 /* Style the magnifying glass SVG */
 .search-icon {
   position: absolute;
@@ -148,7 +154,7 @@ body.modal-open {
 @media (max-width: 768px) {
   .search-results {
     width: calc(100% - 1rem);
-    height: 90vh;
+    height: 60vh;
     max-height: none;
     border-radius: 8px;
   }
