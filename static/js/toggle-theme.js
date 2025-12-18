@@ -8,8 +8,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const storedTheme = localStorage.getItem("theme-storage");
   const defaultThemeOption = document.documentElement.dataset.theme || "toggle";
-
-  let currentTheme;
+  let currentTheme = storedTheme || defaultThemeOption;
 
   // Prioritize `config.extra.theme` over localStorage, if available
   if (
@@ -21,7 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
   } else if (storedTheme) {
     currentTheme = storedTheme;
   } else {
-    currentTheme = "dark"; // Default to dark
+    // Set to prefer user system preference, if available, else default to dark
+    try {
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      currentTheme = systemTheme;
+    } catch (e) {
+      currentTheme = "dark";
+    }
   }
 
   // Apply the theme
@@ -35,6 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleTheme();
     });
   }
+
+  // Add event listener for changes to prefers-color-scheme
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", function (event) {
+      setTheme(event.matches ? "dark" : "light");
+    });
 });
 
 /**
