@@ -1,6 +1,7 @@
 /* Vendor styles */
 html {
   font-size: clamp(16px, 1.2vw + 1px, 18px);
+  scrollbar-gutter: stable;
 }
 
 * {

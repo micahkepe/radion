@@ -130,14 +130,18 @@ body.modal-open {
 .search-results {
   display: none;
   position: fixed;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   top: 50%;
   left: 50%;
+  right: auto;
+  bottom: auto;
   transform: translate(-50%, -50%);
   width: calc(100% - 2rem);
   max-width: 650px;
   height: 80vh;
   max-height: 500px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   background-color: #2a2a2a;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -148,7 +152,7 @@ body.modal-open {
 
 .search-results.active {
   display: flex;
-  animation: slideUp 0.3s ease;
+  animation: slideUp 0.3s ease both;
 }
 
 @media (max-width: 768px) {
