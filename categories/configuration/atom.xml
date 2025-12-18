@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>radion theme - configuration</title>
+    <subtitle>A elegant light and dark theme for Zola</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://micahkepe.com/radion/categories/configuration/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://micahkepe.com/radion"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-06-01T00:00:00+00:00</updated>
+    <id>https://micahkepe.com/radion/categories/configuration/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Configuration Options</title>
+        <published>2025-06-01T00:00:00+00:00</published>
+        <updated>2025-06-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Joe Schmoe
+          </name>
+        </author>
+        
+        <author>
+          <name>
+            Jane Doe
+          </name>
+        </author>
+        
+        <author>
+          <name>
+            John Smith
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://micahkepe.com/radion/configuration/"/>
+        <id>https://micahkepe.com/radion/configuration/</id>
+        
+        <summary type="html">&lt;p&gt;This page describes the configuration options available for the &lt;code&gt;radion&lt;&#x2F;code&gt; theme.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+</feed>
