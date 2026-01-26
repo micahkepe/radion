@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <!-- Enable responsiveness on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+      
+        <meta name="description" content="A demonstration of providing a description on a per-page basis. 
+This page is about using the LaTeX shortcodes provided by radion." />
+        <meta property="og:description" content="A demonstration of providing a description on a per-page basis. 
+This page is about using the LaTeX shortcodes provided by radion." />
+        <meta property="twitter:description" content="A demonstration of providing a description on a per-page basis. 
+This page is about using the LaTeX shortcodes provided by radion." />
+      
+    
+
+    <!-- Title -->
+    
+      
+    
+    <title>
+    
+    LaTeX Example
+    
+</title>
+
+    <!-- Additional Facebook Meta Tags -->
+    <meta property="og:site_name" content="radion theme" />
+    <meta
+      property="og:url"
+      content="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion&#x2F;latex-example&#x2F;"
+    />
+    <meta
+      property="og:type"
+      content="article"
+    />
+    <meta property="og:title" content="LaTeX Example" />
+
+    <!-- Additional Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion&#x2F;latex-example&#x2F;"
+    />
+    <meta name="twitter:title" content="LaTeX Example" />
+
+    <!-- Additional Fediverse Tags -->
+    
+    <meta name="fediverse:creator" content="@username@my.instance.example.com" />
+     
+    <link rel="me" href="https:&#x2F;&#x2F;my.instance.example.com&#x2F;@username" />
+    
+
+    <!-- Cover images -->
+    
+    
+
+    <meta
+      property="og:image"
+      content="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png"
+    />
+
+    <meta
+      name="twitter:image"
+      content="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png"
+    />
+
+    <!-- Favicons -->
+    
+    <link
+      rel="icon"
+      type="image/png"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/favicon.svg"
+    />
+    <link
+      rel="shortcut icon"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="LaTeX Example" />
+    <link
+      rel="manifest"
+      href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/icons/favicon/site.webmanifest"
+    />
+    
+
+    <!-- RSS Feed -->
+    
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="RSS"
+      href="https://micahkepe.com/radion/atom.xml"
+    />
+    
+
+    <!-- Load Styles -->
+    
+      <link
+        rel="stylesheet"
+        href="https://micahkepe.com/radion/site.css"
+      />
+    
+
+    <!-- Syntax highlighting theming -->
+    
+      <link
+         rel="stylesheet" type="text/css"
+         href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/syntax/syntax-theme-dark.css"
+      />
+      <link
+         rel="stylesheet" type="text/css"
+         href="https:&#x2F;&#x2F;micahkepe.com&#x2F;radion/syntax/syntax-theme-light.css"
+      />
+    
+
+    <!-- Load Fonts -->
+    
+
+  
+
+
+
+
+
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+
+
+
+<!-- Forcing Font -->
+<style>
+body {
+  font-family:
+    "JetBrains Mono", Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace, serif !important;
+}
+</style>
+
+
+    <!-- Pass Theme Preference as Data Attribute -->
+    <script src="https://micahkepe.com/radion/js/init-theme.js"></script>
+
+    <!-- Reference return to click position script -->
+    <script defer src="https://micahkepe.com/radion/js/reference-return.js"></script>
+
+    <!-- Additional scripts -->
+    
+      
+        <script defer src="https://micahkepe.com/radion/js/codeblock.js"></script>
+      
+      
+        <script src="https://micahkepe.com/radion/js/toggle-theme.js"></script>
+      
+      
+<!-- MathJax script for rendering LaTeX math equations -->
+<script src="https://micahkepe.com/radion/js/mathjax-config.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  async
+></script>
+
+
+      
+  <script type="text/javascript" src="https://micahkepe.com/radion/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://micahkepe.com/radion/js/search.js"></script>
+
+
+    
+  </head>
+
+  <!-- Body element (contents of the page) -->
+  <body class="hack main container">
+    
+  
+    
+    
+      
+  
+  <section class="nav-header">
+    <nav
+      itemscope
+      itemtype="http://schema.org/SiteNavigationElement"
+      class="navbar"
+    >
+      <section class="nav-links">
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://micahkepe.com/radion/"
+        >
+          <span itemprop="name">Home</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://micahkepe.com/radion/categories"
+        >
+          <span itemprop="name">Categories</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://micahkepe.com/radion/tags"
+        >
+          <span itemprop="name">Tags</span>
+        </a>
+        
+      </section>
+    </nav>
+    <aside class="user-actions-container">
+      
+      <section class="search-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          class="search-icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
+        </svg>
+        <input type="text" id="search" placeholder="Search..." />
+        <img
+          src="https://micahkepe.com/radion/icons/slash-square.svg"
+          id="slash-icon"
+          class="slash-icon"
+          alt="Press / to search"
+        />
+      </section>
+       
+      <a id="dark-mode-toggle" href="#">
+        <img
+          src="https://micahkepe.com/radion/icons/sun.svg"
+          id="sun-icon"
+          class="invert-icon"
+          alt="Light mode"
+        />
+        <img
+          src="https://micahkepe.com/radion/icons/moon.svg"
+          id="moon-icon"
+          alt="Dark mode"
+        />
+      </a>
+       
+      <a
+        href="https://micahkepe.com/radion/atom.xml"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://micahkepe.com/radion/icons/rss.svg"
+          id="rss-icon"
+          alt="RSS feed"
+          class="social-icon"
+        />
+      </a>
+       
+      <a
+        href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe&#x2F;radion"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://micahkepe.com/radion/icons/github.svg"
+          id="github-icon"
+          alt="GitHub"
+          class="social-icon"
+        />
+      </a>
+       
+      <a
+        href="https:&#x2F;&#x2F;my.instance.example.com&#x2F;@username"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://micahkepe.com/radion/icons/mastodon.svg"
+          id="mastodon-icon"
+          alt="Mastodon"
+          class="social-icon"
+        />
+      </a>
+      
+    </aside>
+  </section>
+  
+  <!-- Search modal overlay and results (positioned globally) -->
+  <section class="search-backdrop"></section>
+  <dialog class="search-results" aria-live="polite">
+    <article class="search-modal-header">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        class="search-modal-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </svg>
+      <input type="text" id="search-modal" placeholder="Search..." />
+    </article>
+    <article class="search-results-count" id="search-results-count"></article>
+    <article class="search-results__items" role="list"></article>
+    <footer class="search-modal-footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> to navigate</span>
+      <span><kbd>↵ </kbd> to select</span>
+      <span><kbd>esc</kbd> to close</span>
+    </footer>
+  </dialog>
+  
+  
+
+    
+
+
+    <main>
+      
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">LaTeX Example</h1>
+        <data class="muted">
+    <svg class="icon i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <data>2 minute read</data>
+    <svg class="icon i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2017-09-24
+</data>
+    </header>
+
+    <article itemprop="articleBody">
+        
+            <p>This theme allows you to use MathJax directly in your Markdown! Click on this
+article to see some fancy math in action. Little teaser:
+$$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
+
+            
+              <details class="toc-container">
+  <summary class="toc-title">Table of Contents</summary>
+  <ul class="toc-list">
+    
+    <li>
+      <a href="https://micahkepe.com/radion/latex-example/#another-cool-thingy">Another cool thingy</a>
+      
+      <ul>
+        
+        <li>
+          <a href="https://micahkepe.com/radion/latex-example/#base-case-h-0">Base Case: $h = 0$</a>
+        </li>
+         
+        <li>
+          <a href="https://micahkepe.com/radion/latex-example/#base-case-h-1">Base Case: $h = 1$</a>
+        </li>
+         
+        <li>
+          <a href="https://micahkepe.com/radion/latex-example/#inductive-step">Inductive Step:</a>
+        </li>
+         
+      </ul>
+      
+    </li>
+    
+    <li>
+      <a href="https://micahkepe.com/radion/latex-example/#different-latex-fonts">Different $\LaTeX$ Fonts</a>
+      
+    </li>
+    
+    <li>
+      <a href="https://micahkepe.com/radion/latex-example/#escape-characters">Escape Characters</a>
+      
+    </li>
+    
+  </ul>
+</details>
+
+            
+
+            <!-- Render the rest of the content after removing the summary portion -->
+            
+<span id="continue-reading"></span>
+<p>We can show LaTeX display math by using either the <code>\\[ ... \\]</code> or <code>$$ ... $$</code>
+environments:</p>
+<p>$$
+\frac{d}{dx} \left( \int_{0}^{x} f(u) , du \right) = f(x)
+$$</p>
+<p>\[
+\frac{d}{dx} \left( \int_{g(x)}^{h(x)} f(u) , du \right) = f(h(x)) h'(x) -
+f(g(x)) g'(x)
+\]</p>
+<p>LaTeX can be written inline as well using the <code>\\( ... \\)</code> or <code>$ ... $</code>
+environments: $x = 25$ or \(y = \pi\)</p>
+<h2 id="another-cool-thingy"><a class="zola-anchor" href="#another-cool-thingy" aria-label="Anchor link for: another-cool-thingy">Another cool thingy</a></h2>
+<p>We will prove this statement by induction on $h$.</p>
+<h3 id="base-case-h-0"><a class="zola-anchor" href="#base-case-h-0" aria-label="Anchor link for: base-case-h-0">Base Case: $h = 0$</a></h3>
+<p>The AVL tree of height 0 has no nodes, so $N_0 = 0$. The Fibonacci number
+$F_{0+2} = F_2 = 1$. Therefore,</p>
+<p>$$
+N_0 = 0 \geq F_2 - 1 = 1 - 1 = 0
+$$</p>
+<p>which holds true.</p>
+<h3 id="base-case-h-1"><a class="zola-anchor" href="#base-case-h-1" aria-label="Anchor link for: base-case-h-1">Base Case: $h = 1$</a></h3>
+<p>The AVL tree of height 1 has one node, so $N_1 = 1$. The Fibonacci number
+$F_{1+2} = F_3 = 2$. Therefore,</p>
+<p>$$
+N_1 = 1 \geq F_3 - 1 = 2 - 1 = 1
+$$</p>
+<p>which holds true.</p>
+<h3 id="inductive-step"><a class="zola-anchor" href="#inductive-step" aria-label="Anchor link for: inductive-step">Inductive Step:</a></h3>
+<p>Assume the claim holds true for $h = k$. That is,</p>
+<p>$$
+N_{k} \geq F_{k+2} - 1 \tag{I.H.}
+$$</p>
+<p>For $h = k+1$, we know:</p>
+<p>$$
+N_{k+1} = N_{k} + N_{k-1} + 1 \tag{def. of $N_h$}
+$$</p>
+<p>From the inductive hypothesis, $N_{k} \geq F_{k+2} - 1$ and $N_{k-1} \geq
+F_{k+1} - 1$. Substituting:</p>
+<p>$$
+N_{k+1} = N_{k} + N_{k - 1} + 1 \geq (F_{k+2} - 1) + (F_{k+1} - 1) + 1
+$$</p>
+<p>Thus, we get:</p>
+<p>$$
+N_{k+1} \geq F_{k+2} + F_{k+1} - 1
+$$</p>
+<p>By the definition of Fibonacci numbers:</p>
+<p>$$
+N_{k+1} \geq F_{k+3} - 1
+$$</p>
+<p>By the principle of mathematical induction, the statement holds for all $h
+\geq 0$.</p>
+<hr />
+<h2 id="different-latex-fonts"><a class="zola-anchor" href="#different-latex-fonts" aria-label="Anchor link for: different-latex-fonts">Different $\LaTeX$ Fonts</a></h2>
+<p>$$
+\text{Normal text.}\
+\textit{Italic text.}\
+\texttt{Typewriter text.}\
+$$</p>
+<hr />
+<h2 id="escape-characters"><a class="zola-anchor" href="#escape-characters" aria-label="Anchor link for: escape-characters">Escape Characters</a></h2>
+<p>To disambiguate the use of the dollar sign, you can use the backslash
+character to escape it: <code>\\$</code>.</p>
+<p>Example:</p>
+<pre data-lang="text" class="language-text z-code"><code class="language-text" data-lang="text"><span class="z-text z-plain">&gt; To write the dollar sign, use \\$ in your text. That way, if there is another
+</span><span class="z-text z-plain">&gt; dollar sign in your text like this \\$, it will not be confused with the start of a math
+</span><span class="z-text z-plain">&gt; environment.
+</span></code></pre>
+<p>This will render as:</p>
+<blockquote>
+<p>To write the dollar sign, use \$ in your text. That way, if there is another
+dollar sign in your text like this \$, it will not be confused with the start of a math
+environment.</p>
+</blockquote>
+
+
+        
+    </article>
+
+    <!-- Comment section -->
+    
+      
+        
+          <script
+  src="https://giscus.app/client.js"
+  data-repo="micahkepe&#x2F;radion"
+  data-repo-id="R_kgDONK7lCQ"
+  data-category="General"
+  data-category-id="DIC_kwDONK7lCc4CnfXf"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+
+  
+  data-theme="preferred_color_scheme"
+  
+
+  data-lang="en"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async
+></script>
+
+        
+      
+    
+
+
+    <!-- Page footer -->
+    
+    <footer>
+        <hr>
+        <p>
+            
+            
+                
+                in <a href="https://micahkepe.com/radion/categories/demo/">demo</a>
+            
+            
+                and
+                tagged
+                
+                    <a href="https://micahkepe.com/radion/tags/latex/">latex</a>
+                    
+                        
+                            
+                                and
+                            
+                        
+                    
+                
+                    <a href="https://micahkepe.com/radion/tags/example/">example</a>
+                    
+                        
+                    
+                
+            
+        </p>
+
+        <!-- Revision history (optional) -->
+        
+          
+            
+              
+                
+                
+                <section class="revision-history">
+                  <a href="https:&#x2F;&#x2F;github.com&#x2F;micahkepe&#x2F;radion&#x2F;commits&#x2F;main&#x2F;content&#x2F;latex-example.md" target="_blank" rel="noopener noreferrer">
+                    (revision history)
+                  </a>
+                </section>
+              
+            
+          
+        
+
+        
+        
+    </footer>
+
+
+</article>
+
+
+    </main>
+    
+
+  </body>
+</html>
