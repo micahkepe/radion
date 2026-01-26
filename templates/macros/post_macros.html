@@ -23,9 +23,13 @@
             </h2>
             <data class="muted">{{ self::meta(page=page) }}</data>
         </header>
-        {% if page.summary %}
-            <section itemprop="summary">
-                {{ page.summary | safe }}
+        {% if page.description or page.summary %}
+        <section itemprop="summary">
+	            {% if page.description %}
+                    {{ page.description | safe }}
+	            {% else %}
+	            {{ page.summary | safe }}
+	            {% endif %}
                 <nav class="readmore"><a itemprop="url" href="{{ page.permalink | safe }}">Read More&nbsp;&raquo;</a></nav>
             </section>
         {% endif %}
