@@ -61,6 +61,11 @@ footer {
   align-items: center;
 }
 
+.nav-links {
+  display: flex;
+  gap: 1ch;
+}
+
 footer time[datetime$="M"]:before {
   content: "\2013\0020";
 }
