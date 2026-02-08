@@ -113,20 +113,16 @@ function toggleTheme() {
  * @param {string} mode - The theme mode ("light" or "dark").
  */
 function updateSyntaxTheme(mode) {
-  const darkStylesheet = document.querySelector(
-    'link[href*="syntax-theme-dark.css"]',
-  );
-  const lightStylesheet = document.querySelector(
-    'link[href*="syntax-theme-light.css"]',
-  );
+  const darkStylesheet = document.getElementById("giallo-dark");
+  const lightStylesheet = document.getElementById("giallo-light");
 
   if (darkStylesheet && lightStylesheet) {
     if (mode === "dark") {
-      darkStylesheet.disabled = false;
-      lightStylesheet.disabled = true;
+      darkStylesheet.media = "all";
+      lightStylesheet.media = "not all";
     } else {
-      darkStylesheet.disabled = true;
-      lightStylesheet.disabled = false;
+      darkStylesheet.media = "not all";
+      lightStylesheet.media = "all";
     }
   }
 }

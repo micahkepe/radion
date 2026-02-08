@@ -130,26 +130,21 @@
       />
     {% endblock styles %}
 
-    <!-- Syntax highlighting theming -->
-    {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
-      <link
-         rel="stylesheet" type="text/css"
-         href="{{ config.base_url }}/syntax/syntax-theme-dark.css"
-      />
-      <link
-         rel="stylesheet" type="text/css"
-         href="{{ config.base_url }}/syntax/syntax-theme-light.css"
-      />
-    {% endif %}
+    <!-- Syntax highlighting theming (giallo) -->
+    <link id="giallo-dark" rel="stylesheet" type="text/css"
+      href="{{ config.base_url }}/giallo-dark.css"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link id="giallo-light" rel="stylesheet" type="text/css"
+      href="{{ config.base_url }}/giallo-light.css"
+      media="(prefers-color-scheme: light)"
+    />
 
     <!-- Load Fonts -->
     {% include "partials/fonts.html" %}
 
     <!-- Pass Theme Preference as Data Attribute -->
     <script src="{{ get_url(path='js/init-theme.js', trailing_slash=false) | safe }}"></script>
-
-    <!-- Reference return to click position script -->
-    <script defer src="{{ get_url(path='js/reference-return.js', trailing_slash=false) | safe }}"></script>
 
     <!-- Additional scripts -->
     {% block scripts %}
