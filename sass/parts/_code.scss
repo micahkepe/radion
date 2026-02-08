@@ -1,3 +1,24 @@
+// Giallo base styles (Zola >=0.22 syntax highlighting)
+.giallo-l {
+  display: inline-block;
+  min-height: 1lh;
+  width: 100%;
+}
+
+.giallo-ln {
+  display: inline-block;
+  user-select: none;
+  margin-right: 0.4em;
+}
+
+// Workaround: giallo generates duplicate `.z-punctuation` rules with conflicting
+// colors, causing the wrong color to win. Using `pre` for higher specificity to
+// fall back to the default foreground color set by `.z-code` (theme-agnostic).
+// Tracking issue: https://github.com/getzola/giallo/issues/45
+pre .z-punctuation {
+  color: inherit;
+}
+
 // Define language colors map
 $language-colors: (
   "js": #e9c92c,

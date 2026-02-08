@@ -118,8 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create and append the language label
     const langClass = codeBlock.className.match(/language-(\w+)/);
-    // If no language label, default to "text"
-    const langCode = langClass ? langClass[1].toLowerCase() : "text";
+    // If no language class, check data-lang attribute (giallo/Zola >=0.22)
+    const langCode = langClass
+      ? langClass[1].toLowerCase()
+      : (codeBlock.getAttribute("data-lang") || "text").toLowerCase();
 
     const label = document.createElement("span");
 

@@ -1,2 +1,5 @@
 .idea/
 public
+
+# Generated Giallo syntax highlighting theme files
+static/*.css
