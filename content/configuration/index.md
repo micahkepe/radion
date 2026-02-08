@@ -201,7 +201,7 @@ In your `config.toml`:
 [markdown.highlighting]
 style = "class"
 dark_theme = "material-theme-palenight"
-light_theme = "gruvbox-dark-medium"
+light_theme = "everforest-light"
 ```
 
 The above configuration will use the `material-theme-palenight` theme for dark
@@ -236,7 +236,7 @@ or earlier (Zola <0.22):
    + [markdown.highlighting]
    + style = "class"
    + dark_theme = "one-dark-pro"
-   + light_theme = "gruvbox-dark-medium"
+   + light_theme = "everforest-light"
    ```
 
 2. Delete the `static/syntax/` directory (old syntect CSS files)

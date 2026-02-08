@@ -11,35 +11,33 @@ taxonomies = [
     {name = "tags", feed = true},
 ]
 
-# When set to "true", a search index is built from the pages and section
-# content for `default_language`.
+default_language = "en"
 build_search_index = true
+generate_sitemap = true
+generate_robots_txt = true
+minify_html = true
 
 [markdown]
-# Whether footnotes are rendered in the GitHub-style (at the bottom, with back
-# references) or plain (in the place, where they are defined)
 bottom_footnotes = true
-
-# This determines whether to insert a link for each header like the ones you
-# can see on this site if you hover over a header.
-# The default template can be overridden by creating an `anchor-link.html` file
-# in the `templates` directory.
-# This value can be "left", "right", "heading" or "none".
-# "heading" means the full heading becomes the text of the anchor.
-# See "Internal links & deep linking" in the documentation for more information.
+external_links_target_blank = true
+external_links_external = true
+external_links_no_referrer = true
+lazy_async_image = true
+github_alerts = true
 insert_anchor_links = "heading"
 
 [markdown.highlighting]
-# Render syntax highlighting with CSS classes instead of inline styles
 style = "class"
-# For available themes, see: https://github.com/getzola/giallo
-# - A live demo the available themes can be found here:
-#   https://textmate-grammars-themes.netlify.app/
+# Theme gallery: https://textmate-grammars-themes.netlify.app/
 dark_theme = "material-theme-palenight"
-light_theme = "gruvbox-dark-medium"
+light_theme = "everforest-light"
+error_on_missing_language = true
 
 [search]
 index_format = "elasticlunr_json"
+include_title = true
+include_description = true
+include_content = true
 
 [extra]
 author = "Micah Kepe"
