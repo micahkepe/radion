@@ -156,9 +156,9 @@ body.dark .social-icon {
   filter: invert(1);
 }
 
-/* Remove external link icon from figures */
-figure a[href*="://"]::after,
-figure a[rel*="external"] {
+/* Remove external link icon from figures (excluding table wrappers) */
+figure:not(.table-wrapper) a[href*="://"]::after,
+figure:not(.table-wrapper) a[rel*="external"] {
   content: "";
 }
 

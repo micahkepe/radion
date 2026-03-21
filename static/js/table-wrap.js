@@ -3,6 +3,7 @@ document.querySelectorAll("article[itemprop='articleBody'] > table").forEach(fun
   wrapper.style.overflowX = "auto";
   wrapper.style.webkitOverflowScrolling = "touch";
   wrapper.style.margin = "0";
+  wrapper.className = "table-wrapper";
   table.parentNode.insertBefore(wrapper, table);
   wrapper.appendChild(table);
 });
