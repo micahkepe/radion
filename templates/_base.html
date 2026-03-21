@@ -154,6 +154,7 @@
       {% if config.extra.theme %}
         <script src="{{ get_url(path='js/toggle-theme.js', trailing_slash=false) | safe }}"></script>
       {% endif %}
+      <script defer src="{{ get_url(path='js/table-wrap.js', trailing_slash=false) | safe }}"></script>
       {% include "partials/latex.html" %}
       {% include "partials/search.html" %}
     {% endblock scripts %}
