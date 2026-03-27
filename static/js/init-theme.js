@@ -7,16 +7,22 @@
 
 (function () {
   try {
-    const storedTheme = localStorage.getItem("theme-storage");
-    const defaultTheme = "{{ config.extra.theme | default(value='toggle') }}";
-    let theme;
+    var storedTheme = localStorage.getItem("theme-storage");
+    var defaultTheme = document.documentElement.dataset.theme || "toggle";
+    var theme;
 
-    if (["light", "dark", "auto"].includes(defaultTheme)) {
+    if (defaultTheme === "light" || defaultTheme === "dark") {
       theme = defaultTheme;
-    } else if (storedTheme) {
-      theme = storedTheme;
+    } else if (defaultTheme === "auto" || defaultTheme === "toggle") {
+      if (storedTheme === "light" || storedTheme === "dark") {
+        theme = storedTheme;
+      } else {
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      }
     } else {
-      theme = "dark"; // fallback default
+      theme = "dark";
     }
 
     // Apply theme class directly
@@ -25,14 +31,21 @@
     if (document.body) {
       document.body.classList.add(theme);
     } else {
-      // Defer body class application
       window.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add(theme);
       });
     }
+
+    // Force syntax highlighting stylesheets to match the resolved theme.
+    // Without this, the browser applies them based on OS prefers-color-scheme,
+    // which may not match the stored user preference.
+    var d = document.getElementById("giallo-dark");
+    var l = document.getElementById("giallo-light");
+    if (d && l) {
+      d.media = theme === "dark" ? "all" : "not all";
+      l.media = theme === "light" ? "all" : "not all";
+    }
   } catch (e) {
-    // In case localStorage access fails
     document.documentElement.classList.add("dark");
-    document.body.classList.add("dark");
   }
 })();

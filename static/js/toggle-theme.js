@@ -10,23 +10,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const defaultThemeOption = document.documentElement.dataset.theme || "toggle";
   let currentTheme = storedTheme || defaultThemeOption;
 
-  // Prioritize `config.extra.theme` over localStorage, if available
-  if (
-    defaultThemeOption === "dark" ||
-    defaultThemeOption === "light" ||
-    defaultThemeOption === "auto"
-  ) {
+  if (defaultThemeOption === "dark" || defaultThemeOption === "light") {
+    // Fixed theme set in config
     currentTheme = defaultThemeOption;
-  } else if (storedTheme) {
+  } else if (storedTheme === "light" || storedTheme === "dark") {
+    // User explicitly toggled before — respect their choice
     currentTheme = storedTheme;
   } else {
-    // Set to prefer user system preference, if available, else default to dark
+    // No explicit choice — follow system preference
     try {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
+      currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
-      currentTheme = systemTheme;
     } catch (e) {
       currentTheme = "dark";
     }
@@ -53,11 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * Updates the theme mode in local storage and applies it to the page.
+ * Updates the theme mode and applies it to the page.
  * @param {string} mode - The theme mode to set ("light" or "dark").
+ * @param {boolean} [persist=false] - Whether to save the choice to localStorage.
  */
-function setTheme(mode) {
-  localStorage.setItem("theme-storage", mode);
+function setTheme(mode, persist) {
+  if (persist) {
+    localStorage.setItem("theme-storage", mode);
+  }
   document.documentElement.classList.remove("light", "dark");
   document.body.classList.remove("light", "dark");
 
@@ -105,7 +103,7 @@ function toggleTheme() {
   const newTheme = document.documentElement.classList.contains("dark")
     ? "light"
     : "dark";
-  setTheme(newTheme);
+  setTheme(newTheme, true);
 }
 
 /**

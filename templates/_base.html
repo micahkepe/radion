@@ -2,7 +2,7 @@
 {% import "macros/index_macros.html" as index_macros %}
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="{{ config.extra.theme | default(value='toggle') }}">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -143,7 +143,7 @@
     <!-- Load Fonts -->
     {% include "partials/fonts.html" %}
 
-    <!-- Pass Theme Preference as Data Attribute -->
+    <!-- Initialize theme before paint -->
     <script src="{{ get_url(path='js/init-theme.js', trailing_slash=false) | safe }}"></script>
 
     <!-- Additional scripts -->
