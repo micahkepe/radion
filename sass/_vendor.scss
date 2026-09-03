@@ -47,8 +47,6 @@ fieldset {
 pre {
   padding: 2rem;
   margin: 1.75rem 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
   overflow: auto
 }
 
@@ -482,13 +480,16 @@ a.zola-anchor:hover {
   }
 }
 
-.light .hack code {
-  background: rgba($color: #d0cfd5, $alpha: 1);
+.light .hack code:not(pre code) {
+  background: #e8e3df;
+  color: #1f2328;
   border-radius: 4px;
   padding: 2px 6px;
 }
 
-.dark .hack code {
+.dark .hack code:not(pre code) {
+  background: rgba(#c9d1d9, 0.15);
+  color: #e1e4e8;
   border-radius: 4px;
   padding: 2px 6px;
 }
@@ -1175,24 +1176,14 @@ select.form-control {
 }
 
 
-.dark,
-.dark pre {
+.dark {
   background-color: #000
 }
 
-.light,
-.light pre {
+.light {
   background-color: #f6f7f4;
 }
 
-.light .dark pre {
-  padding: 10px;
-  border: none
-}
-
-.light .dark pre code {
-  color: #00bcd4
-}
 
 .dark h1 a,
 .dark h2 a,
@@ -1202,7 +1193,6 @@ select.form-control {
   color: #ccc
 }
 
-.dark code,
 .dark strong {
   color: #fff
 }

@@ -29,8 +29,8 @@ insert_anchor_links = "heading"
 [markdown.highlighting]
 style = "class"
 # Theme gallery: https://textmate-grammars-themes.netlify.app/
-dark_theme = "material-theme-palenight"
-light_theme = "everforest-light"
+dark_theme = "everforest-dark"
+light_theme = "everforest-dark"
 error_on_missing_language = true
 
 [search]
