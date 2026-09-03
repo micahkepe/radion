@@ -9,14 +9,23 @@
   display: inline-block;
   user-select: none;
   margin-right: 0.4em;
+  margin-left: 0.2em;
 }
 
-// Workaround: giallo generates duplicate `.z-punctuation` rules with conflicting
-// colors, causing the wrong color to win. Using `pre` for higher specificity to
-// fall back to the default foreground color set by `.z-code` (theme-agnostic).
-// Tracking issue: https://github.com/getzola/giallo/issues/45
-pre .z-punctuation {
-  color: inherit;
+// Stronger line numbers and highlights than giallo defaults
+pre .giallo-ln {
+  color: #8c959f;
+}
+
+// Dark code block background in both themes
+pre.z-l-code {
+  background-color: #24292E;
+}
+
+pre .z-d-hl,
+pre .z-l-hl {
+  background-color: rgba(255, 208, 0, 0.15);
+  border-left: 3px solid rgba(255, 208, 0, 0.8);
 }
 
 // Define language colors map
@@ -129,7 +138,6 @@ $language-colors: (
 }
 
 pre {
-  background-color: var(--bg-primary) !important;
   border-radius: 5px;
   border: none;
   line-height: 1.4;
@@ -140,26 +148,13 @@ pre {
   -webkit-overflow-scrolling: touch;
 
   code {
-    background-color: transparent !important;
-    color: inherit;
     border: none;
-    padding: 0 !important;
+    padding: 0;
 
     table td {
       padding: 0.4em;
     }
   }
-}
-
-.light code table td {
-  color: #ffffff !important;
-}
-
-pre code table mark {
-  color: unset;
-  padding: 0;
-  background-color: #204e8a !important;
-  filter: brightness(1.1);
 }
 
 pre::-webkit-scrollbar {
@@ -175,15 +170,16 @@ pre::-webkit-scrollbar-track {
   background-color: #1E222A;
 }
 
-a {
-  code:hover {
-    background-color: transparent;
-    background: transparent !important;
-  }
+a code:hover {
+  background: transparent;
 }
 
-code {
-  background-color: var(--bg-primary);
+// No-JS default: page is light without .dark/.light class, regardless of OS theme
+code:not(pre code) {
+  background: #d0cbc6;
+  color: #1f2328;
+  border-radius: 4px;
+  padding: 2px 6px;
 }
 
 code,

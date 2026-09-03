@@ -131,12 +131,10 @@ At the top of a page in its frontmatter (wrap this in `+++`):
 
    For example, you can see on this page there are multiple authors attributed.
 
-{{ note(
-body="
+{% <note> %}
 **Do not** define both `extra.author` and `authors` in the same page
 unless you want `extra.author` to take precedence.
-"
-)}}
+{% </note> %}
 
 ### Favicon
 
@@ -217,9 +215,7 @@ generate `giallo-dark.css` and `giallo-light.css` in the build output.
 3. Run `zola serve` or `zola build` — the CSS files will be regenerated
    automatically
 
-{{ note(
-header="Migration from v1.0.0 (syntect)"
-body='
+{% <note header="Migration from v1.0.0 (syntect)"> %}
 If upgrading from [v1.0.0](https://github.com/micahkepe/radion/releases/tag/v1.0.0)
 or earlier (Zola <0.22):
 
@@ -241,8 +237,7 @@ or earlier (Zola <0.22):
 
 2. Delete the `static/syntax/` directory (old syntect CSS files)
 3. Run `zola build` to generate the new giallo CSS files
-   '
-   )}}
+{% </note> %}
 
 #### Enhanced Codeblocks (Clipboard Support and Language Tags)
 
@@ -251,13 +246,10 @@ or earlier (Zola <0.22):
 codeblock = true
 ```
 
-{{ note(
-header="Note: Ligatures"
-body="
+{% <note header="Note: Ligatures"> %}
 Ligatures are **disabled by default** as defined in the
 [\_theme.scss](https://github.com/micahkepe/radion/blob/main/sass/_theme.scss) file.
-"
-)}}
+{% </note> %}
 
 ### LaTex Support
 

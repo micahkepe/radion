@@ -2,7 +2,7 @@
 title = "LaTeX Example" 
 date = 2017-09-24
 description = '''A demonstration of providing a description on a per-page basis. 
-This page is about using the LaTeX shortcodes provided by radion.'''
+This page is about using the LaTeX components provided by radion.'''
 
 [taxonomies]
 categories = ["demo"]
