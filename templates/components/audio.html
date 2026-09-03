@@ -1,0 +1,11 @@
+{% component audio(source: string, width = 100) %}
+<section style="width: 100%; max-width: {{ width }}%; margin: 0 auto; text-align: center;">
+  <audio controls="controls">
+    <source type="audio/mp3" src="{{ source | safe }}">
+    </source>
+    <source type="audio/ogg" src="{{ source | safe }}">
+    </source>
+    <p>Your browser does not support the audio element.</p>
+  </audio>
+</section>
+{% endcomponent audio %}

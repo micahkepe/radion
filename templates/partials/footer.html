@@ -38,7 +38,7 @@
           {% if config.extra.revision_history | default(value="false") %}
             {% if page.extra.revision_history | default(value="false") %}
               {% if config.extra.blog_github_repo_url %}
-                {% set base_url = config.extra.blog_github_repo_url | trim_end_matches(pat="/") %}
+                {% set base_url = config.extra.blog_github_repo_url | trim_end(pat="/") %}
                 {% set commits_url = base_url ~ "/commits/main/content/" ~ page.relative_path %}
                 <section class="revision-history">
                   <a href="{{ commits_url }}" target="_blank" rel="noopener noreferrer">

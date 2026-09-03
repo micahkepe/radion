@@ -1,6 +1,3 @@
-{% import "macros/post_macros.html" as post_macros %}
-{% import "macros/index_macros.html" as index_macros %}
-
 <!doctype html>
 <html lang="en" data-theme="{{ config.extra.theme | default(value='toggle') }}">
   <head>
@@ -66,7 +63,7 @@
     {% set cover_image = config.base_url ~ "/icons/favicon/web-app-manifest-512x512.png" %}
     {% if page and page.extra.cover_image and page.assets %}
       {% for asset in page.assets %}
-        {% if asset is ending_with(page.extra.cover_image) %}
+        {% if asset is ending_with(pat=page.extra.cover_image) %}
           {% set_global cover_image = config.base_url ~ asset %}
           {% break %}
         {% endif %}
@@ -164,13 +161,13 @@
   <body class="hack main container">
     {% block content %}
     {% block header %}
-      {{ index_macros::header(config=config) }}
+      {{<header config/>}}
     {% endblock header %}
 
     <main>
       {% block main %}
-      {{ index_macros::page_lister(radion_title=config.extra.radion_title, paginator=paginator) }}
-      {{ index_macros::nav(paginator=paginator) }}
+      {{<page_lister radion_title={config.extra.radion_title} paginator/>}}
+      {{<nav paginator/>}}
       {% endblock main %}
     </main>
     {% endblock content %}

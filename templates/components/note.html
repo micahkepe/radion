@@ -1,21 +1,20 @@
-{%- set hidden = hidden | default(value=false) -%}
-{%- set header = header | default(value="Note") -%}
-
+{%- component note(header = "Note", hidden = false, center = false) -%}
 <article class="note-container">
   <details {% if not hidden %}open{% endif %} class="note-details">
     <summary class="note-header">
-      {% if center | default(value=false) %}
+      {% if center -%}
       <section class="note-center">
         {{ header | markdown | safe }}
       </section>
-      {% else %}
+      {%- else -%}
       <section class="note-icon">
         {{ header | markdown | safe }}
       </section>
-      {% endif %}
+      {%- endif %}
     </summary>
     <section class="note-content">
-      {{ body | markdown | safe }}
+      {{ body | safe }}
     </section>
   </details>
 </article>
+{%- endcomponent note -%}

@@ -1,18 +1,18 @@
+{% component youtube(id: string, width = 100, playlist = "", autoplay = false, start_time_s = "", captions = false) %}
 {% set youtube_url = "https://www.youtube.com/embed/" ~ id %}
 
-{# Optional parameters #}
 {% set params = [] %}
 {% if playlist %}
-  {% set params = params | concat(with="list=" ~ playlist) %}
+  {% set params = [...params, "list=" ~ playlist] %}
 {% endif %}
 {% if autoplay %}
-  {% set params = params | concat(with="autoplay=1") %}
+  {% set params = [...params, "autoplay=1"] %}
 {% endif %}
 {% if start_time_s %}
-  {% set params = params | concat(with="start=" ~ start_time_s) %}
+  {% set params = [...params, "start=" ~ start_time_s] %}
 {% endif %}
 {% if captions %}
-  {% set params = params | concat(with="cc_load_policy=1") %}
+  {% set params = [...params, "cc_load_policy=1"] %}
 {% endif %}
 
 {% if params | length > 0 %}
@@ -31,3 +31,4 @@
     allowfullscreen>
   </iframe>
 </div>
+{% endcomponent youtube %}
