@@ -24,6 +24,12 @@ body {
     monospace, serif;
   word-wrap: break-word;
   max-width: 100vw;
+  color: #333;
+  background-color: #f6f7f4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #1f2328;
 }
 
 article[itemprop="articleBody"] {
@@ -52,9 +58,15 @@ pre {
 
 a {
   cursor: pointer;
-  color: #ff2e88;
+  color: #000;
   text-decoration: none;
   border-bottom: 1.5px solid #ff2e88;
+  font-weight: bold;
+}
+
+.dark a {
+  color: #ff2e88;
+  font-weight: normal;
 }
 
 /* Selections colors */
@@ -80,10 +92,6 @@ a.zola-anchor:hover {
   color: inherit !important;
 }
 
-.light a {
-  color: #000;
-  font-weight: bold;
-}
 
 .light a:hover {
   background-color: #ce0068;
