@@ -4,15 +4,14 @@
 <summary class="note-header">
 {% if center -%}
 <section class="note-center">
-  {{ header | markdown | safe }}
+  {{ header | markdown(inline=true) | safe }}
 </section>
 {%- else -%}
 <section class="note-icon">
-  {{ header | markdown | safe }}
+  {{ header | markdown(inline=true) | safe }}
 </section>
-{%- endif %}
-</summary>
-<section class="note-content">
+{%- endif -%}
+</summary><section class="note-content">
   {{ body | safe }}
 </section>
 </details>
