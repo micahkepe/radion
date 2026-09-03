@@ -444,7 +444,8 @@ a.zola-anchor:hover {
   padding-left: 2ch;
   padding-right: 2ch;
   overflow: hidden;
-  color: #E8E6ED;
+  background-color: #E8E6ED;
+  color: #1f2328;
   box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.1);
 
   strong {
@@ -496,6 +497,7 @@ a.zola-anchor:hover {
 
 .dark blockquote {
   background-color: #5E667F;
+  color: #e1e4e8;
 
   blockquote {
     background-color: #555c72;
