@@ -29,7 +29,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #1f2328;
+  color: #333;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #ccc;
 }
 
 article[itemprop="articleBody"] {
@@ -505,7 +509,7 @@ a.zola-anchor:hover {
 
 .dark blockquote {
   background-color: #5E667F;
-  color: #e1e4e8;
+  color: #E8E6ED;
 
   blockquote {
     background-color: #555c72;

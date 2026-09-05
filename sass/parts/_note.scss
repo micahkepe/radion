@@ -22,7 +22,7 @@
 // Default light (no-JS page is light)
 .note-header {
   background-color: color-mix(in srgb, var(--note-bg-light) 75%, black 25%);
-  color: #1f2328;
+  color: #333;
   cursor: pointer;
   position: relative;
   font-size: 1.2em;
@@ -66,7 +66,7 @@
   overflow: hidden;
   font-size: 1em;
   background-color: color-mix(in srgb, var(--note-bg-light) 90%, black 5%);
-  color: #1f2328;
+  color: #333;
   line-height: 1.6em;
 
   a {
@@ -82,7 +82,7 @@
 // Dark overrides
 .dark .note-header {
   background-color: color-mix(in srgb, var(--note-bg-dark) 90%, white 20%);
-  color: #e1e4e8;
+  color: #ccc;
 }
 
 .dark .note-content {

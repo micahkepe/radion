@@ -140,11 +140,9 @@
     <!-- Load Fonts -->
     {% include "partials/fonts.html" %}
 
-    <!-- No-JS fallback: hide JS-only UI, fix colors -->
+    <!-- No-JS fallback: hide JS-only UI -->
     <noscript>
-      <style>
-        .search-container, #dark-mode-toggle { display: none !important; }
-      </style>
+      <link rel="stylesheet" href="{{ get_url(path='noscript.css', trailing_slash=false) | safe }}" />
     </noscript>
 
     <!-- Initialize theme before paint -->
