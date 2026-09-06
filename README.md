@@ -1,5 +1,8 @@
 # radion
 
+> [!NOTE]
+> Requires Zola ^0.23.
+
 A sleek, modern blog theme for [Zola](https://www.getzola.org/). See the live
 site demo [here](https://micahkepe.com/radion/).
 

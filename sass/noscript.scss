@@ -1,0 +1,96 @@
+// Styles (dark) applied only when JavaScript is disabled (loaded via <noscript>).
+
+// Hide search since it requires JS.
+.search-container,
+#dark-mode-toggle,
+.search-backdrop,
+.search-results {
+  display: none !important;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-actions-container {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+body {
+  color: #ccc;
+  background-color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ccc;
+}
+
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  color: #d64a48;
+}
+
+.toc-title {
+  color: #ccc;
+}
+
+.toc-container a {
+  color: #ff2e88;
+  font-weight: normal;
+}
+
+a {
+  color: #ccc;
+  font-weight: normal;
+}
+
+
+a:hover {
+  background-color: #b7005d;
+  color: #fff;
+}
+
+
+a.zola-anchor {
+  color: #ccc;
+}
+
+a[itemprop="url"] {
+  color: #ff9800;
+}
+
+.social-icon {
+  filter: invert(1);
+}
+
+.hack blockquote {
+  background-color: #5E667F;
+  color: #E8E6ED;
+  border-left-color: #ff2e88;
+}
+
+.note-header {
+  background-color: color-mix(in srgb, var(--note-bg-dark) 90%, white 20%);
+  color: #ccc;
+}
+
+.note-content {
+  background-color: color-mix(in srgb, var(--note-bg-dark) 90%, white 10%);
+  color: #ccc;
+}
+
+code:not(pre code) {
+  background: rgba(201, 209, 217, 0.15);
+  color: #e1e4e8;
+}

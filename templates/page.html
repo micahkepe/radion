@@ -1,24 +1,20 @@
-{% extends "index.html" %}
-{% import "macros/post_macros.html" as post_macros %}
-
-{% block title %}
-    {% if page.title %}
+{% extends "index.html" -%}
+{%- block title %}
+    {% if page is defined and page.title %}
     {{ page.title }}
     {% else %}
     {{ super() }}
     {% endif %}
-{% endblock title %}
-
-{% block header %}
+{% endblock title -%}
+{%- block header %}
     {{ super() }}
-{% endblock header %}
-
-{% block main %}
+{% endblock header -%}
+{%- block main %}
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <header>
         <h1 itemprop="headline">{{ page.title | safe }}</h1>
-        <data class="muted">{{ post_macros::meta(page=page) }}</data>
+        <data class="muted">{{ <meta page/> }}</data>
     </header>
 
     <article itemprop="articleBody">
@@ -51,5 +47,4 @@
     <!-- Page footer -->
     {% include "partials/footer.html" %}
 </article>
-
 {% endblock main %}

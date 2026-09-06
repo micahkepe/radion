@@ -1,0 +1,19 @@
+{%- component note(header = "Note", hidden = false, center = false) -%}
+<article class="note-container">
+<details {% if not hidden %}open{% endif %} class="note-details">
+<summary class="note-header">
+{% if center -%}
+<section class="note-center">
+  {{ header | markdown(inline=true) | safe }}
+</section>
+{%- else -%}
+<section class="note-icon">
+  {{ header | markdown(inline=true) | safe }}
+</section>
+{%- endif -%}
+</summary><section class="note-content">
+  {{ body | safe }}
+</section>
+</details>
+</article>
+{%- endcomponent note -%}

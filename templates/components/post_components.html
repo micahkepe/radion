@@ -1,4 +1,4 @@
-{% macro meta(page) %}
+{% component meta(page) %}
     <svg class="icon i-clock" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -13,15 +13,15 @@
     </svg>
 
     {% if page.date %}Published: {{ page.date | date(format="%F") }}{% endif %}
-{% endmacro meta %}
+{% endcomponent meta %}
 
-{% macro page_in_list(page) %}
+{% component page_in_list(page) %}
     <article itemscope itemtype="http://schema.org/CreativeWork">
         <header>
             <h2 itemprop="name">
                 <a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a>
             </h2>
-            <data class="muted">{{ self::meta(page=page) }}</data>
+            <data class="muted">{{ <meta page/> }}</data>
         </header>
         {% if page.description or page.summary %}
         <section itemprop="summary">
@@ -34,4 +34,4 @@
             </section>
         {% endif %}
     </article>
-{% endmacro page_in_list %}
+{% endcomponent page_in_list %}

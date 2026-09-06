@@ -18,6 +18,6 @@
     <h1>{{ term.name }}</h1>
 
     {% for page in term.pages %}
-        {{ post_macros::page_in_list(page=page) }}
+      {{ <page_in_list page/> }}
     {% endfor %}
 {% endblock content %}
