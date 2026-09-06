@@ -1,7 +1,7 @@
-{% component gif(sources, width = 100, height = "", caption = "") %}
+{% component gif(sources, width = 100, height = "", alt = "", caption = "") %}
 <section
   style="width: 100%; max-width: {{ width }}%; margin: 0 auto; text-align: center;">
-  <video autoplay loop muted playsinline
+  <video autoplay loop muted playsinline{% if alt %} aria-label="{{ alt | safe }}"{% endif %}
     style="max-width: 100%; height: auto;{% if height %} max-height: {{ height }}px; object-fit: contain;{% endif %} display: inline-block;">
     {% for source in sources -%}
     {% set type = source | split(pat=".") | last -%}
