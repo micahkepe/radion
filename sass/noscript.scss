@@ -45,10 +45,22 @@ h6:before {
   color: #ccc;
 }
 
-a {
+.toc-container a {
   color: #ff2e88;
   font-weight: normal;
 }
+
+a {
+  color: #ccc;
+  font-weight: normal;
+}
+
+
+a:hover {
+  background-color: #b7005d;
+  color: #fff;
+}
+
 
 a.zola-anchor {
   color: #ccc;
