@@ -125,9 +125,23 @@ a[rel*="external"] {
   content: " " url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20class='i-external'%20viewBox='0%200%2032%2032'%20width='14'%20height='14'%20fill='none'%20stroke='%23ff9800'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='9.38%'%3E%3Cpath%20d='M14%209%20L3%209%203%2029%2023%2029%2023%2018%20M18%204%20L28%204%2028%2014%20M28%204%20L14%2018'/%3E%3C/svg%3E");
 }
 
-/* Remove external link arrow */
+/* Remove external link arrow from feed icons */
 .feed-icon::after {
   content: none !important;
+}
+
+.nav-links {
+  overflow: hidden;
+
+  a::after {
+    content: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav-links a[href*="://"]::after {
+    content: " " url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20class='i-external'%20viewBox='0%200%2032%2032'%20width='14'%20height='14'%20fill='none'%20stroke='%23ff9800'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='9.38%'%3E%3Cpath%20d='M14%209%20L3%209%203%2029%2023%2029%2023%2018%20M18%204%20L28%204%2028%2014%20M28%204%20L14%2018'/%3E%3C/svg%3E");
+  }
 }
 
 /* Style for all icons in the container */
@@ -136,10 +150,15 @@ a[rel*="external"] {
 .social-icon {
   padding: 0.1em;
   height: 1.5em;
-  width: auto;
+  width: 1.5em;
   display: block;
   margin-bottom: 0.25em;
 }
+
+#sun-icon { display: none; }
+#moon-icon { display: none; }
+.dark #sun-icon { display: block; }
+.light #moon-icon { display: block; }
 
 .invert-icon {
   filter: invert(1)
@@ -152,7 +171,7 @@ a[rel*="external"] {
 }
 
 /* Dark mode styles */
-body.dark .social-icon {
+.dark .social-icon {
   filter: invert(1);
 }
 
@@ -170,11 +189,6 @@ html {
   font-size: 17px;
 
 }
-
-.light pre {
-  color: #cccccc !important;
-}
-
 
 .icon {
   margin-bottom: -3px;

@@ -1,5 +1,6 @@
+{% component responsive(src: string, alt = "", width = 100, height = "", caption = "") %}
 <section
-  style="width: 100%; max-width: {% if width %}{{ width }}{% else %}100{% endif %}%; margin: 0 auto; text-align: center;">
+  style="width: 100%; max-width: {{ width }}%; margin: 0 auto; text-align: center;">
   <img src="{{ src | safe }}" {% if alt %} alt="{{ alt | safe }}" {% endif %}
     style="max-width: 100%; height: auto;{% if height %} max-height: {{ height }}px; object-fit: contain;{% endif %} display: inline-block;">
   {% if caption %}
@@ -8,3 +9,4 @@
   </caption>
   {% endif %}
 </section>
+{% endcomponent responsive %}
