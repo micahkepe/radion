@@ -1,7 +1,6 @@
 /**
- * @file This script adds a copy button to code blocks in a webpage. It allows
- * users to copy code snippets to the clipboard with a visual confirmation. It
- * also supports code blocks formatted as tables with line numbers.
+ * @file Adds a copy-to-clipboard button to code blocks. Language labels are
+ * handled by CSS via data-lang attributes.
  */
 
 /**
@@ -55,101 +54,33 @@ const getCodeFromTable = (codeBlock) => {
     .join("\n");
 };
 
-/**
- * Extracts code from a non-table format code block
- * @param {HTMLElement} codeBlock - The code block element containing the code.
- * @return {string} - The extracted code as a string.
- * @example // Assuming codeBlock is a <pre><code> element
- * getNonTableCode(codeBlock);
- */
 const getNonTableCode = (codeBlock) => {
   return codeBlock.textContent.trim();
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Mapping from language codes to full language names
-  const languageNames = {
-    js: "JS",
-    yaml: "YAML",
-    shell: "Shell",
-    json: "JSON",
-    python: "Python",
-    css: "CSS",
-    go: "Go",
-    markdown: "Markdown",
-    rust: "Rust",
-    java: "Java",
-    csharp: "C#",
-    ruby: "Ruby",
-    swift: "Swift",
-    php: "PHP",
-    typescript: "TS",
-    scala: "Scala",
-    kotlin: "Kotlin",
-    lua: "Lua",
-    perl: "Perl",
-    haskell: "Haskell",
-    r: "R",
-    dart: "Dart",
-    elixir: "Elixir",
-    clojure: "Clojure",
-    sql: "SQL",
-    bash: "Bash",
-    shellscript: "Bash",
-    text: "Text",
-    gd: "GDScript",
-    cpp: "C++",
-    toml: "TOML",
-    // define more languages as needed
-  };
-
-  // Select all `pre` elements containing `code`
   document.querySelectorAll("pre code").forEach((codeBlock) => {
     const pre = codeBlock.parentNode;
-
-    // Ensure parent `pre` can contain absolute elements
     pre.style.position = "relative";
 
-    // Create and append the copy button
     const copyBtn = document.createElement("button");
     copyBtn.className = "clipboard-button";
     copyBtn.innerHTML = copyIcon;
     copyBtn.setAttribute("aria-label", "Copy code to clipboard");
     pre.appendChild(copyBtn);
 
-    // Create and append the language label
-    const langClass = codeBlock.className.match(/language-(\w+)/);
-    // If no language class, check data-lang attribute (giallo/Zola >=0.22)
-    const langCode = langClass
-      ? langClass[1].toLowerCase()
-      : (codeBlock.getAttribute("data-lang") || "text").toLowerCase();
-
-    const label = document.createElement("span");
-
-    // If language not in define language mapping, use default
-    const knownLang = langCode in languageNames;
-    label.className = `code-label ${knownLang ? `label-${langCode}` : "label-default"}`;
-    label.textContent = knownLang
-      ? languageNames[langCode]
-      : langCode.toUpperCase();
-
-    pre.appendChild(label);
-    // Attach event listener to copy button
     copyBtn.addEventListener("click", async () => {
       try {
-        // Check if the code is in a table (line numbers)
         const isTableFormat = codeBlock.querySelector("table") !== null;
-
-        // Get the appropriate code text
         const codeToCopy = isTableFormat
           ? getCodeFromTable(codeBlock)
           : getNonTableCode(codeBlock);
 
         await navigator.clipboard.writeText(codeToCopy);
-        changeIcon(copyBtn, true); // Show success icon
+        changeIcon(copyBtn, true);
       } catch (error) {
         console.error("Failed to copy text: ", error);
-        changeIcon(copyBtn, false); // Show error icon
+        changeIcon(copyBtn, false);
       }
     });
 
@@ -157,11 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     pre.addEventListener("scroll", () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          // Ensure button stays on the right
           copyBtn.style.right = `-${pre.scrollLeft}px`;
-
-          // Ensure label stays on the left
-          label.style.left = `${pre.scrollLeft}px`;
           ticking = false;
         });
         ticking = true;
