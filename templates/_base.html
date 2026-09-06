@@ -53,9 +53,10 @@
     <meta name="twitter:title" content="{% block twitter_title %}{{ title }}{% endblock twitter_title %}" />
 
     <!-- Additional Fediverse Tags -->
-    {% if config.extra.fediverse.creator %}
+    {% if config.extra.fediverse is defined and config.extra.fediverse.creator %}
     <meta name="fediverse:creator" content="{{ config.extra.fediverse.creator }}" />
-    {% endif %} {% if config.extra.fediverse.rel_me %}
+    {% endif %}
+    {% if config.extra.fediverse is defined and config.extra.fediverse.rel_me %}
     <link rel="me" href="{{ config.extra.fediverse.rel_me }}" />
     {% endif %}
 
