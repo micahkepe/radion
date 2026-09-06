@@ -1,4 +1,4 @@
-{% component youtube(id: string, width = 100, playlist = "", autoplay = false, start_time_s = "", captions = false) %}
+{% component youtube(id: string, width = 100, playlist = "", autoplay = false, start_time_s = 0, captions = false) %}
 {% set youtube_url = "https://www.youtube.com/embed/" ~ id %}
 
 {% set params = [] %}
