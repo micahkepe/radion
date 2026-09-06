@@ -136,10 +136,15 @@ a[rel*="external"] {
 .social-icon {
   padding: 0.1em;
   height: 1.5em;
-  width: auto;
+  width: 1.5em;
   display: block;
   margin-bottom: 0.25em;
 }
+
+#sun-icon { display: none; }
+#moon-icon { display: none; }
+.dark #sun-icon { display: block; }
+.light #moon-icon { display: block; }
 
 .invert-icon {
   filter: invert(1)
@@ -152,7 +157,7 @@ a[rel*="external"] {
 }
 
 /* Dark mode styles */
-body.dark .social-icon {
+.dark .social-icon {
   filter: invert(1);
 }
 
