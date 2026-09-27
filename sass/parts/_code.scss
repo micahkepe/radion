@@ -270,3 +270,32 @@ samp {
   /* slightly larger than the surrounding text */
   line-height: 1.6;
 }
+
+// Code blocks inside blockquotes - fill edge-to-edge
+blockquote > pre {
+  margin-left: -2ch;
+  margin-right: -2ch;
+  border-radius: 0;
+}
+
+blockquote > pre:first-child {
+  margin-top: 0;
+}
+
+blockquote > pre:last-child {
+  margin-bottom: 0;
+}
+
+blockquote:has(> pre:only-child) {
+  background-color: transparent;
+  box-shadow: none;
+
+  > pre {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+.hack blockquote > pre code {
+  background: transparent;
+}
