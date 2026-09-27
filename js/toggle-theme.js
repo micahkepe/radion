@@ -1,0 +1,141 @@
+/*
+ * @file This script toggles between light and dark themes on a webpage.
+ *
+ * Adapted from `apollo` theme:
+ * @see https://github.com/not-matthias/apollo/blob/main/static/js/themetoggle.js
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const storedTheme = localStorage.getItem("theme-storage");
+  const defaultThemeOption = document.documentElement.dataset.theme || "toggle";
+  let currentTheme = storedTheme || defaultThemeOption;
+
+  if (defaultThemeOption === "dark" || defaultThemeOption === "light") {
+    // Fixed theme set in config
+    currentTheme = defaultThemeOption;
+  } else if (storedTheme === "light" || storedTheme === "dark") {
+    // User explicitly toggled before — respect their choice
+    currentTheme = storedTheme;
+  } else {
+    // No explicit choice — follow system preference
+    try {
+      currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    } catch (e) {
+      currentTheme = "dark";
+    }
+  }
+
+  // Apply the theme
+  setTheme(currentTheme);
+
+  // Add event listener for the theme toggle button
+  const toggleButton = document.getElementById("dark-mode-toggle");
+  if (toggleButton) {
+    toggleButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      toggleTheme();
+    });
+  }
+
+  // Add event listener for changes to prefers-color-scheme
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", function (event) {
+      setTheme(event.matches ? "dark" : "light");
+    });
+});
+
+/**
+ * Updates the theme mode and applies it to the page.
+ * @param {string} mode - The theme mode to set ("light" or "dark").
+ * @param {boolean} [persist=false] - Whether to save the choice to localStorage.
+ */
+function setTheme(mode, persist) {
+  if (persist) {
+    localStorage.setItem("theme-storage", mode);
+  }
+  document.documentElement.classList.remove("light", "dark");
+  document.body.classList.remove("light", "dark");
+
+  if (mode === "dark") {
+    document.documentElement.classList.add("dark");
+    document.body.classList.add("dark");
+  } else {
+    document.documentElement.classList.add("light");
+    document.body.classList.add("light");
+  }
+
+  // Toggle syntax highlighting stylesheets
+  updateSyntaxTheme(mode);
+
+  // Change Giscus theme
+  var iframe = document.querySelector(".giscus-frame");
+  if (iframe) {
+    var url = new URL(iframe.src);
+    url.searchParams.set("theme", mode);
+    iframe.src = url.toString();
+  } else {
+    // If iframe doesn't exist yet, set it via message when it loads
+    window.addEventListener("message", function setInitialGiscusTheme(event) {
+      if (event.origin !== "https://giscus.app") return;
+      if (event.data.giscus) {
+        iframe = document.querySelector(".giscus-frame");
+        if (iframe) {
+          iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: mode } } },
+            "https://giscus.app",
+          );
+          window.removeEventListener("message", setInitialGiscusTheme);
+        }
+      }
+    });
+  }
+
+  updateThemeIcons(mode);
+}
+
+/**
+ * Toggles between light and dark mode.
+ */
+function toggleTheme() {
+  const newTheme = document.documentElement.classList.contains("dark")
+    ? "light"
+    : "dark";
+  setTheme(newTheme, true);
+}
+
+/**
+ * Updates syntax highlighting theme by enabling/disabling stylesheets.
+ * @param {string} mode - The theme mode ("light" or "dark").
+ */
+function updateSyntaxTheme(mode) {
+  const darkStylesheet = document.getElementById("giallo-dark");
+  const lightStylesheet = document.getElementById("giallo-light");
+
+  if (darkStylesheet && lightStylesheet) {
+    if (mode === "dark") {
+      darkStylesheet.media = "all";
+      lightStylesheet.media = "not all";
+    } else {
+      darkStylesheet.media = "not all";
+      lightStylesheet.media = "all";
+    }
+  }
+}
+
+/**
+ * Updates the visibility of the sun and moon icons based on the theme.
+ *
+ * @param {string} mode - The theme mode to set ("light" or "dark").
+ */
+function updateThemeIcons(mode) {
+  const sunIcon = document.getElementById("sun-icon");
+  const moonIcon = document.getElementById("moon-icon");
+
+  if (sunIcon && moonIcon) {
+    sunIcon.style.display = mode === "dark" ? "inline-block" : "none";
+    moonIcon.style.display = mode === "light" ? "inline-block" : "none";
+  }
+}
